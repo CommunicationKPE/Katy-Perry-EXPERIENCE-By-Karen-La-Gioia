@@ -1,0 +1,12 @@
+.about {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.about-cadre {
+  width: 90%;
+  background: green;
+  border-radius: 10px;
+  margin-top: 85px;
+  margin-bottom: 15px;
+}

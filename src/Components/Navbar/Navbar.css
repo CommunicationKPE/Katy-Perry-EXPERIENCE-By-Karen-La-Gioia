@@ -1,0 +1,10 @@
+.navbar-brand {
+  margin-left: 20px;
+}
+.nav-item {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.nav-link i {
+  padding-right: 5px;
+}

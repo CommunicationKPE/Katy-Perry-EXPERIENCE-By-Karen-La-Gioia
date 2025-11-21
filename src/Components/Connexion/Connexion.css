@@ -1,0 +1,12 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.contact-cadre {
+  width: 90%;
+  background: blueviolet;
+  border-radius: 10px;
+  margin-top: 85px;
+  margin-bottom: 15px;
+}
