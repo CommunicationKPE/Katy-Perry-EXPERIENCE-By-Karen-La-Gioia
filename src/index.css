@@ -5,6 +5,7 @@
 }
 body {
   background: url(../src/Assets/background.png);
+  background-repeat: repeat;
   background-attachment: fixed;
   height: 100vh;
   margin: 0;
