@@ -31,9 +31,17 @@ const Accueil = () => {
           <h1>
             <span>LIVE</span> Music Show
           </h1>
-          <button type="button" className="btn btn-contactez-nous">
+          <button type="button" className="btn btn-danger btn-contactez-nous">
             CONTACTEZ-NOUS
           </button>
+          <div className="social-icons d-flex justify-content-evenly align-items-center">
+            <i className="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fa-brands fa-tiktok"></i>
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+
           <div className="about-achievements">
             {upcomingEventsCount > 0 && (
               <div className="about-achievement">

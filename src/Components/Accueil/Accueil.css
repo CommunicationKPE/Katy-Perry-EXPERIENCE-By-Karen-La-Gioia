@@ -60,12 +60,10 @@
   text-align: center;
 }
 .btn-contactez-nous {
+  /* margin-top: px; */
   font-weight: 600;
   color: white;
   background-color: #ba1f33;
-}
-.btn-contactez-nous:hover {
-  background-color: #b93c4c;
 }
 
 /************************ Styles pour les grands écrans */
@@ -106,7 +104,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: start;
   }
 
   .haut-droite {
@@ -127,20 +125,15 @@
   .bas-gauche h1 {
     display: none;
   }
+  .about-achievements {
+    margin-top: -15px;
+  }
 
-  .about-achievements h2 {
+  .about-achievement h2 {
     font-size: 40px;
-    margin-top: -20px;
   }
   .about-achievements h5 {
-    font-size: 12px;
-  }
-  .btn-contactez-nous {
-    font-weight: 600;
-    color: white;
-    background-color: #ba1f33;
-  }
-  .btn-contactez-nous:hover {
-    background-color: #b93c4c;
+    font-size: 15px;
+    font-weight: bold;
   }
 }
