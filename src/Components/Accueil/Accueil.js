@@ -31,9 +31,13 @@ const Accueil = () => {
           <h1>
             <span>LIVE</span> Music Show
           </h1>
-          <button type="button" className="btn btn-danger btn-contactez-nous">
+          <a
+            type="button"
+            className="btn btn-danger btn-contactez-nous"
+            href="#contact"
+          >
             CONTACTEZ-NOUS
-          </button>
+          </a>
           <div className="social-icons d-flex justify-content-evenly align-items-center">
             <i className="fa-brands fa-youtube"></i>
             <i class="fa-brands fa-facebook-f"></i>
