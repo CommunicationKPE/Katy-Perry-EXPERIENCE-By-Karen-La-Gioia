@@ -106,10 +106,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
 
   .haut-droite {
+    margin-top: -10px;
     width: 100%;
     order: 1; /* Inverse l'ordre */
   }
