@@ -130,10 +130,14 @@
   }
 
   .about-achievement h2 {
-    font-size: 40px;
+    font-size: 35px;
+    margin-top: -5px;
   }
   .about-achievements h5 {
     font-size: 15px;
     font-weight: bold;
+  }
+  .social-icons i {
+    font-size: 20px;
   }
 }
