@@ -31,7 +31,7 @@ const Navbar = () => {
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                Live Music Show
+                <span>LIVE</span> Music Show
               </h5>
               <button
                 type="button"

@@ -5,10 +5,11 @@ import CarteAvant from "../CarteAvant/CarteAvant";
 const Anciens = () => {
   // Obtenir la date d'aujourd'hui
   const today = new Date();
+  today.setHours(0, 0, 0, 0);
   // Filtrer les services dont la date est antérieure ou égale à aujourd'hui
   const filteredServices = donnees_Services.filter((service) => {
     const serviceDate = new Date(service.s_date);
-    return serviceDate <= today;
+    return serviceDate < today;
   });
 
   // Trier les services par date en ordre décroissant (du plus récent au plus ancien)

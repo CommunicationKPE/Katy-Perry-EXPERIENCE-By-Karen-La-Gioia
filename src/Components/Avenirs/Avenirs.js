@@ -5,10 +5,11 @@ import CarteAvant from "../CarteAvant/CarteAvant";
 const Avenirs = () => {
   // Obtenir la date d'aujourd'hui
   const today = new Date();
-  // Filtrer les services dont la date est antérieure ou égale à aujourd'hui
+  today.setHours(0, 0, 0, 0);
+  // Filtrer les services pour obtenir uniquement les événements à venir + celle d'aujourd'hui
   const filteredServices = donnees_Services.filter((service) => {
     const serviceDate = new Date(service.s_date);
-    return serviceDate > today;
+    return serviceDate >= today;
   });
 
   return (

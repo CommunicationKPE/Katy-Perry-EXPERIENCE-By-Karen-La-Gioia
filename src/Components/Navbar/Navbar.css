@@ -8,3 +8,7 @@
 .nav-link i {
   padding-right: 5px;
 }
+.offcanvas-title span {
+  color: #ba1f33;
+  font-weight: bold;
+}
