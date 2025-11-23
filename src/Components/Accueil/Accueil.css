@@ -108,7 +108,7 @@
   }
 
   .haut-droite {
-    margin-top: -25px;
+    margin-top: -45px;
     width: 100%;
     order: 1; /* Inverse l'ordre */
   }
@@ -131,13 +131,17 @@
 
   .about-achievement h2 {
     font-size: 35px;
-    margin-top: -5px;
+    margin-top: -10px;
   }
   .about-achievements h5 {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
   }
   .social-icons i {
     font-size: 20px;
+    margin-top: -13px;
+  }
+  .btn-contactez-nous {
+    margin-top: -8px;
   }
 }
