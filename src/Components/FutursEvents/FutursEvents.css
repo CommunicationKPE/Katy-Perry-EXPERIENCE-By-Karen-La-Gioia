@@ -1,10 +1,14 @@
-.a-venirs-cadre {
+.a-venirs {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  /* gap: 80px; */
-  margin: 80px 170px;
+}
+.a-venirs-cadre {
+  width: 85%;
+  color: white;
+  /* background: #1f242d; */
+  border-radius: 10px;
+  margin-top: 85px;
+  margin-bottom: 15px;
 }
 .a-venirs-title {
   position: relative;
@@ -23,6 +27,11 @@
 }
 /*************************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {
+  .a-venirs {
+    display: flex;
+    justify-content: center;
+    /* height: 100vh; */
+  }
   .a-venirs-container {
     grid-template-columns: 1fr;
   }
@@ -32,3 +41,4 @@
     font-weight: 600;
   }
 }
+/* ***************************** */

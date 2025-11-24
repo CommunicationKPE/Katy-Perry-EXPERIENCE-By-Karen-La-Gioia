@@ -20,12 +20,12 @@ const PassedEvents = () => {
   });
 
   return (
-    <div id="anciens" className="anciens">
-      <div className="anciens-cadre">
+    <div className="anciens">
+      <div id="anciens" className="anciens-cadre">
         <div className="mywork-title">
           <h1>Evenements précédents</h1>
         </div>
-        <div className="mywork-container col">
+        <div className="mywork-container">
           {sortedServices.map((service, index) => (
             <CarteAvant
               key={index}
