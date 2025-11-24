@@ -16,7 +16,7 @@ const FutursEvents = () => {
     <div className="a-venirs">
       <div id="avenirs" className="a-venirs-cadre">
         <div className="a-venirs-title">
-          <h1>Prochainement</h1>
+          <h1>PROCHAINEMENT</h1>
         </div>
         <div className="a-venirs-container">
           {filteredServices.map((service, index) => {

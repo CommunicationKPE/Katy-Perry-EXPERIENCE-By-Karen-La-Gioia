@@ -13,11 +13,8 @@
 .a-venirs-title {
   position: relative;
   margin-bottom: 55px;
-}
-.a-venirs-title h1 {
-  padding: 0px 30px;
-  font-size: 80px;
-  font-weight: 600;
+  display: flex;
+  justify-content: center;
 }
 .a-venirs-container {
   display: grid;
@@ -25,20 +22,27 @@
   gap: 40px;
   margin-bottom: 80px;
 }
-/*************************** Styles pour les écrans mobiles */
+.a-venirs-title h1 {
+  padding: 0px 30px;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+/******************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {
   .a-venirs {
     display: flex;
     justify-content: center;
-    /* height: 100vh; */
   }
   .a-venirs-container {
     grid-template-columns: 1fr;
   }
   .a-venirs-title h1 {
-    padding: 0px 0px;
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
   }
 }
 /* ***************************** */

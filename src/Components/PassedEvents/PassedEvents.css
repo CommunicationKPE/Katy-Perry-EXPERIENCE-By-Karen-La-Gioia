@@ -1,7 +1,6 @@
 .anciens {
   display: flex;
   justify-content: center;
-  /* height: 100vh; */
 }
 .anciens-cadre {
   width: 85%;
@@ -14,6 +13,8 @@
 .anciens-title {
   position: relative;
   margin-bottom: 55px;
+  display: flex;
+  justify-content: center;
 }
 .anciens-container {
   display: grid;
@@ -21,19 +22,27 @@
   gap: 40px;
   margin-bottom: 80px;
 }
+.anciens-title h1 {
+  padding: 0px 30px;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+/******************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {
   .anciens {
     display: flex;
     justify-content: center;
-    /* height: 100vh; */
   }
   .anciens-container {
     grid-template-columns: 1fr;
   }
   .anciens-title h1 {
-    padding: 0px 0px;
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
   }
 }
 /* ***************************** */

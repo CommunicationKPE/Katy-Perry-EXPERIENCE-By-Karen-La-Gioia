@@ -23,7 +23,7 @@ const PassedEvents = () => {
     <div className="anciens">
       <div id="anciens" className="anciens-cadre">
         <div className="anciens-title">
-          <h1>Evenements précédents</h1>
+          <h1>PRÉCÉDEMMENT</h1>
         </div>
         <div className="anciens-container">
           {sortedServices.map((service, index) => (

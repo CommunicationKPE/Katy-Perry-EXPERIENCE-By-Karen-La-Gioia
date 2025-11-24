@@ -1,4 +1,4 @@
-.carte-avant {
+.carte-Event-passed {
   background-color: #1f242d;
   display: flex;
   flex-direction: column;
@@ -10,20 +10,20 @@
   transition: 0.4s;
   cursor: pointer;
 }
-.carte-avant h3 {
+.carte-Event-passed h3 {
   font-size: 28px;
   font-weight: 600;
 }
-.carte-avant h3 i {
+.carte-Event-passed h3 i {
   margin-right: 10px;
   color: #ba1f33;
 }
-.carte-avant h2 {
+.carte-Event-passed h2 {
   font-size: 38px;
   font-weight: 800;
   color: #ba1f33;
 }
-.carte-avant p {
+.carte-Event-passed p {
   font-size: 24px;
   line-height: 40px;
   max-width: 300px;
@@ -37,7 +37,7 @@
 .card-readmore i {
   margin-bottom: 8px;
 }
-.carte-avant:hover {
+.carte-Event-passed:hover {
   border: 3px solid #ff45c3;
   background-image: linear-gradient(45deg, #ba1f33, #1a1761);
   transform: scale(1.05);
@@ -45,19 +45,19 @@
 }
 /*************************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {
-  .carte-avant {
+  .carte-Event-passed {
     gap: 2px;
   }
-  .carte-avant h3 {
+  .carte-Event-passed h3 {
     font-size: 23px;
     font-weight: 600;
   }
-  .carte-avant h2 {
+  .carte-Event-passed h2 {
     font-size: 23px;
     font-weight: 800;
     color: #ba1f33;
   }
-  .carte-avant p {
+  .carte-Event-passed p {
     font-size: 23px;
     line-height: 40px;
     max-width: 300px;

@@ -1,8 +1,8 @@
-import "./CarteFuturEvent.css";
+import "./CartePassedEvent.css";
 
 const CartePassedEvent = ({ ou, description, quand }) => {
   return (
-    <div className="carte-avant">
+    <div className="carte-Event-passed">
       <h3>
         <i class="fa-solid fa-location-dot"></i>
         {ou}
