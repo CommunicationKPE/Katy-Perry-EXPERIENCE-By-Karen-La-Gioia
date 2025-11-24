@@ -1,11 +1,12 @@
-.a-venirs {
+.anciens {
   display: flex;
   justify-content: center;
   height: 100vh;
 }
-.a-venirs-cadre {
+.anciens-cadre {
   width: 90%;
-  background: red;
+  color: white;
+  background: #1f242d;
   border-radius: 10px;
   margin-top: 85px;
   margin-bottom: 15px;

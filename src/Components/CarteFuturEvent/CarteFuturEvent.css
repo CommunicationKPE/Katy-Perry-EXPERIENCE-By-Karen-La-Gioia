@@ -1,0 +1,68 @@
+.carte-avant {
+  background-color: #1f242d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px;
+  border-radius: 10px;
+  border: 3px solid white;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.carte-avant h3 {
+  font-size: 28px;
+  font-weight: 600;
+}
+.carte-avant h3 i {
+  margin-right: 10px;
+  color: #ba1f33;
+}
+.carte-avant h2 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #ba1f33;
+}
+.carte-avant p {
+  font-size: 24px;
+  line-height: 40px;
+  max-width: 300px;
+}
+.card-readmore {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+.card-readmore i {
+  margin-bottom: 8px;
+}
+.carte-avant:hover {
+  border: 3px solid #ff45c3;
+  background-image: linear-gradient(45deg, #ba1f33, #1a1761);
+  transform: scale(1.05);
+  transition: 0.4s;
+}
+/*************************** Styles pour les écrans mobiles */
+@media (max-width: 767px) {
+  .carte-avant h3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .carte-avant h2 {
+    font-size: 15px;
+    font-weight: 800;
+    color: #ba1f33;
+  }
+  .carte-avant p {
+    font-size: 14px;
+    line-height: 40px;
+    max-width: 300px;
+  }
+  .card-readmore {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+  }
+}

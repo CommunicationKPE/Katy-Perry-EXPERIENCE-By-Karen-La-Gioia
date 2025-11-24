@@ -1,8 +1,8 @@
-import "./Anciens.css";
+import "./PassedEvents.css";
 import donnees_Services from "../../Assets/services_data";
-import CarteAvant from "../CarteAvant/CarteAvant";
+import CarteAvant from "../CarteFuturEvent/CarteFuturEvent";
 
-const Anciens = () => {
+const PassedEvents = () => {
   // Obtenir la date d'aujourd'hui
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -41,4 +41,4 @@ const Anciens = () => {
     </div>
   );
 };
-export default Anciens;
+export default PassedEvents;

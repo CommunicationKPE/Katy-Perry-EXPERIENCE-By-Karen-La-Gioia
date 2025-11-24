@@ -2,8 +2,8 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Accueil from "./Components/Accueil/Accueil";
 import About from "./Components/About/About";
-import Avenirs from "./Components/Avenirs/Avenirs";
-import Anciens from "./Components/Anciens/Anciens";
+import FutursEvents from "./Components/FutursEvents/FutursEvents";
+import PassedEvents from "./Components/PassedEvents/PassedEvents";
 import Connexion from "./Components/Connexion/Connexion";
 import Footer from "./Components/Footer/Footer";
 
@@ -19,8 +19,8 @@ function App() {
         <Navbar />
         <Accueil />
         <About />
-        <Avenirs />
-        <Anciens />
+        <FutursEvents />
+        <PassedEvents />
         <Connexion />
         <Footer />
       </div>
