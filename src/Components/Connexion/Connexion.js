@@ -59,10 +59,14 @@ const Connexion = () => {
                 // placeholder="Username"
               ></textarea>
             </div>
-            <button className="btn btn-outline-secondary" type="submit">
-              Envoyer
-            </button>
-          </form>
+          </form>{" "}
+          <a
+            type="button"
+            className="btn btn-danger btn-contactez-nous"
+            href="#contact"
+          >
+            ENVOYER
+          </a>
         </div>
       </div>
     </div>
