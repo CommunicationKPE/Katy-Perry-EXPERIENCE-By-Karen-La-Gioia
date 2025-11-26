@@ -1,21 +1,18 @@
 * {
   margin: 0;
   padding: 0;
-  color: white;
 }
-
-body,
-html {
-  height: 100%;
-  overflow-x: hidden;
+body {
+  height: 100vh;
+  background: red;
+  color: greenyellow;
+  font-family: "Outfit";
 }
-
 .parallax {
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
-
 .parallax::before {
   content: "";
   position: absolute;
@@ -26,7 +23,6 @@ html {
   background: url(../src/Assets/background.png) center center/cover no-repeat;
   z-index: -1;
 }
-
 .content {
   position: relative;
   z-index: 1;

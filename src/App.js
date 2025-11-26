@@ -4,8 +4,9 @@ import Accueil from "./Components/Accueil/Accueil";
 import About from "./Components/About/About";
 import FutursEvents from "./Components/FutursEvents/FutursEvents";
 import PassedEvents from "./Components/PassedEvents/PassedEvents";
-import Connexion from "./Components/Connexion/Connexion";
+// import Connexion from "./Components/Connexion/Connexion";
 import Footer from "./Components/Footer/Footer";
+import Contact from "./Components/Contact/Contact";
 
 function App() {
   document.addEventListener("scroll", function () {
@@ -21,7 +22,8 @@ function App() {
         <About />
         <FutursEvents />
         <PassedEvents />
-        <Connexion />
+        {/* <Connexion /> */}
+        <Contact />
         <Footer />
       </div>
     </div>
