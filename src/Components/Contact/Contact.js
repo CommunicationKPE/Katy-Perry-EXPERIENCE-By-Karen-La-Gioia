@@ -10,10 +10,11 @@ const Contact = () => {
         <div className="contact-left">
           <h1 className="link">Contact Us</h1>
           <p>
-            We'd love to hear from you! Please fill out the form below to get in
-            touch with us.
+            Une question, une suggestion, Vous souhaitez reserver le spectacle
+            ou simplement échanger? Contactez nous ici. Notre équipe revient
+            vers vous dans les plus brefs délais...
           </p>
-          <div className="contact-details">
+          {/* <div className="contact-details">
             <div className="contact-detail">
               <i className="fas fa-envelope"></i>
               <p>DADADOUDOUD@epitech.eu</p>
@@ -26,18 +27,22 @@ const Contact = () => {
               <i className="fas fa-map-marker-alt"></i>
               <p>CA, United States</p>
             </div>
-          </div>
+          </div> */}
         </div>
         <form className="contact-right">
-          <label htmlFor="">Votre Nom</label>
-          <input type="text" placeholder="Entrer votre nom" name="name" />
+          <label htmlFor="">Prénom NOM</label>
+          <input type="text" placeholder="Noah KINGSLEY" name="name" />
           <label htmlFor="">Votre Email</label>
-          <input type="email" placeholder="Entrer votre email" name="email" />
+          <input
+            type="email"
+            placeholder="noah.Kingsley@epitech.eu"
+            name="email"
+          />
           <label htmlFor="">Entrez votre Message ici</label>
           <textarea
             name="message"
             rows="8"
-            placeholder="Entrer votre message"
+            placeholder="Bonjour, ..."
           ></textarea>
           <button type="submit" className="contact-submit">
             Envoyer
