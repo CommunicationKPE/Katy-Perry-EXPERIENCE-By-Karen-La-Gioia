@@ -4,11 +4,10 @@ const Contact = () => {
   return (
     <div id="contact" className="contact">
       <div className="contact-title">
-        <h1>Get In Touch</h1>
+        <h1>Contactez-nous</h1>
       </div>
       <div className="contact-section">
         <div className="contact-left">
-          <h1 className="link">Contact Us</h1>
           <p>
             Une question, une suggestion, Vous souhaitez reserver le spectacle
             ou simplement échanger? Contactez nous ici. Notre équipe revient
