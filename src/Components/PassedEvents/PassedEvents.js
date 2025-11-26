@@ -1,6 +1,6 @@
 import "./PassedEvents.css";
 import donnees_Services from "../../Assets/services_data";
-import CarteAvant from "../CarteFuturEvent/CarteFuturEvent";
+import CartePassedEvent from "../CartePassedEvent/CartePassedEvent";
 
 const PassedEvents = () => {
   // Obtenir la date d'aujourd'hui
@@ -27,12 +27,13 @@ const PassedEvents = () => {
         </div>
         <div className="anciens-container">
           {sortedServices.map((service, index) => (
-            <CarteAvant
+            <CartePassedEvent
               key={index}
               icone={service.s_no}
               ou={service.s_lieu}
               description={service.s_description}
               quand={service.s_date}
+              premiereimage={service.s_image}
               style={{ width: "18rem" }}
             />
           ))}

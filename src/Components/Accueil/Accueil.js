@@ -40,10 +40,10 @@ const Accueil = () => {
           </a>
           <div className="social-icons d-flex justify-content-evenly align-items-center">
             <i className="fa-brands fa-youtube"></i>
-            <i class="fa-brands fa-facebook-f"></i>
-            <i class="fa-brands fa-x-twitter"></i>
-            <i class="fa-brands fa-tiktok"></i>
-            <i class="fa-brands fa-instagram"></i>
+            <i className="fa-brands fa-facebook-f"></i>
+            <i className="fa-brands fa-twitter"></i>
+            <i className="fa-brands fa-tiktok"></i>
+            <i className="fa-brands fa-instagram"></i>
           </div>
 
           <div className="about-achievements">

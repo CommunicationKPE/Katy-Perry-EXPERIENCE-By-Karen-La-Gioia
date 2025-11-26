@@ -6,8 +6,19 @@
   gap: 80px;
   margin: 80px 170px;
 }
+.contact-cadre {
+  width: 85%;
+  color: white;
+  /* background: #1f242d; */
+  border-radius: 10px;
+  margin-top: 85px;
+  margin-bottom: 15px;
+}
 .contact-title {
   position: relative;
+  margin-bottom: 55px;
+  display: flex;
+  justify-content: center;
 }
 .contact-title h1 {
   padding: 0px 30px;
@@ -81,7 +92,9 @@
   background: #ba1f33;
   font-size: 22px;
   padding: 20px 60px;
+  margin-top: 20px;
   margin-bottom: 50px;
+  margin-left: 20px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -89,6 +102,7 @@
   transform: scale(1.1);
   transition: 0.3s;
 }
+/*************Ecrans max 768px*************/
 @media (max-width: 768px) {
   .contact {
     gap: 50px;

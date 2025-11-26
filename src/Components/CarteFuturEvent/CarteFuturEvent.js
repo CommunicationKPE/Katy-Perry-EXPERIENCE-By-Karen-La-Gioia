@@ -10,7 +10,7 @@ const CarteFuturEvent = ({ ou, description, quand }) => {
       <h2>{quand}</h2>
       <p>{description}</p>
       <div className="card-readmore">
-        <p>En savoir plus</p>
+        <p>Consulter l'affiche</p>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </div>

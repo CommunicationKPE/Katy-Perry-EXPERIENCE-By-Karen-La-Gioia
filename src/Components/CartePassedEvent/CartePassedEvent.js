@@ -1,8 +1,11 @@
 import "./CartePassedEvent.css";
 
-const CartePassedEvent = ({ ou, description, quand }) => {
+const CartePassedEvent = ({ premiereimage, ou, description, quand }) => {
   return (
     <div className="carte-Event-passed">
+      <div class="card">
+        <img src={premiereimage} className="card-img-top" alt="..." />
+      </div>
       <h3>
         <i class="fa-solid fa-location-dot"></i>
         {ou}
@@ -10,7 +13,7 @@ const CartePassedEvent = ({ ou, description, quand }) => {
       <h2>{quand}</h2>
       <p>{description}</p>
       <div className="card-readmore">
-        <p>En savoir plus</p>
+        <p>Revivez l'événement</p>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </div>
