@@ -20,8 +20,8 @@ const PassedEvents = () => {
   });
 
   return (
-    <div className="anciens">
-      <div id="anciens" className="anciens-cadre">
+    <div id="anciens" className="anciens">
+      <div className="anciens-cadre">
         <div className="anciens-title">
           <h1>Précédement</h1>
         </div>

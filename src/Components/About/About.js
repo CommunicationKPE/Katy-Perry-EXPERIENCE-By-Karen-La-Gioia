@@ -2,20 +2,20 @@ import "./About.css";
 
 const About = () => {
   return (
-    <section class="about">
+    <section id="about" className="about">
       <div className="about-cadre">
-        <div id="about" class="about-titre">
-          <h1 class="title">À Propos</h1>
+        <div className="about-titre">
+          <h1 className="title">À Propos</h1>
         </div>
         <div className="about-container">
-          <p class="intro">
+          <p className="intro">
             <strong>Katy Perry EXPERIENCE by Karen La Gioia</strong> c’est une
             immersion totale dans l’univers pop moderne. Un spectacle où la
             musique, la scénographie et l’émotion se rencontrent pour créer une
             expérience unique.
           </p>
 
-          <div class="content">
+          <div className="content">
             <p>
               Portée par <strong>Karen La Gioia</strong>, artiste à la voix
               puissante et à la présence scénique captivante, l’expérience
@@ -38,13 +38,13 @@ const About = () => {
               visuels… pour créer un parcours émotionnel fluide et surprenant.
             </p>
 
-            <p class="highlight">
+            <p className="highlight">
               Que vous soyez fan de Katy Perry ou amateur de concerts pop
               modernes…
               <strong> L’expérience vous attend.</strong>
             </p>
 
-            <p class="cta">
+            <p className="cta">
               <strong>
                 Rejoignez-nous sur la prochaine date et vivez l’expérience “Katy
                 Perry EXPERIENCE by Karen La Gioia”.

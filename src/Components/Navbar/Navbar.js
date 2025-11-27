@@ -44,8 +44,7 @@ const Navbar = () => {
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
                   <a className="nav-link" href="#home">
-                    <i className="fa-solid fa-house-chimney"></i>
-                    Accueil
+                    <i className="fa-solid fa-house-chimney"></i>Accueil
                   </a>
                 </li>
                 <li className="nav-item">
@@ -54,21 +53,24 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
+                  <a className="nav-link" href="#medias">
+                    <i className="fa-solid fa-circle-play"></i>Média
+                  </a>
+                </li>
+                <li className="nav-item">
                   <a className="nav-link" href="#avenirs">
-                    <i className="fa-solid fa-hourglass-end"></i>
-                    Prochaines dates
+                    <i className="fa-solid fa-hourglass-end"></i>Prochaines
+                    dates
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#anciens">
-                    <i className="fa-solid fa-calendar-check"></i>
-                    Dates passées
+                    <i className="fa-solid fa-calendar-check"></i>Dates passées
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#contact">
-                    <i className="fa-solid fa-envelope"></i>
-                    Contact
+                    <i className="fa-solid fa-envelope"></i>Contact
                   </a>
                 </li>
               </ul>
@@ -88,21 +90,23 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item ">
+                <a className="nav-link" href="#medias">
+                  <i className="fa-solid fa-circle-play"></i>Média
+                </a>
+              </li>
+              <li className="nav-item ">
                 <a className="nav-link" href="#avenirs">
-                  <i className="fa-solid fa-hourglass-end"></i>
-                  Prochaines dates
+                  <i className="fa-solid fa-hourglass-end"></i>Prochaines dates
                 </a>
               </li>
               <li className="nav-item ">
                 <a className="nav-link" href="#anciens">
-                  <i className="fa-solid fa-calendar-check"></i>
-                  Dates passées
+                  <i className="fa-solid fa-calendar-check"></i>Dates passées
                 </a>
               </li>
               <li className="nav-item ">
                 <a className="nav-link" href="#contact">
-                  <i className="fa-solid fa-envelope"></i>
-                  Contact
+                  <i className="fa-solid fa-envelope"></i>Contact
                 </a>
               </li>
             </ul>

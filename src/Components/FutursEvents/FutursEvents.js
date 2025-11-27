@@ -13,8 +13,8 @@ const FutursEvents = () => {
   });
 
   return (
-    <div className="a-venirs">
-      <div id="avenirs" className="a-venirs-cadre">
+    <div id="avenirs" className="a-venirs">
+      <div className="a-venirs-cadre">
         <div className="a-venirs-title">
           <h1>Prochainement</h1>
         </div>

@@ -17,3 +17,6 @@ code {
     monospace;
 } */
 /* ****************V2***************** */
+* {
+  scroll-behavior: smooth;
+}
