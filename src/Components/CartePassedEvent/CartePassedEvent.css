@@ -10,6 +10,9 @@
   transition: 0.4s;
   cursor: pointer;
 }
+.carte-Event-passed img {
+  border: 2px solid white;
+}
 .carte-Event-passed h3 {
   font-size: 28px;
   font-weight: 600;

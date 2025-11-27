@@ -4,9 +4,9 @@ import Accueil from "./Components/Accueil/Accueil";
 import About from "./Components/About/About";
 import FutursEvents from "./Components/FutursEvents/FutursEvents";
 import PassedEvents from "./Components/PassedEvents/PassedEvents";
-// import Connexion from "./Components/Connexion/Connexion";
 import Footer from "./Components/Footer/Footer";
 import Contact from "./Components/Contact/Contact";
+import Media from "./Components/Medias/Medias";
 
 function App() {
   document.addEventListener("scroll", function () {
@@ -20,9 +20,9 @@ function App() {
         <Navbar />
         <Accueil />
         <About />
+        <Media />
         <FutursEvents />
         <PassedEvents />
-        {/* <Connexion /> */}
         <Contact />
         <Footer />
       </div>
