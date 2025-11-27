@@ -34,6 +34,7 @@ const PassedEvents = () => {
               description={service.s_description}
               quand={service.s_date}
               premiereimage={service.s_image}
+              spectateurs={service.s_nbspectateurs}
               style={{ width: "18rem" }}
             />
           ))}

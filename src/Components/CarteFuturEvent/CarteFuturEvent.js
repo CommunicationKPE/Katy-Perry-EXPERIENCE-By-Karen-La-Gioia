@@ -1,8 +1,11 @@
 import "./CarteFuturEvent.css";
 
 const CarteFuturEvent = ({ ou, description, quand }) => {
+  const handleCardClick = () => {
+    console.log("Carte event futur cliquée !", { ou, description, quand });
+  };
   return (
-    <div className="carte-avant">
+    <div className="carte-avant" onClick={handleCardClick}>
       <h3>
         <i className="fa-solid fa-location-dot"></i>
         {ou}

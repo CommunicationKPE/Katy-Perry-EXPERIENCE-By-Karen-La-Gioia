@@ -44,7 +44,7 @@ const Navbar = () => {
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
                   <a className="nav-link" href="#home">
-                    <i className="fa-solid fa-house-chimney"></i>Accueil
+                    <i className="fa-solid fa-house-chimney"></i>Accueil1
                   </a>
                 </li>
                 <li className="nav-item">
@@ -77,7 +77,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="d-none d-md-flex">
-            <ul className="navbar-nav flex-row ">
+            <ul className="navbar-nav  flex-row ">
               <li className="nav-item">
                 <a className="nav-link" href="#home">
                   <i className="fa-solid fa-house-chimney"></i>
