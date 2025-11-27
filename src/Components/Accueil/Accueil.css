@@ -67,10 +67,10 @@
   background: #ba1f33;
   font-size: 14px;
   font-weight: bold;
-  padding: 20px 60px;
+  padding: 20px 20px;
   margin-top: 20px;
   margin-bottom: 15px;
-  margin-left: 20px;
+
   cursor: pointer;
   transition: 0.3s;
 }
