@@ -6,6 +6,7 @@ const CartePassedEvent = ({ premiereimage, ou, description, quand }) => {
       <div className="card">
         <img src={premiereimage} className="card-img-top" alt="..." />
       </div>
+      <br></br>
       <h3>
         <i className="fa-solid fa-location-dot"></i>
         {ou}

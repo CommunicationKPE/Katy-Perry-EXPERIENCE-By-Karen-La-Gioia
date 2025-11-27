@@ -53,6 +53,11 @@
   align-items: center;
   gap: 20px;
 }
+.contact-detail i {
+  color: #ba1f33;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
 .contact-right {
   display: flex;
   flex-direction: column;
@@ -71,7 +76,7 @@
   padding-left: 20px;
   border-radius: 4px;
   background: #1f242d;
-  color: #a0a0a0;
+  color: white;
   font-family: Outfit;
   font-size: 20px;
 }
@@ -92,7 +97,7 @@
   background: #ba1f33;
   font-size: 22px;
   padding: 20px 60px;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 50px;
   margin-left: 20px;
   cursor: pointer;
@@ -102,6 +107,7 @@
   transform: scale(1.1);
   transition: 0.3s;
 }
+
 /*************Ecrans max 768px*************/
 @media (max-width: 768px) {
   .contact {
@@ -135,6 +141,9 @@
   .contact-right input {
     width: 100%;
     font-size: 20px;
+  }
+  input::placeholder textarea {
+    color: #a0a0a0;
   }
   .contact-right textarea {
     width: 100%;

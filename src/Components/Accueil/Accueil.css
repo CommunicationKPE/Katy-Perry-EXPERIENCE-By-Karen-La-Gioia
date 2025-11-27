@@ -61,11 +61,18 @@
   text-align: center;
 }
 .btn-contactez-nous {
-  margin-top: -100px;
-  font-weight: 600;
-  color: white;
-  background-color: #ba1f33;
   border: none;
+  color: white;
+  border-radius: 50px;
+  background: #ba1f33;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px 60px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 .social-icons i {
   font-size: 30px;
@@ -99,7 +106,7 @@
     width: 100%;
     gap: 40px;
     justify-content: space-around;
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
   }
 }
 

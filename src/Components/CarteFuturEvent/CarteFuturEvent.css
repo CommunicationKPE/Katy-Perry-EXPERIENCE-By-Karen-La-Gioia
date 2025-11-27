@@ -38,7 +38,7 @@
   margin-bottom: 8px;
 }
 .carte-avant:hover {
-  border: 3px solid #ff45c3;
+  border: 3px solid #ba1f33;
   background-image: linear-gradient(45deg, #ba1f33 0.36%, #1a1761 102.06%);
   transform: scale(1.05);
   transition: 0.4s;
