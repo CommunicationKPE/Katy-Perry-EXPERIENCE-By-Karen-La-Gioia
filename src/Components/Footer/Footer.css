@@ -1,3 +1,11 @@
-.footer {
-  background: grey;
+.copyright {
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  background: #1f242d;
+  font-weight: 300;
+  margin-top: 20px;
+}
+.copyright i {
+  color: #ba1f33;
 }
