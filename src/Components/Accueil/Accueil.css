@@ -28,7 +28,7 @@
   width: 100%;
   color: white;
   padding: 20px;
-  margin: 10px;
+  margin-top: -110px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -43,6 +43,7 @@
 }
 .bas-gauche h1 span {
   color: #ba1f33; /* Couleur rose pour "LIVE" */
+  font-weight: 900;
 }
 .bas-gauche p {
   font-size: 24px;
@@ -60,11 +61,14 @@
   text-align: center;
 }
 .btn-contactez-nous {
-  /* margin-top: px; */
+  margin-top: -100px;
   font-weight: 600;
   color: white;
   background-color: #ba1f33;
   border: none;
+}
+.social-icons i {
+  font-size: 30px;
 }
 
 /************************ Styles pour les grands écrans */

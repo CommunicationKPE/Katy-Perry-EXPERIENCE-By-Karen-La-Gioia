@@ -15,19 +15,27 @@ const Contact = () => {
               notre équipe reviendra vers vous dans les plus brefs délais...
             </p>
             {/* <div className="contact-details">
-            <div className="contact-detail">
-              <i className="fas fa-envelope"></i>
-              <p>DADADOUDOUD@epitech.eu</p>
-            </div>
-            <div className="contact-detail">
-              <i className="fas fa-phone"></i>
-              <p>+33 1 23 45 67 89</p>
-            </div>
-            <div className="contact-detail">
-              <i className="fas fa-map-marker-alt"></i>
-              <p>CA, United States</p>
-            </div>
-          </div> */}
+              <div className="contact-detail">
+                <i className="fa-brands fa-youtube"></i>
+                <p>youtube</p>
+              </div>
+              <div className="contact-detail">
+                <i className="fa-brands fa-facebook-f"></i>
+                <p>facebook</p>
+              </div>
+              <div className="contact-detail">
+                <i className="fa-brands fa-twitter"></i>
+                <p>twitter</p>
+              </div>
+              <div className="contact-detail">
+                <i className="fa-brands fa-tiktok"></i>
+                <p>tiktok</p>
+              </div>
+              <div className="contact-detail">
+                <i className="fa-brands fa-instagram"></i>
+                <p>Instagram</p>
+              </div>
+            </div> */}
           </div>
           <form className="contact-right">
             <label htmlFor="">Prénom NOM</label>

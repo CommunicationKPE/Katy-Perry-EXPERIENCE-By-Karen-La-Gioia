@@ -1,0 +1,30 @@
+.medias {
+  display: flex;
+  justify-content: center;
+}
+.medias-cadre {
+  width: 85%;
+  color: white;
+  /* background: #1f242d; */
+  border-radius: 10px;
+  margin-top: 85px;
+  margin-bottom: 15px;
+}
+.medias-title {
+  position: relative;
+  margin-bottom: 55px;
+  display: flex;
+  justify-content: center;
+}
+.medias-title h1 {
+  padding: 0px 30px;
+  font-size: 80px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.ratio {
+  /* background: #1f242d; */
+  border-radius: 10px;
+  border: 3px solid white;
+}

@@ -31,21 +31,6 @@ const Accueil = () => {
           <h1>
             <span>LIVE</span> Music Show
           </h1>
-          <a
-            type="button"
-            className="btn btn-danger btn-contactez-nous"
-            href="#contact"
-          >
-            CONTACTEZ-NOUS
-          </a>
-          <div className="social-icons d-flex justify-content-evenly align-items-center">
-            <i className="fa-brands fa-youtube"></i>
-            <i className="fa-brands fa-facebook-f"></i>
-            <i className="fa-brands fa-twitter"></i>
-            <i className="fa-brands fa-tiktok"></i>
-            <i className="fa-brands fa-instagram"></i>
-          </div>
-
           <div className="about-achievements">
             {upcomingEventsCount > 0 && (
               <div className="about-achievement">
@@ -67,6 +52,20 @@ const Accueil = () => {
                 <h5>EVENEMENTS RÉALISÉS</h5>
               </div>
             )}
+          </div>{" "}
+          <a
+            type="button"
+            className="btn btn-danger btn-contactez-nous"
+            href="#contact"
+          >
+            CONTACTEZ-NOUS
+          </a>
+          <div className="social-icons d-flex justify-content-evenly align-items-center">
+            <i className="fa-brands fa-youtube"></i>
+            <i className="fa-brands fa-facebook-f"></i>
+            <i className="fa-brands fa-twitter"></i>
+            <i className="fa-brands fa-tiktok"></i>
+            <i className="fa-brands fa-instagram"></i>
           </div>
         </div>
         <div className="haut-droite">
