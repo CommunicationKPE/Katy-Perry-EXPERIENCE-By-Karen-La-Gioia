@@ -186,26 +186,26 @@ const PassedEvents = () => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">{selectedService.s_lieu}</h5>
+                <h5 className="modal-title">
+                  {selectedService.s_lieu}, le {selectedService.s_date}
+                </h5>
                 <button
                   type="button"
                   className="btn-close"
                   onClick={closeModal}
                 ></button>
               </div>
-              <div className="modal-body">
+              <div className="modal-body"></div>
+              <div className="modal-footer justify-content-between">
                 <p>{selectedService.s_description}</p>
-                <p>Date: {selectedService.s_date}</p>
-                <p>Spectateurs: {selectedService.s_nbspectateurs}</p>
-              </div>
-              <div className="modal-footer">
-                <button
+                <p>{selectedService.s_nbspectateurs} Spectateurs </p>
+                {/* <button
                   type="button"
                   className="btn btn-secondary"
                   onClick={closeModal}
                 >
                   Fermer
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

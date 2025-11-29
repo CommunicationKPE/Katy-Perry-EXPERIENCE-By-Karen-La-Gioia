@@ -55,5 +55,13 @@ const donnees_Services = [
     s_nbspectateurs: 0,
     s_image: "https://cdnaws.recis.io/i/img/00/52/ec/e8_d338d1_lg130.jpg",
   },
+  {
+    s_no: "08",
+    s_lieu: "Colombe-lès-Vesoul",
+    s_description: "Colomb'in Rock Festival",
+    s_date: "2026-09-13",
+    s_nbspectateurs: 15000,
+    s_image: "https://cdnaws.recis.io/i/img/00/52/ec/e8_d338d1_lg130.jpg",
+  },
 ];
 export default donnees_Services;
