@@ -27,17 +27,16 @@ const CartePassedEvent = ({
         <div className="card">
           <img src={premiereimage} className="card-img-top" alt="..." />
         </div>
-        <br></br>
-        <h3>
+        {/* <h3>
           <i className="fa-solid fa-location-dot"></i>
           {ou}
         </h3>
         <h2>{quand}</h2>
-        <p>{description}</p>
-        <div className="card-readmore">
+        <p>{description}</p> */}
+        {/* <div className="card-readmore">
           <p>Revivez l'événement</p>
           <i className="fa-solid fa-arrow-right"></i>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -22,45 +22,10 @@ const PassedEvents = () => {
   });
 
   return (
-    // <div id="anciens" className="anciens">
-    //   <div className="anciens-cadre">
-    //     <div className="anciens-title">
-    //       <h1>Précédement</h1>
-    //     </div>
-    //     <div className="anciens-container">
-    //       {sortedServices.map((service, index) => (
-    //         <CartePassedEvent
-    //           key={index}
-    //           icone={service.s_no}
-    //           ou={service.s_lieu}
-    //           description={service.s_description}
-    //           quand={service.s_date}
-    //           premiereimage={service.s_image}
-    //           spectateurs={service.s_nbspectateurs}
-    //           style={{ width: "18rem" }}
-    //         />
-    //       ))}
-    //     </div>
-    //   </div>
-    // </div>
     <div id="anciens" className="anciens">
       <div className="anciens-cadre">
         <div className="anciens-title">
           <h1>Précédement</h1>
-        </div>
-        <div className="anciens-container">
-          {sortedServices.map((service, index) => (
-            <CartePassedEvent
-              key={index}
-              icone={service.s_no}
-              ou={service.s_lieu}
-              description={service.s_description}
-              quand={service.s_date}
-              premiereimage={service.s_image}
-              spectateurs={service.s_nbspectateurs}
-              style={{ width: "18rem" }}
-            />
-          ))}
         </div>
         <div
           id="carouselExampleCaptions"
