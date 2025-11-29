@@ -38,14 +38,18 @@ const Accueil = () => {
                 <h5>SPECTACLES À VENIR</h5>
               </div>
             )}
-            <hr className="border border-light border-1 opacity-100" />
+            {upcomingEventsCount > 0 && (
+              <hr className="border border-light border-1 opacity-100" />
+            )}
             {totalPastSpectators > 0 && (
               <div className="about-achievement">
                 <h2>{totalPastSpectators}</h2>
                 <h5>SPECTATEURS</h5>
               </div>
             )}
-            <hr className="border border-light border-1 opacity-100" />
+            {pastServices.length > 0 && (
+              <hr className="border border-light border-1 opacity-100" />
+            )}
             {pastServices.length > 0 && (
               <div className="about-achievement">
                 <h2>{pastServices.length}</h2>
