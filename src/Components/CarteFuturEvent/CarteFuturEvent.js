@@ -1,16 +1,12 @@
 import "./CarteFuturEvent.css";
 
 const CarteFuturEvent = ({ ou, description, quand }) => {
-  const handleCardClick = () => {
-    console.log("Carte event futur cliquée !", { ou, description, quand });
-  };
   return (
     <div>
       <div
         className="carte-avant"
-        onClick={handleCardClick}
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#staticBackdrop"
       >
         <h3>
           <i className="fa-solid fa-location-dot"></i>
@@ -23,19 +19,22 @@ const CarteFuturEvent = ({ ou, description, quand }) => {
           <i className="fa-solid fa-arrow-right"></i>
         </div>
       </div>
+
+      {/* <!-- Modal --> */}
       <div
         className="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
+              <h5 className="modal-title" id="staticBackdropLabel">
                 Modal title
-              </h1>
+              </h5>
               <button
                 type="button"
                 className="btn-close"
@@ -53,7 +52,7 @@ const CarteFuturEvent = ({ ou, description, quand }) => {
                 Close
               </button>
               <button type="button" className="btn btn-primary">
-                Save changes
+                Understood
               </button>
             </div>
           </div>
