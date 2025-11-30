@@ -9,10 +9,12 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
 
   return (
     <div>
-      <div
+      <a
+        href={pdfUrl}
+        download
         className="carte-avant"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
+        // data-bs-toggle="modal"
+        // data-bs-target="#staticBackdrop"
       >
         <h3>
           <i className="fa-solid fa-location-dot"></i>
@@ -24,10 +26,10 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
           <p>Consulter l'affiche</p>
           <i className="fa-solid fa-arrow-right"></i>
         </div>
-      </div>
+      </a>
 
       {/* <!-- Modal --> */}
-      <div
+      {/* <div
         className="modal fade"
         id="staticBackdrop"
         data-bs-backdrop="static"
@@ -82,7 +84,7 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
