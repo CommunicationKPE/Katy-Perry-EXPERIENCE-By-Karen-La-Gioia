@@ -1,6 +1,12 @@
 import "./CarteFuturEvent.css";
+import { useEffect } from "react";
 
 const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
+  useEffect(() => {
+    // Assurez-vous que Bootstrap est correctement initialisé
+    import("bootstrap");
+  }, []);
+
   return (
     <div>
       <div
@@ -29,7 +35,7 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog-centered modal-xl modal-dialog-scrollable">
+        <div className="modal-dialog modal-dialog-centered modal-xl">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
@@ -66,13 +72,6 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
               )}
             </div>
             <div className="modal-footer">
-              {/* <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button> */}
               {pdfUrl ? (
                 <a href={pdfUrl} download className="btn btn-primary">
                   Télécharger
