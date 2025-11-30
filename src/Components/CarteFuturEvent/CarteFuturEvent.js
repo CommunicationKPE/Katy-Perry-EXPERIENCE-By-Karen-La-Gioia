@@ -29,7 +29,7 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-dialog-centered modal-xl modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
@@ -42,31 +42,41 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">
+            <div
+              className="modal-body"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               {pdfUrl ? (
                 <iframe
                   src={pdfUrl}
                   title="Affiche de l'événement"
-                  width="100%"
-                  height="500px"
-                  style={{ border: "none" }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    overflow: "hidden",
+                  }}
                 ></iframe>
               ) : (
                 <p>Aucune affiche disponible pour cet événement.</p>
               )}
             </div>
             <div className="modal-footer">
-              <button
+              {/* <button
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close
-              </button>
+              </button> */}
               {pdfUrl ? (
-                <button type="button" className="btn btn-primary">
-                  telecharger
-                </button>
+                <a href={pdfUrl} download className="btn btn-primary">
+                  Télécharger
+                </a>
               ) : (
                 <div></div>
               )}
