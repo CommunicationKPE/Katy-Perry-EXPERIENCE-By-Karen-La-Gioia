@@ -1,6 +1,6 @@
 import "./CarteFuturEvent.css";
 
-const CarteFuturEvent = ({ ou, description, quand }) => {
+const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
   return (
     <div>
       <div
@@ -33,7 +33,7 @@ const CarteFuturEvent = ({ ou, description, quand }) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
-                Modal title
+                Affiche de l'événement
               </h5>
               <button
                 type="button"
@@ -42,7 +42,19 @@ const CarteFuturEvent = ({ ou, description, quand }) => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">...</div>
+            <div className="modal-body">
+              {pdfUrl ? (
+                <iframe
+                  src={pdfUrl}
+                  title="Affiche de l'événement"
+                  width="100%"
+                  height="500px"
+                  style={{ border: "none" }}
+                ></iframe>
+              ) : (
+                <p>Aucune affiche disponible pour cet événement.</p>
+              )}
+            </div>
             <div className="modal-footer">
               <button
                 type="button"
@@ -51,9 +63,13 @@ const CarteFuturEvent = ({ ou, description, quand }) => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
-                Understood
-              </button>
+              {pdfUrl ? (
+                <button type="button" className="btn btn-primary">
+                  telecharger
+                </button>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
         </div>
