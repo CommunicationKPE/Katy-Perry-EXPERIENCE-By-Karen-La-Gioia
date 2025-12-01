@@ -6,6 +6,21 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
     // Assurez-vous que Bootstrap est correctement initialisé
     import("bootstrap");
   }, []);
+  const handleShare = () => {
+    if (navigator.share) {
+      console.log("navigator.share OK");
+      navigator
+        .share({
+          title: "Partager l'affiche",
+          text: "Voici l'affiche de l'événement",
+          url: pdfUrl,
+        })
+        .then(() => console.log("Partage réussi"))
+        .catch((error) => console.log("Erreur de partage", error));
+    } else {
+      alert("L'API Web Share n'est pas supportée par votre navigateur.");
+    }
+  };
 
   return (
     <div>
@@ -73,9 +88,12 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
             </div>
             <div className="modal-footer">
               {pdfUrl ? (
-                <a href={pdfUrl} download className="btn btn-primary">
-                  Télécharger
-                </a>
+                // <a href={pdfUrl} download className="btn btn-primary">
+                //   Télécharger
+                // </a>
+                <button onClick={handleShare} className="btn btn-primary">
+                  Partager
+                </button>
               ) : (
                 <div></div>
               )}
