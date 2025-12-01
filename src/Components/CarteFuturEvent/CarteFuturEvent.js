@@ -1,7 +1,7 @@
 import "./CarteFuturEvent.css";
 import { useEffect } from "react";
 
-const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
+const CarteFuturEvent = ({ ou, description, quand, afficheUrl }) => {
   useEffect(() => {
     // Assurez-vous que Bootstrap est correctement initialisé
     import("bootstrap");
@@ -12,7 +12,7 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
         await navigator.share({
           title: "Affiche de l'événement",
           text: `Consultez l'affiche de l'événement ${description} à ${ou} le ${quand}`,
-          url: pdfUrl,
+          url: afficheUrl,
         });
         console.log("Partage réussi");
       } catch (error) {
@@ -20,7 +20,7 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
       }
     } else if (navigator.clipboard) {
       try {
-        await navigator.clipboard.writeText(pdfUrl);
+        await navigator.clipboard.writeText(afficheUrl);
         alert(
           "Le lien a été copié dans le presse-papiers. Vous pouvez le coller pour le partager."
         );
@@ -30,7 +30,7 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
     } else {
       alert(
         "L'API Web Share et l'API Clipboard ne sont pas supportées par votre navigateur. Voici le lien à partager : " +
-          pdfUrl
+          afficheUrl
       );
     }
   };
@@ -85,9 +85,9 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
                 alignItems: "center",
               }}
             >
-              {pdfUrl ? (
+              {afficheUrl ? (
                 <img
-                  src={pdfUrl}
+                  src={afficheUrl}
                   alt="Affiche de l'événement"
                   style={{
                     maxWidth: "100%",
@@ -100,8 +100,8 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
               )}
             </div>
             <div className="modal-footer">
-              {pdfUrl ? (
-                // <a href={pdfUrl} download className="btn btn-primary">
+              {afficheUrl ? (
+                // <a href={afficheUrl} download className="btn btn-primary">
                 //   Télécharger
                 // </a>
                 <button onClick={handleShare} className="btn btn-primary">

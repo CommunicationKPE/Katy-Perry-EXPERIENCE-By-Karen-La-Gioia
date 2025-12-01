@@ -27,7 +27,7 @@ const FutursEvents = () => {
                 ou={service.s_lieu}
                 description={service.s_description}
                 quand={service.s_date}
-                pdfUrl={service.s_pdf}
+                afficheUrl={service.s_affiche}
                 style={{ width: "18rem" }}
               />
             );
