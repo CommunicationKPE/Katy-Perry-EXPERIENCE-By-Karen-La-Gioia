@@ -9,12 +9,11 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
 
   return (
     <div>
-      <a
-        href={pdfUrl}
+      <div
         download
         className="carte-avant"
-        // data-bs-toggle="modal"
-        // data-bs-target="#staticBackdrop"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
       >
         <h3>
           <i className="fa-solid fa-location-dot"></i>
@@ -26,10 +25,10 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
           <p>Consulter l'affiche</p>
           <i className="fa-solid fa-arrow-right"></i>
         </div>
-      </a>
+      </div>
 
       {/* <!-- Modal --> */}
-      {/* <div
+      <div
         className="modal fade"
         id="staticBackdrop"
         data-bs-backdrop="static"
@@ -59,16 +58,15 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
               }}
             >
               {pdfUrl ? (
-                <iframe
+                <img
                   src={pdfUrl}
-                  title="Affiche de l'événement"
+                  alt="Affiche de l'événement"
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    border: "none",
-                    overflow: "hidden",
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    objectFit: "contain",
                   }}
-                ></iframe>
+                />
               ) : (
                 <p>Aucune affiche disponible pour cet événement.</p>
               )}
@@ -84,7 +82,7 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
