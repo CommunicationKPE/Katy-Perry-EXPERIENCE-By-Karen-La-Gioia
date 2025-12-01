@@ -1,3 +1,5 @@
+import projects_img1 from "./projet_1.png";
+
 const donnees_Services = [
   {
     s_no: "01",
@@ -61,9 +63,7 @@ const donnees_Services = [
     s_description: "Colomb'in Rock Festival",
     s_date: "2026-09-13",
     s_nbspectateurs: 15000,
-    s_pdf:
-      "https://marketplace.canva.com/EAF24MVcWSg/1/0/1131w/canva-noir-beige-vintage-r%C3%A9tro-festival-de-musique-de-jazz-affiche-poster-M7_pVCesgxI.jpg",
-    s_image: "https://cdnaws.recis.io/i/img/00/52/ec/e8_d338d1_lg130.jpg",
+    s_pdf: { projects_img1 },
   },
 ];
 export default donnees_Services;

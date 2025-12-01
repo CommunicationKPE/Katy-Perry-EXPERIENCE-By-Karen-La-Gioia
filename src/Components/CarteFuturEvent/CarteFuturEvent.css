@@ -1,4 +1,6 @@
 .carte-avant {
+  text-decoration: none;
+  color: white;
   background-color: #1f242d;
   display: flex;
   flex-direction: column;
