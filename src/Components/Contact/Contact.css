@@ -107,7 +107,12 @@
   transform: scale(1.1);
   transition: 0.3s;
 }
-
+.error {
+  color: #ba1f33;
+  font-size: 0.8em;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
 /*************Ecrans max 768px*************/
 @media (max-width: 768px) {
   .contact {
