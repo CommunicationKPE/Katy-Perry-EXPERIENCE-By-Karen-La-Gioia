@@ -59,8 +59,9 @@ const CarteFuturEvent = ({ ou, description, quand, afficheUrl, id }) => {
         id={`modalCarteFutur${id}`}
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        aria-labelledby={`modalCarteFuturLabel${id}`}
         aria-hidden="true"
+        tabIndex="-1"
+        aria-labelledby={`modalCarteFuturLabel${id}`}
       >
         <div className="modal-dialog modal-dialog-centered modal-xl">
           <div className="modal-content">

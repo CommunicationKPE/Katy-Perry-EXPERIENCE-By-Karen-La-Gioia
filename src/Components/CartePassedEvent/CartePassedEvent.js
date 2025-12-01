@@ -6,25 +6,15 @@ const CartePassedEvent = ({
   description,
   quand,
   spectateurs,
+  id,
 }) => {
-  const handleCardClick = () => {
-    console.log("Carte ancien event cliquée !", {
-      premiereimage,
-      ou,
-      description,
-      quand,
-      spectateurs,
-    });
-  };
-
   return (
     <div>
       <div
         className="carte-Event-passed"
-        onClick={handleCardClick}
         id="liveToastBtn"
         data-bs-toggle="modal"
-        data-bs-target="#modalCartePassedEvent"
+        data-bs-target={`#modalCartePassedEvent${id}`}
       >
         <div className="card">
           <img src={premiereimage} className="card-img-top" alt="..." />
@@ -43,17 +33,20 @@ const CartePassedEvent = ({
       </div>
       <div
         className="modal fade"
-        id="modalCartePassedEvent"
+        id={`modalCartePassedEvent${id}`}
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        aria-labelledby="modalCartePassedEventLabel"
-        aria-hidden="true"
+        tabIndex="-1"
+        aria-labelledby={`modalCartePassedEventLabel${id}`}
       >
         <div className="modal-dialog modal-dialog-centered modal-xl">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="modalCartePassedEventLabel">
-                revivez l'evenement en images
+              <h5
+                className="modal-title"
+                id={`modalCartePassedEventLabel${id}`}
+              >
+                {description}
               </h5>
               <button
                 type="button"
@@ -69,7 +62,21 @@ const CartePassedEvent = ({
                 justifyContent: "center",
                 alignItems: "center",
               }}
-            ></div>
+            >
+              <img
+                src={premiereimage}
+                alt="Affiche de l'événement"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                }}
+              />
+              <p>{description}</p>
+              <p>Lieu: {ou}</p>
+              <p>Date: {quand}</p>
+              <p>Spectateurs: {spectateurs}</p>
+            </div>
             <div className="modal-footer"></div>
           </div>
         </div>

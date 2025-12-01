@@ -58,6 +58,7 @@ const PassedEvents = () => {
                   quand={service.s_date}
                   premiereimage={service.s_image}
                   spectateurs={service.s_nbspectateurs}
+                  id={index} // Utilisez l'index comme identifiant unique
                   style={{ width: "100%" }}
                 />
                 <div className="carousel-caption d-none d-md-block">
