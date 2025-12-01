@@ -23,6 +23,7 @@ const FutursEvents = () => {
             return (
               <CarteFuturEvent
                 key={index}
+                id={index} // Utilisez l'index comme identifiant unique
                 icone={service.s_no}
                 ou={service.s_lieu}
                 description={service.s_description}

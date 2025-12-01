@@ -14,7 +14,7 @@
   border: 2px solid white;
 }
 .carte-Event-passed h3 {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 600;
 }
 .carte-Event-passed h3 i {
@@ -46,6 +46,9 @@
   transform: scale(1.05);
   transition: 0.4s;
   border: 3px solid #ba1f33;
+}
+.modal-backdrop {
+  z-index: -1;
 }
 /*************************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {

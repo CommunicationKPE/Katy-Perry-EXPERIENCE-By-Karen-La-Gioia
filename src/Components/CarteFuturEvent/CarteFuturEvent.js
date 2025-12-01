@@ -1,7 +1,7 @@
 import "./CarteFuturEvent.css";
 import { useEffect } from "react";
 
-const CarteFuturEvent = ({ ou, description, quand, afficheUrl }) => {
+const CarteFuturEvent = ({ ou, description, quand, afficheUrl, id }) => {
   useEffect(() => {
     // Assurez-vous que Bootstrap est correctement initialisé
     import("bootstrap");
@@ -14,7 +14,6 @@ const CarteFuturEvent = ({ ou, description, quand, afficheUrl }) => {
           text: `Consultez l'affiche de l'événement ${description} à ${ou} le ${quand}`,
           url: afficheUrl,
         });
-        console.log("Partage réussi");
       } catch (error) {
         console.error("Erreur lors du partage :", error);
       }
@@ -38,10 +37,9 @@ const CarteFuturEvent = ({ ou, description, quand, afficheUrl }) => {
   return (
     <div>
       <div
-        download
         className="carte-avant"
         data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
+        data-bs-target={`#modalCarteFutur${id}`}
       >
         <h3>
           <i className="fa-solid fa-location-dot"></i>
@@ -58,17 +56,17 @@ const CarteFuturEvent = ({ ou, description, quand, afficheUrl }) => {
       {/* <!-- Modal --> */}
       <div
         className="modal fade"
-        id="staticBackdrop"
+        id={`modalCarteFutur${id}`}
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        aria-labelledby="staticBackdropLabel"
+        aria-labelledby={`modalCarteFuturLabel${id}`}
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered modal-xl">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="staticBackdropLabel">
-                Affiche de l'événement
+              <h5 className="modal-title" id={`modalCarteFuturLabel${id}`}>
+                Affiche de l'événement {quand}
               </h5>
               <button
                 type="button"

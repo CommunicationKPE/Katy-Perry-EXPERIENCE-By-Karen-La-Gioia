@@ -65,5 +65,13 @@ const donnees_Services = [
     s_nbspectateurs: 15000,
     s_affiche: projects_img1,
   },
+  {
+    s_no: "08",
+    s_lieu: "Colombe-lès-Vesoul",
+    s_description: "Colomb'in Rock Festival",
+    s_date: "2026-09-14",
+    s_nbspectateurs: 15000,
+    s_affiche: "",
+  },
 ];
 export default donnees_Services;
