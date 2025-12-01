@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/css/main.a01b2eaa.css",
-    "main.js": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/js/main.b79bc3de.js",
+    "main.css": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/css/main.27a3ed03.css",
+    "main.js": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/js/main.9b7ab29a.js",
     "static/js/767.8988322a.chunk.js": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/js/767.8988322a.chunk.js",
     "static/js/453.26232e64.chunk.js": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/js/453.26232e64.chunk.js",
     "static/media/background.png": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/media/background.43bce686ff6db5aaaaa5.png",
@@ -9,13 +9,13 @@
     "static/media/signature.png": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/media/signature.bb22b17d2e8d38531295.png",
     "static/media/Logo.png": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/media/Logo.28cc8c92791d38f16922.png",
     "index.html": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/index.html",
-    "main.a01b2eaa.css.map": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/css/main.a01b2eaa.css.map",
-    "main.b79bc3de.js.map": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/js/main.b79bc3de.js.map",
+    "main.27a3ed03.css.map": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/css/main.27a3ed03.css.map",
+    "main.9b7ab29a.js.map": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/js/main.9b7ab29a.js.map",
     "767.8988322a.chunk.js.map": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/js/767.8988322a.chunk.js.map",
     "453.26232e64.chunk.js.map": "/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia/static/js/453.26232e64.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a01b2eaa.css",
-    "static/js/main.b79bc3de.js"
+    "static/css/main.27a3ed03.css",
+    "static/js/main.9b7ab29a.js"
   ]
 }
