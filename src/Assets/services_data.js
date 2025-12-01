@@ -63,7 +63,7 @@ const donnees_Services = [
     s_description: "Colomb'in Rock Festival",
     s_date: "2026-09-13",
     s_nbspectateurs: 15000,
-    s_pdf: { projects_img1 },
+    s_pdf: projects_img1,
   },
 ];
 export default donnees_Services;
