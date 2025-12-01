@@ -6,19 +6,32 @@ const CarteFuturEvent = ({ ou, description, quand, pdfUrl }) => {
     // Assurez-vous que Bootstrap est correctement initialisé
     import("bootstrap");
   }, []);
-  const handleShare = () => {
+  const handleShare = async () => {
     if (navigator.share) {
-      console.log("navigator.share OK");
-      navigator
-        .share({
-          title: "Partager l'affiche",
-          text: "Voici l'affiche de l'événement",
+      try {
+        await navigator.share({
+          title: "Affiche de l'événement",
+          text: `Consultez l'affiche de l'événement ${description} à ${ou} le ${quand}`,
           url: pdfUrl,
-        })
-        .then(() => console.log("Partage réussi"))
-        .catch((error) => console.log("Erreur de partage", error));
+        });
+        console.log("Partage réussi");
+      } catch (error) {
+        console.error("Erreur lors du partage :", error);
+      }
+    } else if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(pdfUrl);
+        alert(
+          "Le lien a été copié dans le presse-papiers. Vous pouvez le coller pour le partager."
+        );
+      } catch (error) {
+        console.error("Erreur lors de la copie du lien :", error);
+      }
     } else {
-      alert("L'API Web Share n'est pas supportée par votre navigateur.");
+      alert(
+        "L'API Web Share et l'API Clipboard ne sont pas supportées par votre navigateur. Voici le lien à partager : " +
+          pdfUrl
+      );
     }
   };
 
