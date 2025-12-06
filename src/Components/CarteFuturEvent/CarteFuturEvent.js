@@ -48,15 +48,15 @@ const CarteFuturEvent = ({
         data-bs-toggle="modal"
         data-bs-target={`#modalCarteFutur${id}`}
       >
-        <h3>
+        <h2>{quand}</h2>
+        <h3 className="justify-content-center">
           <i className="fa-solid fa-location-dot"></i>
           {ou}
         </h3>
-        <h2>{quand}</h2>
         <p>{description}</p>
         <div className="card-readmore">
-          <p>Consulter l'affiche</p>
-          <i className="fa-solid fa-arrow-right"></i>
+          <p>Cliquez pour consulter l'affiche</p>
+          {/* <i className="fa-solid fa-arrow-right"></i> */}
         </div>
       </div>
 

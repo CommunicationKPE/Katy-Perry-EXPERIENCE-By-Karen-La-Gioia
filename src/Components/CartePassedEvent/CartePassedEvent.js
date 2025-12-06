@@ -46,7 +46,7 @@ const CartePassedEvent = ({
                 className="modal-title"
                 id={`modalCartePassedEventLabel${id}`}
               >
-                {description}
+                {`${ou}: le ${quand}`}
               </h5>
               <button
                 type="button"
@@ -72,12 +72,11 @@ const CartePassedEvent = ({
                   objectFit: "contain",
                 }}
               />
-              <p>{description}</p>
-              <p>Lieu: {ou}</p>
-              <p>Date: {quand}</p>
-              <p>Spectateurs: {spectateurs}</p>
             </div>
-            <div className="modal-footer"></div>
+            <div className="modal-footer justify-content-between">
+              <h6>{description}</h6>
+              <h6>{spectateurs} spectateurs</h6>
+            </div>
           </div>
         </div>
       </div>

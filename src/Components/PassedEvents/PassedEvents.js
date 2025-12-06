@@ -61,10 +61,10 @@ const PassedEvents = () => {
                   id={index} // Utilisez l'index comme identifiant unique
                   style={{ width: "100%" }}
                 />
-                <div className="carousel-caption d-none d-md-block">
+                {/* <div className="carousel-caption d-none d-md-block">
                   <h5>{service.s_lieu}</h5>
                   <p>{service.s_description}</p>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
