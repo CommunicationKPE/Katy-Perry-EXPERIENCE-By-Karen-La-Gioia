@@ -1,13 +1,13 @@
 import "./FutursEvents.css";
-import donnees_Services from "../../Assets/services_data";
+// import donnees_Services from "../../Assets/services_data";
 import CarteFuturEvent from "../CarteFuturEvent/CarteFuturEvent";
 
-const FutursEvents = () => {
+const FutursEvents = ({ evenements }) => {
   // Obtenir la date d'aujourd'hui
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   // Filtrer les services pour obtenir uniquement les événements à venir + celle d'aujourd'hui
-  const filteredServices = donnees_Services.filter((service) => {
+  const filteredServices = evenements.filter((service) => {
     const serviceDate = new Date(service.s_date);
     return serviceDate >= today;
   });

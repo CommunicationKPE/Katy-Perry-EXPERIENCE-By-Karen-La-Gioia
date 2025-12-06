@@ -1,7 +1,14 @@
 import "./CarteFuturEvent.css";
 import { useEffect } from "react";
 
-const CarteFuturEvent = ({ ou, description, quand, afficheUrl, id }) => {
+const CarteFuturEvent = ({
+  ou,
+  description,
+  quand,
+  afficheUrl,
+  id,
+  isOpen,
+}) => {
   useEffect(() => {
     // Assurez-vous que Bootstrap est correctement initialisé
     import("bootstrap");
@@ -59,7 +66,10 @@ const CarteFuturEvent = ({ ou, description, quand, afficheUrl, id }) => {
         id={`modalCarteFutur${id}`}
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        aria-hidden="true"
+        aria-hidden={!isOpen ? "true" : undefined}
+        // inert={!isOpen ? "true" : undefined}
+        // aria-hidden="true"
+        // inert="true"
         tabIndex="-1"
         aria-labelledby={`modalCarteFuturLabel${id}`}
       >

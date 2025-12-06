@@ -1,20 +1,22 @@
 import "./Accueil.css";
-import donnees_Services from "../../Assets/services_data";
+// import donnees_Services from "../../Assets/services_data";
 import logo from "../../Assets/Logo.png";
 
-const Accueil = () => {
+const Accueil = ({ evenements }) => {
+  console.log(evenements);
   // Obtenir la date d'aujourd'hui
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
   // Filtrer les services dont la date est antérieure à aujourd'hui (evenements passés)
-  const pastServices = donnees_Services.filter((service) => {
+  const pastServices = evenements.filter((service) => {
     const serviceDate = new Date(service.s_date);
+    console.log(serviceDate);
     return serviceDate < today;
   });
 
   // Compter le nombre d'événements à venir
-  const upcomingEventsCount = donnees_Services.filter((service) => {
+  const upcomingEventsCount = evenements.filter((service) => {
     const serviceDate = new Date(service.s_date);
     return serviceDate >= today;
   }).length;
