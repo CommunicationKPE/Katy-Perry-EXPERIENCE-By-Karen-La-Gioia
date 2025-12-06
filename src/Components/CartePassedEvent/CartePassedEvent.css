@@ -5,15 +5,16 @@
   justify-content: center;
   gap: 20px;
   padding: 60px;
-  border-radius: 10px;
+  /* border-radius: 10px;
   border: 3px solid white;
-  transition: 0.4s;
+  transition: 0.4s; */
   cursor: pointer;
 }
 .carte-Event-passed img {
   border: 2px solid white;
 }
 .carte-Event-passed h3 {
+  margin-top: 25px;
   font-size: 20px;
   font-weight: 600;
 }
@@ -39,13 +40,6 @@
 }
 .card-readmore i {
   margin-bottom: 8px;
-}
-.carte-Event-passed:hover {
-  /* border: 3px solid #ff45c3; */
-  background-image: linear-gradient(45deg, #1a1761 0.36%, #ba1f33 102.06%);
-  transform: scale(1.05);
-  transition: 0.4s;
-  border: 3px solid #ba1f33;
 }
 .modal-backdrop {
   z-index: -1;

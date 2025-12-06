@@ -54,8 +54,9 @@ const CarteFuturEvent = ({
           {ou}
         </h3>
         <p>{description}</p>
+        <hr className="border border-light border-1 opacity-100"></hr>
         <div className="card-readmore">
-          <p>Cliquez pour consulter l'affiche</p>
+          <p>Consultez l'affiche</p>
           {/* <i className="fa-solid fa-arrow-right"></i> */}
         </div>
       </div>

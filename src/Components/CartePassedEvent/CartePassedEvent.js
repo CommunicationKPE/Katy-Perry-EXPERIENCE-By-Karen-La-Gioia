@@ -26,10 +26,8 @@ const CartePassedEvent = ({
         </h3>
         <h2>{quand}</h2>
         <p>{description}</p>
-        <div className="card-readmore">
-          <p>Revivez l'événement</p>
-          <i className="fa-solid fa-arrow-right"></i>
-        </div>
+        <hr className="border border-light border-1 opacity-100"></hr>
+        <p>Revivez l'événement</p>
       </div>
       <div
         className="modal fade"
