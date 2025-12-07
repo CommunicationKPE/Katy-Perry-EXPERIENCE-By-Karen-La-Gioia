@@ -42,7 +42,7 @@ const CartePassedEvent = ({
         tabIndex="-1"
         aria-labelledby={`modalCartePassedEventLabel${id}`}
       >
-        <div className="modal-dialog modal-dialog-centered modal-xl">
+        <div className="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">
               <h5
@@ -59,11 +59,11 @@ const CartePassedEvent = ({
               ></button>
             </div>
             <div
-              className="modal-body"
+              className="modal-body d-flex flex-column"
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
+                // alignItems: "center",
               }}
             >
               <img
@@ -73,6 +73,7 @@ const CartePassedEvent = ({
                   maxWidth: "100%",
                   maxHeight: "100%",
                   objectFit: "contain",
+                  marginBottom: "20px",
                 }}
               />
               <img
@@ -82,6 +83,7 @@ const CartePassedEvent = ({
                   maxWidth: "100%",
                   maxHeight: "100%",
                   objectFit: "contain",
+                  marginBottom: "20px",
                 }}
               />
               <img
@@ -91,6 +93,7 @@ const CartePassedEvent = ({
                   maxWidth: "100%",
                   maxHeight: "100%",
                   objectFit: "contain",
+                  marginBottom: "20px",
                 }}
               />
               <img
@@ -100,6 +103,7 @@ const CartePassedEvent = ({
                   maxWidth: "100%",
                   maxHeight: "100%",
                   objectFit: "contain",
+                  marginBottom: "20px",
                 }}
               />
               <img
