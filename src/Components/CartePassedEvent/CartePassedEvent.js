@@ -7,6 +7,11 @@ const CartePassedEvent = ({
   quand,
   spectateurs,
   id,
+  photo1,
+  photo2,
+  photo3,
+  photo4,
+  photo5,
 }) => {
   return (
     <div>
@@ -62,7 +67,43 @@ const CartePassedEvent = ({
               }}
             >
               <img
-                src={premiereimage}
+                src={photo1}
+                alt="Affiche de l'événement"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                }}
+              />
+              <img
+                src={photo2}
+                alt="Affiche de l'événement"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                }}
+              />
+              <img
+                src={photo3}
+                alt="Affiche de l'événement"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                }}
+              />
+              <img
+                src={photo4}
+                alt="Affiche de l'événement"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                }}
+              />
+              <img
+                src={photo5}
                 alt="Affiche de l'événement"
                 style={{
                   maxWidth: "100%",

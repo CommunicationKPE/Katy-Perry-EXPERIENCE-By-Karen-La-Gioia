@@ -8,22 +8,25 @@ import Footer from "./Components/Footer/Footer";
 import Contact from "./Components/Contact/Contact";
 import Media from "./Components/Medias/Medias";
 import { useEffect, useState } from "react";
-import { db, collection, getDocs } from "./config/firebase";
+import { supabase } from "./config/supabase";
 
 function App() {
+  // console.log("supabase", supabase);
   const [evenements, setEvenements] = useState([]);
 
   useEffect(() => {
     const recuperationListeEvenements = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "evenements"));
-        const evenementList = querySnapshot.docs.map((doc) => doc.data());
-        setEvenements(evenementList);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
+      const { data, error } = await supabase
+        .from("Evenements")
+        .select("*")
+        .order("id", { ascending: false });
+
+      if (error) {
+        console.error("Erreur lors de la récupération des événements :", error);
+      } else {
+        setEvenements(data);
       }
     };
-
     recuperationListeEvenements();
   }, []); // Le tableau de dépendances est vide pour s'assurer que l'effet ne s'exécute qu'une seule fois
 

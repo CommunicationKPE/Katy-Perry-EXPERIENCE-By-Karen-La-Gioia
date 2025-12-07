@@ -28,7 +28,7 @@ const FutursEvents = ({ evenements }) => {
                 ou={service.s_lieu}
                 description={service.s_description}
                 quand={service.s_date}
-                afficheUrl={service.s_affiche}
+                afficheUrl={service.s_image}
                 style={{ width: "18rem" }}
               />
             );

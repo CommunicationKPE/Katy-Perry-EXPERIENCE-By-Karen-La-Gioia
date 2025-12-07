@@ -1,15 +1,17 @@
 import "./PassedEvents.css";
-import donnees_Services from "../../Assets/services_data";
+// import donnees_Services from "../../Assets/services_data";
 import CartePassedEvent from "../CartePassedEvent/CartePassedEvent";
 
-const PassedEvents = () => {
+const PassedEvents = ({ evenements }) => {
+  // console.log("evenements", evenements);
   // Obtenir la date d'aujourd'hui
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   // Filtrer les services dont la date est antérieure ou égale à aujourd'hui
 
-  const filteredServices = donnees_Services.filter((service) => {
+  const filteredServices = evenements.filter((service) => {
     const serviceDate = new Date(service.s_date);
+    // console.log("serviceDate", serviceDate < today);
     return serviceDate < today;
   });
 
@@ -20,6 +22,7 @@ const PassedEvents = () => {
     const dateB = new Date(b.s_date);
     return dateB - dateA;
   });
+  // console.log("sortedServices", sortedServices);
 
   return (
     <div id="anciens" className="anciens">
@@ -35,13 +38,13 @@ const PassedEvents = () => {
           <div className="carousel-indicators">
             {sortedServices.map((service, index) => (
               <button
-                key={index}
+                key={service.id}
                 type="button"
                 data-bs-target="#carouselExampleCaptions"
                 data-bs-slide-to={index}
                 className={index === 0 ? "active" : ""}
                 aria-current={index === 0 ? "true" : "false"}
-                aria-label={`Slide ${index + 1}`}
+                aria-label={`Slide ${service.id + 1}`}
               ></button>
             ))}
           </div>
@@ -59,6 +62,11 @@ const PassedEvents = () => {
                   premiereimage={service.s_image}
                   spectateurs={service.s_nbspectateurs}
                   id={index} // Utilisez l'index comme identifiant unique
+                  photo1={service.photo1}
+                  photo2={service.photo2}
+                  photo3={service.photo3}
+                  photo4={service.photo4}
+                  photo5={service.photo5}
                   style={{ width: "100%" }}
                 />
                 {/* <div className="carousel-caption d-none d-md-block">

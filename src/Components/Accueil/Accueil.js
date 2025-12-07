@@ -3,7 +3,7 @@ import "./Accueil.css";
 import logo from "../../Assets/Logo.png";
 
 const Accueil = ({ evenements }) => {
-  console.log(evenements);
+  // console.log(evenements);
   // Obtenir la date d'aujourd'hui
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -11,7 +11,6 @@ const Accueil = ({ evenements }) => {
   // Filtrer les services dont la date est antérieure à aujourd'hui (evenements passés)
   const pastServices = evenements.filter((service) => {
     const serviceDate = new Date(service.s_date);
-    console.log(serviceDate);
     return serviceDate < today;
   });
 
@@ -40,7 +39,7 @@ const Accueil = ({ evenements }) => {
                 <h5>SPECTACLES À VENIR</h5>
               </div>
             )}
-            {upcomingEventsCount > 0 && (
+            {upcomingEventsCount > 0 && totalPastSpectators > 0 && (
               <hr className="border border-light border-1 opacity-100" />
             )}
             {totalPastSpectators > 0 && (
@@ -49,7 +48,7 @@ const Accueil = ({ evenements }) => {
                 <h5>SPECTATEURS</h5>
               </div>
             )}
-            {pastServices.length > 0 && (
+            {totalPastSpectators > 0 && pastServices.length > 0 && (
               <hr className="border border-light border-1 opacity-100" />
             )}
             {pastServices.length > 0 && (
