@@ -1,7 +1,33 @@
 import signature from "../../Assets/signature.png";
 import "./Navbar.css";
+import { useState, useEffect } from "react";
 
-const Navbar = () => {
+const Navbar = ({ evenements }) => {
+  // Obtenir la date d'aujourd'hui
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Utiliser une variable d'état pour déterminer si l'élément doit être affiché
+  const [showPassed, setShowPassed] = useState(false);
+  const [showAvenir, setShowAvenir] = useState(false);
+  // Filtrer les services pour obtenir uniquement les événements à venir + celle d'aujourd'hui
+  const futursServices = evenements.filter((service) => {
+    const serviceDate = new Date(service.s_date);
+    return serviceDate >= today;
+  });
+  const passedServices = evenements.filter((service) => {
+    const serviceDate = new Date(service.s_date);
+    // console.log("serviceDate", serviceDate < today);
+    return serviceDate < today;
+  });
+
+  useEffect(() => {
+    // Vérifier si au moins un service est à venir ou aujourd'hui
+    const hasFutureEvents = futursServices.length > 0;
+    const haspassedEvents = passedServices.length > 0;
+    setShowAvenir(hasFutureEvents);
+    setShowPassed(haspassedEvents);
+  }, [futursServices, passedServices]);
   return (
     <div>
       <nav
@@ -57,17 +83,22 @@ const Navbar = () => {
                     <i className="fa-solid fa-circle-play"></i>Média
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#avenirs">
-                    <i className="fa-solid fa-hourglass-end"></i>Prochaines
-                    dates
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#anciens">
-                    <i className="fa-solid fa-calendar-check"></i>Dates passées
-                  </a>
-                </li>
+                {showAvenir && (
+                  <li className="nav-item">
+                    <a className="nav-link" href="#avenirs">
+                      <i className="fa-solid fa-hourglass-end"></i>Prochaines
+                      dates
+                    </a>
+                  </li>
+                )}
+                {showPassed && (
+                  <li className="nav-item">
+                    <a className="nav-link" href="#anciens">
+                      <i className="fa-solid fa-calendar-check"></i>Dates
+                      passées
+                    </a>
+                  </li>
+                )}
                 <li className="nav-item">
                   <a className="nav-link" href="#contact">
                     <i className="fa-solid fa-envelope"></i>Contact
@@ -94,16 +125,21 @@ const Navbar = () => {
                   <i className="fa-solid fa-circle-play"></i>Média
                 </a>
               </li>
-              <li className="nav-item ">
-                <a className="nav-link" href="#avenirs">
-                  <i className="fa-solid fa-hourglass-end"></i>Prochaines dates
-                </a>
-              </li>
-              <li className="nav-item ">
-                <a className="nav-link" href="#anciens">
-                  <i className="fa-solid fa-calendar-check"></i>Dates passées
-                </a>
-              </li>
+              {showAvenir && (
+                <li className="nav-item ">
+                  <a className="nav-link" href="#avenirs">
+                    <i className="fa-solid fa-hourglass-end"></i>Prochaines
+                    dates
+                  </a>
+                </li>
+              )}
+              {showPassed && (
+                <li className="nav-item ">
+                  <a className="nav-link" href="#anciens">
+                    <i className="fa-solid fa-calendar-check"></i>Dates passées
+                  </a>
+                </li>
+              )}
               <li className="nav-item ">
                 <a className="nav-link" href="#contact">
                   <i className="fa-solid fa-envelope"></i>Contact

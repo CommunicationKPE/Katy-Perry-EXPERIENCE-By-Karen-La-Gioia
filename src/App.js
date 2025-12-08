@@ -78,7 +78,7 @@ function App() {
   return (
     <div className="parallax">
       <div className="content">
-        <Navbar />
+        <Navbar evenements={evenements} />
         <Accueil evenements={evenements} />
         <About />
         <Media />
