@@ -1,5 +1,13 @@
 import "./CartePassedEvent.css";
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Les mois sont indexés à partir de 0
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+};
+
 const CartePassedEvent = ({
   premiereimage,
   ou,
@@ -13,6 +21,8 @@ const CartePassedEvent = ({
   photo4,
   photo5,
 }) => {
+  const formattedDate = formatDate(quand);
+
   return (
     <div>
       <div
@@ -29,7 +39,7 @@ const CartePassedEvent = ({
           <i className="fa-solid fa-location-dot"></i>
           {ou}
         </h3>
-        <h2>{quand}</h2>
+        <h2>{formattedDate}</h2>
         <p>{description}</p>
         <hr className="border border-light border-1 opacity-100"></hr>
         <p>Revivez l'événement</p>
@@ -49,7 +59,7 @@ const CartePassedEvent = ({
                 className="modal-title"
                 id={`modalCartePassedEventLabel${id}`}
               >
-                {`${ou}: le ${quand}`}
+                {`${ou} - ${formattedDate}`}
               </h5>
               <button
                 type="button"

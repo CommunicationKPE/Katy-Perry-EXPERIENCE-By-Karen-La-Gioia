@@ -1,6 +1,14 @@
 import "./CarteFuturEvent.css";
 import { useEffect } from "react";
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Les mois sont indexés à partir de 0
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+};
+
 const CarteFuturEvent = ({
   ou,
   description,
@@ -9,6 +17,8 @@ const CarteFuturEvent = ({
   id,
   isOpen,
 }) => {
+  const formattedDate = formatDate(quand);
+
   useEffect(() => {
     // Assurez-vous que Bootstrap est correctement initialisé
     import("bootstrap");
@@ -18,7 +28,7 @@ const CarteFuturEvent = ({
       try {
         await navigator.share({
           title: "Affiche de l'événement",
-          text: `Consultez l'affiche de l'événement ${description} à ${ou} le ${quand}`,
+          text: `Consultez l'affiche de l'événement ${description} à ${ou} le ${formattedDate}`,
           url: afficheUrl,
         });
       } catch (error) {
@@ -48,7 +58,7 @@ const CarteFuturEvent = ({
         data-bs-toggle="modal"
         data-bs-target={`#modalCarteFutur${id}`}
       >
-        <h2>{quand}</h2>
+        <h2>{formattedDate}</h2>
         <h3 className="justify-content-center">
           <i className="fa-solid fa-location-dot"></i>
           {ou}
@@ -78,7 +88,7 @@ const CarteFuturEvent = ({
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id={`modalCarteFuturLabel${id}`}>
-                Affiche de l'événement {quand}
+                Retrouvez-nous le : {formattedDate}
               </h5>
               <button
                 type="button"
@@ -109,7 +119,8 @@ const CarteFuturEvent = ({
                 <p>Aucune affiche disponible pour cet événement.</p>
               )}
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer justify-content-between">
+              <h5> {ou} </h5>
               {afficheUrl ? (
                 // <a href={afficheUrl} download className="btn btn-primary">
                 //   Télécharger
