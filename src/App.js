@@ -13,6 +13,7 @@ import { supabase } from "./config/supabase";
 function App() {
   // console.log("supabase", supabase);
   const [evenements, setEvenements] = useState([]);
+  const [visits, setVisits] = useState(null);
 
   useEffect(() => {
     const recuperationListeEvenements = async () => {
@@ -43,6 +44,37 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const updateVisitCount = async () => {
+      // Récupérer la valeur actuelle
+      const { data, error } = await supabase
+        .from("Visits")
+        .select("count")
+        .eq("id", 1)
+        .single();
+
+      if (error) {
+        console.error(error);
+        return;
+      }
+
+      const newCount = data.count + 1;
+
+      // Incrémenter dans la base
+      const { error: updateError } = await supabase
+        .from("Visits")
+        .update({ count: newCount })
+        .eq("id", 1);
+
+      if (updateError) console.error(updateError);
+
+      // Mettre à jour l’état local
+      setVisits(newCount);
+    };
+
+    updateVisitCount();
+  }, []);
+
   return (
     <div className="parallax">
       <div className="content">
@@ -53,7 +85,7 @@ function App() {
         <FutursEvents evenements={evenements} />
         <PassedEvents evenements={evenements} />
         <Contact />
-        <Footer />
+        <Footer visits={visits} />
       </div>
     </div>
   );

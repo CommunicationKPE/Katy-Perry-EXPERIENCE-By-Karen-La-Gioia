@@ -1,10 +1,11 @@
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({ visits }) => {
   return (
     <div className="copyright">
       <p>
-        KatyPerryEXPERIENCEbyKarenLaGioia<br></br> / WebApp / <br></br>
+        KatyPerryEXPERIENCEbyKarenLaGioia<br></br> / WebApp / {visits} visiteurs
+        <br></br>
         <i className="fas fa-drum"></i>
         -Developed by ///Atn/// With-
         <i className="fa-solid fa-heart"></i>
