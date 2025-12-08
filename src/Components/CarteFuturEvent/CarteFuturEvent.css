@@ -48,6 +48,25 @@
 .modal-backdrop {
   z-index: -1;
 }
+.btn-red {
+  border: none;
+  color: white;
+  border-radius: 50px;
+  background: #ba1f33;
+  font-size: 22px;
+  padding: 10px 30px;
+  /* margin-top: 15px; */
+  /* margin-bottom: 50px; */
+  margin-left: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-red:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  background: #ba1f33;
+  color: white;
+}
 /*************************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {
   .carte-avant {

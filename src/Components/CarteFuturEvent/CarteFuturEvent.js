@@ -125,7 +125,7 @@ const CarteFuturEvent = ({
                 // <a href={afficheUrl} download className="btn btn-primary">
                 //   Télécharger
                 // </a>
-                <button onClick={handleShare} className="btn btn-primary">
+                <button onClick={handleShare} className="btn btn-red">
                   Partager
                 </button>
               ) : (
