@@ -120,11 +120,10 @@ const CarteFuturEvent = ({
               )}
             </div>
             <div className="modal-footer justify-content-between">
-              <h5> {ou} </h5>
+              <h5>
+                <i className="fa-solid fa-location-dot"></i> {ou}
+              </h5>
               {afficheUrl ? (
-                // <a href={afficheUrl} download className="btn btn-primary">
-                //   Télécharger
-                // </a>
                 <button onClick={handleShare} className="btn btn-red">
                   Partager
                 </button>
