@@ -8,9 +8,10 @@ import Footer from "./Components/Footer/Footer";
 import Contact from "./Components/Contact/Contact";
 import Media from "./Components/Medias/Medias";
 import { useEffect, useState } from "react";
-import { supabase } from "./config/supabase";
+import { supabase, emailjs } from "./config/supabase";
 
 function App() {
+  // console.log("emailjs", emailjs);
   // console.log("supabase", supabase);
   const [evenements, setEvenements] = useState([]);
   const [visits, setVisits] = useState(null);
@@ -84,7 +85,7 @@ function App() {
         <Media />
         <FutursEvents evenements={evenements} />
         <PassedEvents evenements={evenements} />
-        <Contact />
+        <Contact serviceEmailJS={emailjs} />
         <Footer visits={visits} />
       </div>
     </div>

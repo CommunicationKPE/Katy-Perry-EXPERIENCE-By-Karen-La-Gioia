@@ -1,14 +1,28 @@
+import { init, sendForm } from "@emailjs/browser";
 import "./Contact.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Contact = () => {
+const Contact = ({ serviceEmailJS }) => {
+  // console.log(serviceEmailJS);
+
+  // Initialiser EmailJS avec la clé publique
+  useEffect(() => {
+    init(serviceEmailJS.publicKey);
+  }, [serviceEmailJS.publicKey]);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     message: "",
   });
+
   const [errors, setErrors] = useState({});
+
+  const formRef = useRef();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -16,6 +30,7 @@ const Contact = () => {
       [name]: value,
     });
   };
+
   const validateForm = () => {
     const newErrors = {};
     if (!formData.firstName.trim()) {
@@ -36,11 +51,38 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const sendEmail = () => {
+    sendForm(
+      serviceEmailJS.serviceID,
+      serviceEmailJS.templateID,
+      formRef.current,
+      serviceEmailJS.publicKey
+    ).then(
+      (result) => {
+        console.log(result);
+        toast.success("Yeah!!! Votre message a été envoyé avec succès!");
+      },
+      (error) => {
+        console.log(error);
+        toast.error(
+          "Oopsy... Une erreur est survenue lors de l'envoi du message."
+        );
+      }
+    );
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       // Soumettre le formulaire
-      console.log("Formulaire soumis", formData);
+      // console.log("Formulaire soumis", formData);
+      sendEmail(formData);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+      });
     }
   };
   return (
@@ -82,7 +124,7 @@ const Contact = () => {
               notre équipe reviendra vers vous dans les plus brefs délais...
             </p>
           </div>
-          <form className="contact-right">
+          <form className="contact-right" ref={formRef} onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Prénom"
@@ -117,7 +159,7 @@ const Contact = () => {
             {errors.message && <p className="error">{errors.message}</p>}
             <button
               type="submit"
-              onClick={handleSubmit}
+              // onClick={handleSubmit}
               className="contact-submit"
             >
               Envoyer
@@ -125,6 +167,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
