@@ -60,12 +60,33 @@ const Contact = ({ serviceEmailJS }) => {
     ).then(
       (result) => {
         console.log(result);
-        toast.success("Yeah!!! Votre message a été envoyé avec succès!");
+        toast.success("Yeah!!! 😎 Votre message a été envoyé avec succès!", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Bounce,
+        });
       },
       (error) => {
         console.log(error);
         toast.error(
-          "Oopsy... Une erreur est survenue lors de l'envoi du message."
+          "Oopsy... 😕 Une erreur est survenue lors de l'envoi du message.",
+          {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+          }
         );
       }
     );
@@ -167,7 +188,19 @@ const Contact = ({ serviceEmailJS }) => {
           </form>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
     </div>
   );
 };
