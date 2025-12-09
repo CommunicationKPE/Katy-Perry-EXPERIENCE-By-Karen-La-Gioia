@@ -25,8 +25,8 @@ const CartePassedEvent = ({
 
   return (
     <div>
-      <div className="carte-Event-passed" id="liveToastBtn">
-        <div className="card">
+      <div className="carte-Event-passed align-items-center" id="liveToastBtn">
+        <div className="card ">
           <img src={premiereimage} className="card-img-top" alt="..." />
         </div>
         <br></br>
@@ -36,13 +36,12 @@ const CartePassedEvent = ({
         </h3>
         <h2>{formattedDate}</h2>
         <p>{description}</p>
-        <hr className="border border-light border-1 opacity-100"></hr>
-        {/* <p>Revivez l'événement</p> */}
         <button
           type="button"
-          className="btn btn-danger btn-contactez-nous"
+          // className="btn btn-danger btn-contactez-nous"
           data-bs-toggle="modal"
           data-bs-target={`#modalCartePassedEvent${id}`}
+          className="contact-submit"
         >
           Revivez l'événement
         </button>

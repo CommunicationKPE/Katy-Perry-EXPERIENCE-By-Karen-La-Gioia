@@ -118,7 +118,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.35); /* Noir avec 50% d'opacité */
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,6 +128,16 @@
 .spinner-border {
   width: 60px;
   height: 60px;
+}
+/* Styles pour les toasts personnalisés */
+.Toastify__toast--success {
+  background-color: #1f242d !important;
+  color: white !important; /* Pour assurer la lisibilité du texte */
+}
+
+.Toastify__toast--error {
+  background-color: #1f242d !important;
+  color: white !important; /* Pour assurer la lisibilité du texte */
 }
 /*************Ecrans max 768px*************/
 @media (max-width: 768px) {

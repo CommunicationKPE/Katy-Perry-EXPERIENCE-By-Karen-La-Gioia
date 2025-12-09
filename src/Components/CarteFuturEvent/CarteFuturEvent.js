@@ -53,28 +53,23 @@ const CarteFuturEvent = ({
 
   return (
     <div>
-      <div className="carte-avant">
+      <div className="carte-avant align-items-center">
         <h2>{formattedDate}</h2>
-        <h3 className="justify-content-center">
+        <h3>
           <i className="fa-solid fa-location-dot"></i>
           {ou}
         </h3>
         <p>{description}</p>
-        <hr className="border border-light border-1 opacity-100"></hr>
-        <div className="card-readmore justify-content-center">
-          {/* <p>Consultez l'affiche</p> */}
-          <button
-            type="button"
-            className="btn btn-danger btn-contactez-nous"
-            data-bs-toggle="modal"
-            data-bs-target={`#modalCarteFutur${id}`}
-          >
-            Consultez l'affiche
-          </button>
-        </div>
+        <button
+          type="button"
+          // className="btn btn-danger btn-contactez-nous"
+          data-bs-toggle="modal"
+          data-bs-target={`#modalCarteFutur${id}`}
+          className="contact-submit"
+        >
+          Consultez l'affiche
+        </button>
       </div>
-
-      {/* <!-- Modal --> */}
       <div
         className="modal fade"
         id={`modalCarteFutur${id}`}

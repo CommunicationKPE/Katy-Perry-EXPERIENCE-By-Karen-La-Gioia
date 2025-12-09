@@ -1,7 +1,7 @@
 import { init, sendForm } from "@emailjs/browser";
 import "./Contact.css";
 import { useState, useEffect, useRef } from "react";
-import { ToastContainer, toast, Bounce } from "react-toastify";
+import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = ({ serviceEmailJS }) => {
@@ -58,29 +58,23 @@ const Contact = ({ serviceEmailJS }) => {
       formRef.current,
       serviceEmailJS.publicKey
     ).then(
-      (result) => {
-        console.log(result);
-
+      () => {
         // Envoyer la réponse automatique
         sendAutoReply();
       },
-      (error) => {
-        console.log(error);
+      () => {
         setIsLoading(false);
-        toast.error(
-          "Oopsy... 😕 Une erreur est survenue lors de l'envoi du message.",
-          {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Bounce,
-          }
-        );
+        toast.error("Oopsy... Une erreur est survenue.", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Slide,
+        });
       }
     );
   };
@@ -92,19 +86,18 @@ const Contact = ({ serviceEmailJS }) => {
       formRef.current,
       serviceEmailJS.publicKey
     ).then(
-      (result) => {
-        console.log(result);
+      () => {
         setIsLoading(false);
-        toast.success("Yeah!!! 😎 Votre message a été envoyé avec succès!", {
+        toast.success("Yeah!!! message envoyé avec succès!", {
           position: "bottom-center",
           autoClose: 5000,
           hideProgressBar: false,
-          closeOnClick: false,
+          closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
           theme: "dark",
-          transition: Bounce,
+          transition: Slide,
         });
 
         // Réinitialiser le formulaire après l'envoi réussi
@@ -115,23 +108,19 @@ const Contact = ({ serviceEmailJS }) => {
           message: "",
         });
       },
-      (error) => {
-        console.log(error);
+      () => {
         setIsLoading(false);
-        toast.error(
-          "Oopsy... 😕 Une erreur est survenue lors de l'envoi de la réponse automatique.",
-          {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Bounce,
-          }
-        );
+        toast.error("Oopsy... Une erreur est survenue.", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Slide,
+        });
       }
     );
   };
@@ -231,17 +220,17 @@ const Contact = ({ serviceEmailJS }) => {
         position="bottom-center"
         autoClose={5000}
         hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
+        newestOnTop
+        closeOnClick
         rtl={false}
-        pauseOnFocusLoss
+        pauseOnFocusLoss={false}
         draggable
         pauseOnHover
         theme="dark"
-        transition={Bounce}
+        transition={Slide}
       />
       {isLoading && (
-        <div className="overlay">
+        <div className="overlay opacity-75">
           <div className="spinner-border text-danger" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
