@@ -34,7 +34,6 @@
   flex-direction: column;
   gap: 30px;
 }
-
 .contact-left p {
   max-width: 550px;
   color: #d8d8d8;
@@ -81,12 +80,12 @@
   font-size: 20px;
 }
 .contact-right textarea {
-  width: 650px;
+  width: 700px;
   border: none;
   padding: 25px;
   border-radius: 4px;
   background: #1f242d;
-  color: #a0a0a0;
+  color: white;
   font-family: Outfit;
   font-size: 20px;
 }

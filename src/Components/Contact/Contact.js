@@ -5,8 +5,6 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = ({ serviceEmailJS }) => {
-  console.log(serviceEmailJS);
-
   // Initialiser EmailJS avec la clé publique
   useEffect(() => {
     init(serviceEmailJS.publicKey);
