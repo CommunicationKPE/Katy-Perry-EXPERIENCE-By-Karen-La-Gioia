@@ -18,6 +18,7 @@ const Contact = ({ serviceEmailJS }) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const formRef = useRef();
 
@@ -50,6 +51,7 @@ const Contact = ({ serviceEmailJS }) => {
   };
 
   const sendEmail = () => {
+    setIsLoading(true);
     sendForm(
       serviceEmailJS.serviceID,
       serviceEmailJS.templateFromAPP,
@@ -64,6 +66,7 @@ const Contact = ({ serviceEmailJS }) => {
       },
       (error) => {
         console.log(error);
+        setIsLoading(false);
         toast.error(
           "Oopsy... 😕 Une erreur est survenue lors de l'envoi du message.",
           {
@@ -91,6 +94,7 @@ const Contact = ({ serviceEmailJS }) => {
     ).then(
       (result) => {
         console.log(result);
+        setIsLoading(false);
         toast.success("Yeah!!! 😎 Votre message a été envoyé avec succès!", {
           position: "bottom-center",
           autoClose: 5000,
@@ -113,6 +117,7 @@ const Contact = ({ serviceEmailJS }) => {
       },
       (error) => {
         console.log(error);
+        setIsLoading(false);
         toast.error(
           "Oopsy... 😕 Une erreur est survenue lors de l'envoi de la réponse automatique.",
           {
@@ -212,7 +217,11 @@ const Contact = ({ serviceEmailJS }) => {
               onChange={handleChange}
             ></textarea>
             {errors.message && <p className="error">{errors.message}</p>}
-            <button type="submit" className="contact-submit">
+            <button
+              type="submit"
+              className="contact-submit"
+              disabled={isLoading}
+            >
               Envoyer
             </button>
           </form>
@@ -231,6 +240,13 @@ const Contact = ({ serviceEmailJS }) => {
         theme="dark"
         transition={Bounce}
       />
+      {isLoading && (
+        <div className="overlay">
+          <div className="spinner-border text-danger" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

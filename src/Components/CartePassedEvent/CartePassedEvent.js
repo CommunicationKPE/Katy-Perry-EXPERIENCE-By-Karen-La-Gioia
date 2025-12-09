@@ -38,14 +38,14 @@ const CartePassedEvent = ({
         <p>{description}</p>
         <hr className="border border-light border-1 opacity-100"></hr>
         {/* <p>Revivez l'événement</p> */}
-        <a
+        <button
           type="button"
           className="btn btn-danger btn-contactez-nous"
           data-bs-toggle="modal"
           data-bs-target={`#modalCartePassedEvent${id}`}
         >
           Revivez l'événement
-        </a>
+        </button>
       </div>
       <div
         className="modal fade"

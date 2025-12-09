@@ -63,14 +63,14 @@ const CarteFuturEvent = ({
         <hr className="border border-light border-1 opacity-100"></hr>
         <div className="card-readmore justify-content-center">
           {/* <p>Consultez l'affiche</p> */}
-          <a
+          <button
             type="button"
             className="btn btn-danger btn-contactez-nous"
             data-bs-toggle="modal"
             data-bs-target={`#modalCarteFutur${id}`}
           >
             Consultez l'affiche
-          </a>
+          </button>
         </div>
       </div>
 
