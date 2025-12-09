@@ -60,25 +60,9 @@ const Contact = ({ serviceEmailJS }) => {
     ).then(
       (result) => {
         console.log(result);
-        sendForm(
-          serviceEmailJS.serviceID,
-          serviceEmailJS.templateAutoReply,
-          formRef.current,
-          serviceEmailJS.publicKey
-        ).then((result) => {
-          console.log(result);
-          toast.success("Yeah!!! 😎 Votre message a été envoyé avec succès!", {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Bounce,
-          });
-        });
+
+        // Envoyer la réponse automatique
+        sendAutoReply();
       },
       (error) => {
         console.log(error);
@@ -100,20 +84,64 @@ const Contact = ({ serviceEmailJS }) => {
     );
   };
 
+  const sendAutoReply = () => {
+    sendForm(
+      serviceEmailJS.serviceID,
+      serviceEmailJS.templateAutoReply,
+      formRef.current,
+      serviceEmailJS.publicKey
+    ).then(
+      (result) => {
+        console.log(result);
+        toast.success("Yeah!!! 😎 Votre message a été envoyé avec succès!", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Bounce,
+        });
+
+        // Réinitialiser le formulaire après l'envoi réussi
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+        });
+      },
+      (error) => {
+        console.log(error);
+        toast.error(
+          "Oopsy... 😕 Une erreur est survenue lors de l'envoi de la réponse automatique.",
+          {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+          }
+        );
+      }
+    );
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       // Soumettre le formulaire
       // console.log("Formulaire soumis", formData);
-      sendEmail(formData);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        message: "",
-      });
+      sendEmail();
     }
   };
+
   return (
     <div id="contact" className="contact">
       <div className="contact-cadre">
@@ -186,11 +214,7 @@ const Contact = ({ serviceEmailJS }) => {
               onChange={handleChange}
             ></textarea>
             {errors.message && <p className="error">{errors.message}</p>}
-            <button
-              type="submit"
-              // onClick={handleSubmit}
-              className="contact-submit"
-            >
+            <button type="submit" className="contact-submit">
               Envoyer
             </button>
           </form>
@@ -212,4 +236,5 @@ const Contact = ({ serviceEmailJS }) => {
     </div>
   );
 };
+
 export default Contact;
