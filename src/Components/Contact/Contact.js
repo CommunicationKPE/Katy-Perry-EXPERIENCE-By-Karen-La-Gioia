@@ -5,7 +5,7 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = ({ serviceEmailJS }) => {
-  // console.log(serviceEmailJS);
+  console.log(serviceEmailJS);
 
   // Initialiser EmailJS avec la clé publique
   useEffect(() => {
@@ -54,22 +54,30 @@ const Contact = ({ serviceEmailJS }) => {
   const sendEmail = () => {
     sendForm(
       serviceEmailJS.serviceID,
-      serviceEmailJS.templateID,
+      serviceEmailJS.templateFromAPP,
       formRef.current,
       serviceEmailJS.publicKey
     ).then(
       (result) => {
         console.log(result);
-        toast.success("Yeah!!! 😎 Votre message a été envoyé avec succès!", {
-          position: "bottom-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-          transition: Bounce,
+        sendForm(
+          serviceEmailJS.serviceID,
+          serviceEmailJS.templateAutoReply,
+          formRef.current,
+          serviceEmailJS.publicKey
+        ).then((result) => {
+          console.log(result);
+          toast.success("Yeah!!! 😎 Votre message a été envoyé avec succès!", {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+          });
         });
       },
       (error) => {
