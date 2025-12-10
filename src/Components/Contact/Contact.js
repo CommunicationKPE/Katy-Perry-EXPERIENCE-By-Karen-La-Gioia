@@ -59,12 +59,8 @@ const Contact = ({ serviceEmailJS }) => {
       serviceEmailJS.publicKey
     ).then(
       () => {
-        // Envoyer la réponse automatique
-        sendAutoReply();
-      },
-      () => {
         setIsLoading(false);
-        toast.error("Oopsy... Une erreur est survenue.", {
+        toast.success("message envoyé!", {
           position: "bottom-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -74,32 +70,9 @@ const Contact = ({ serviceEmailJS }) => {
           progress: undefined,
           theme: "dark",
           transition: Slide,
+          progressClassName: "toast-progress-success", // Ajoutez cette ligne pour la ProgressBar
+          icon: <i className="toast-icon-success fa fa-check-circle" />, // Ajoutez cette ligne pour l'icône
         });
-      }
-    );
-  };
-
-  const sendAutoReply = () => {
-    sendForm(
-      serviceEmailJS.serviceID,
-      serviceEmailJS.templateAutoReply,
-      formRef.current,
-      serviceEmailJS.publicKey
-    ).then(
-      () => {
-        setIsLoading(false);
-        toast.success("Yeah!!! message envoyé avec succès!", {
-          position: "bottom-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-          transition: Slide,
-        });
-
         // Réinitialiser le formulaire après l'envoi réussi
         setFormData({
           firstName: "",
@@ -110,7 +83,7 @@ const Contact = ({ serviceEmailJS }) => {
       },
       () => {
         setIsLoading(false);
-        toast.error("Oopsy... Une erreur est survenue.", {
+        toast.error("Une erreur est survenue.", {
           position: "bottom-center",
           autoClose: 5000,
           hideProgressBar: false,
