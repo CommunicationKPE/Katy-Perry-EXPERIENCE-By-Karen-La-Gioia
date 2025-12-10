@@ -14,3 +14,6 @@
   color: #ba1f33;
   font-weight: bold;
 }
+.bg-dark {
+  background-color: #1f242d !important;
+}
