@@ -11,8 +11,6 @@ import { useEffect, useState } from "react";
 import { supabase, emailjs } from "./config/supabase";
 
 function App() {
-  // console.log("emailjs", emailjs);
-  // console.log("supabase", supabase);
   const [evenements, setEvenements] = useState([]);
   const [visits, setVisits] = useState(null);
 

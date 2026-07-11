@@ -1,7 +1,6 @@
 import "./Footer.css";
 
 const Footer = ({ visits }) => {
-  // console.log(visits);
   return (
     <div className="copyright">
       <p>

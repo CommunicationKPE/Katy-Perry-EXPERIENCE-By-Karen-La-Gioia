@@ -102,7 +102,6 @@ const Contact = ({ serviceEmailJS }) => {
     e.preventDefault();
     if (validateForm()) {
       // Soumettre le formulaire
-      // console.log("Formulaire soumis", formData);
       sendEmail();
     }
   };

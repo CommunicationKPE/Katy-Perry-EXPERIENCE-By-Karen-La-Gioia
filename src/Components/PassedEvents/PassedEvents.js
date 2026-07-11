@@ -4,7 +4,6 @@ import CartePassedEvent from "../CartePassedEvent/CartePassedEvent";
 import { useState, useEffect } from "react";
 
 const PassedEvents = ({ evenements }) => {
-  // console.log("evenements", evenements);
   // Obtenir la date d'aujourd'hui
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -15,7 +14,6 @@ const PassedEvents = ({ evenements }) => {
 
   const filteredServices = evenements.filter((service) => {
     const serviceDate = new Date(service.s_date);
-    // console.log("serviceDate", serviceDate < today);
     return serviceDate < today;
   });
 
@@ -26,7 +24,6 @@ const PassedEvents = ({ evenements }) => {
     const dateB = new Date(b.s_date);
     return dateB - dateA;
   });
-  // console.log("sortedServices", sortedServices);
 
   useEffect(() => {
     // Vérifier si au moins un service est passé

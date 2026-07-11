@@ -3,7 +3,6 @@ import "./Accueil.css";
 import logo from "../../Assets/Logo.png";
 
 const Accueil = ({ evenements }) => {
-  // console.log(evenements);
   // Obtenir la date d'aujourd'hui
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -49,7 +48,11 @@ const Accueil = ({ evenements }) => {
             {totalPastSpectators > 0 && (
               <div className="about-achievement">
                 <h2>{totalPastSpectators}</h2>
-                <h5>SPECTATEURS</h5>
+                <h5>
+                  {totalPastSpectators === 1
+                    ? "SPECTATEUR"
+                    : "SPECTATEURS"}
+                </h5>
               </div>
             )}
             {totalPastSpectators > 0 && pastServices.length > 0 && (
@@ -59,7 +62,7 @@ const Accueil = ({ evenements }) => {
               <div className="about-achievement">
                 <h2>{pastServices.length}</h2>
                 <h5>
-                  {pastServices === 1
+                  {pastServices.length === 1
                     ? "ÉVÉNEMENT RÉALISÉ"
                     : "ÉVÉNEMENTS RÉALISÉS"}
                 </h5>

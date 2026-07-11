@@ -17,7 +17,6 @@ const Navbar = ({ evenements }) => {
   });
   const passedServices = evenements.filter((service) => {
     const serviceDate = new Date(service.s_date);
-    // console.log("serviceDate", serviceDate < today);
     return serviceDate < today;
   });
 
@@ -86,16 +85,20 @@ const Navbar = ({ evenements }) => {
                 {showAvenir && (
                   <li className="nav-item">
                     <a className="nav-link" href="#avenirs">
-                      <i className="fa-solid fa-hourglass-end"></i>Prochaines
-                      dates
+                      <i className="fa-solid fa-hourglass-end"></i>
+                        {futursServices.length === 1
+                          ? "Prochaine date"
+                          : "Prochaines dates"}
                     </a>
                   </li>
                 )}
                 {showPassed && (
                   <li className="nav-item">
                     <a className="nav-link" href="#anciens">
-                      <i className="fa-solid fa-calendar-check"></i>Dates
-                      passées
+                      <i className="fa-solid fa-calendar-check"></i>
+                        {passedServices.length === 1
+                          ? "Date passée"
+                          : "Dates passées"}
                     </a>
                   </li>
                 )}
@@ -128,15 +131,20 @@ const Navbar = ({ evenements }) => {
               {showAvenir && (
                 <li className="nav-item ">
                   <a className="nav-link" href="#avenirs">
-                    <i className="fa-solid fa-hourglass-end"></i>Prochaines
-                    dates
+                    <i className="fa-solid fa-hourglass-end"></i>
+                    {futursServices.length === 1
+                      ? "Prochaine date"
+                      : "Prochaines dates"}
                   </a>
                 </li>
               )}
               {showPassed && (
                 <li className="nav-item ">
                   <a className="nav-link" href="#anciens">
-                    <i className="fa-solid fa-calendar-check"></i>Dates passées
+                    <i className="fa-solid fa-calendar-check"></i>
+                    {passedServices.length === 1
+                      ? "Date passée"
+                      : "Dates passées"}
                   </a>
                 </li>
               )}
