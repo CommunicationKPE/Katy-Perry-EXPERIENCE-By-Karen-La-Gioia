@@ -59,9 +59,9 @@ const Accueil = ({ evenements }) => {
               <div className="about-achievement">
                 <h2>{pastServices.length}</h2>
                 <h5>
-                  {pastServices.length === 1
-                    ? "EVENEMENT RÉALISÉ"
-                    : "EVENEMENTS RÉALISÉS"}
+                  {pastServices === 1
+                    ? "ÉVÉNEMENT RÉALISÉ"
+                    : "ÉVÉNEMENTS RÉALISÉS"}
                 </h5>
               </div>
             )}
