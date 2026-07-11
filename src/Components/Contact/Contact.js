@@ -127,14 +127,6 @@ const Contact = ({ serviceEmailJS }) => {
                   <p>facebook</p>
                 </div>
                 <div className="contact-detail">
-                  <i className="fa-brands fa-twitter"></i>
-                  <p>twitter</p>
-                </div>
-                <div className="contact-detail">
-                  <i className="fa-brands fa-tiktok"></i>
-                  <p>tiktok</p>
-                </div>
-                <div className="contact-detail">
                   <i className="fa-brands fa-instagram"></i>
                   <p>Instagram</p>
                 </div>
