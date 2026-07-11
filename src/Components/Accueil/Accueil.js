@@ -36,7 +36,11 @@ const Accueil = ({ evenements }) => {
             {upcomingEventsCount > 0 && (
               <div className="about-achievement">
                 <h2>{upcomingEventsCount}</h2>
-                <h5>SPECTACLES À VENIR</h5>
+                <h5>
+                  {upcomingEventsCount === 1
+                    ? "SPECTACLE À VENIR"
+                    : "SPECTACLES À VENIR"}
+                </h5>
               </div>
             )}
             {upcomingEventsCount > 0 && totalPastSpectators > 0 && (
