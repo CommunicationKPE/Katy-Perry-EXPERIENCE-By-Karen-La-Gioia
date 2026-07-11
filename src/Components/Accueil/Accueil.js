@@ -58,7 +58,11 @@ const Accueil = ({ evenements }) => {
             {pastServices.length > 0 && (
               <div className="about-achievement">
                 <h2>{pastServices.length}</h2>
-                <h5>EVENEMENTS RÉALISÉS</h5>
+                <h5>
+                  {pastServices.length === 1
+                    ? "EVENEMENT RÉALISÉ"
+                    : "EVENEMENTS RÉALISÉS"}
+                </h5>
               </div>
             )}
           </div>{" "}
