@@ -130,25 +130,21 @@ const sendEmail = useCallback(() => {
         <div className="contact-section">
           <div className="contact-left">
             <div className="contact-details">
-              <p>Retrouvez-nous sur les réseaux sociaux.</p>
               <div className="icons-reseaux">
                 <div className="contact-detail">
                   <a href="https://youtube.com" aria-label="YouTube">
                     <i className="fa-brands fa-youtube"></i>
-                  </a>
-                  <p>youtube</p>
+                  </a>                 
                 </div>
                 <div className="contact-detail">
                   <a href="https://facebook.com" aria-label="Facebook">
                     <i className="fa-brands fa-facebook-f"></i>
-                  </a>
-                  <p>facebook</p>
+                  </a>                  
                 </div>
                 <div className="contact-detail">
                   <a href="https://instagram.com" aria-label="Instagram">
                     <i className="fa-brands fa-instagram"></i>
                   </a>
-                  <p>Instagram</p>
                 </div>
               </div>
             </div>
