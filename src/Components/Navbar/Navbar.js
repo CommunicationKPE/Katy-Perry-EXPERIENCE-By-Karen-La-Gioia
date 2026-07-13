@@ -97,7 +97,7 @@ const Navbar = ({ evenements }) => {
                     <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">
                       <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
                       {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
-                      <span className="badge text-bg-warning ms-2">{futursServices.length}</span>
+                      <span className="badge notification ms-3">{futursServices.length}</span>
                     </a>
                   </li>
                 )}
@@ -145,7 +145,7 @@ const Navbar = ({ evenements }) => {
                   <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">
                     <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
                     {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
-                    <span className="badge text-bg-warning ms-2">{futursServices.length}</span>
+                    <span className="badge notification ms-2">{futursServices.length}</span>
                   </a>
                 </li>
               )}

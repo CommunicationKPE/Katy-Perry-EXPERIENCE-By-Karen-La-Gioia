@@ -17,3 +17,26 @@
 .bg-dark {
   background-color: #1f242d !important;
 }
+/* Style pour le badge avec effet glowy */
+.badge.notification {
+  margin-left: 50px; /* Espacement à gauche du badge */
+  background-color: #FFF500; /* Couleur rouge comme dans le reste du site */
+  color: #1f242d; /* Texte en blanc pour un bon contraste */
+  font-size: 0.8em; /* Taille du texte */
+  padding: 0.3em 0.6em; /* Espacement interne */
+  box-shadow: 0 0 10px #FFF500; /* Effet glowy avec la même couleur */
+  animation: pulse 1.5s infinite; /* Animation pour un effet pulsatif */
+}
+
+/* Animation pour l'effet glowy */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #fff958;
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(186, 31, 51, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(186, 31, 51, 0);
+  }
+}
