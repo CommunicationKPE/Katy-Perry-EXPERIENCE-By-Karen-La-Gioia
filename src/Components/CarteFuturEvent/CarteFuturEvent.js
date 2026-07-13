@@ -65,7 +65,8 @@ const CarteFuturEvent = ({
           // className="btn btn-danger btn-contactez-nous"
           data-bs-toggle="modal"
           data-bs-target={`#modalCarteFutur${id}`}
-          className="contact-submit"
+          // className="contact-submit"
+          className="btn btn-red"
         >
           Consultez l'affiche
         </button>
