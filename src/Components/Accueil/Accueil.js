@@ -54,7 +54,7 @@ const Accueil = ({ evenements }) => {
             {totalPastSpectators > 0 && (
               <div className="about-achievement">
                 <h2>
-                  <CountUp end={totalPastSpectators} duration={5} preserveValue={true} />
+                  <CountUp end={totalPastSpectators} duration={5} />
                 </h2>
                 <h5>
                   {totalPastSpectators === 1 ? "SPECTATEUR" : "SPECTATEURS"}

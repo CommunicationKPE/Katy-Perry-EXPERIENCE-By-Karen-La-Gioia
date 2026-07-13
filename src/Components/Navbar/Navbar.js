@@ -40,7 +40,10 @@ const Navbar = ({ evenements }) => {
       >
         <div className="container-fluid d-flex justify-content-between align-items-center">
           <a className="navbar-brand" href="#home" aria-label="Accueil">
-            <img src={signature} alt="Signature" height="45" />
+            <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+              <span>LIVE</span> Music Show
+            </h5>          
+            {/* <img src={signature} alt="Signature" height="45" /> */}
           </a>
           <button
             className="navbar-toggler d-md-none"
@@ -60,9 +63,12 @@ const Navbar = ({ evenements }) => {
             aria-labelledby="offcanvasNavbarLabel"
           >
             <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+              {/* <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
                 <span>LIVE</span> Music Show
-              </h5>
+              </h5> */}
+              <div className="navbar-brand" aria-label="Accueil">
+                <img src={signature} alt="Signature" height="45" />
+              </div>
               <button
                 type="button"
                 className="btn-close"
