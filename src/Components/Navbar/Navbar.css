@@ -19,7 +19,7 @@
 }
 /* Style pour le badge avec effet glowy */
 .badge.notification {
-  background-color: #faf455; /* Couleur rouge comme dans le reste du site */
+  background-color: #fff945; /* Couleur rouge comme dans le reste du site */
   color: #1f242d; /* Texte en blanc pour un bon contraste */
   font-size: 0.8em; /* Taille du texte */
   padding: 0.3em 0.6em; /* Espacement interne */

@@ -54,7 +54,7 @@ const Accueil = ({ evenements }) => {
             {totalPastSpectators > 0 && (
               <div className="about-achievement">
                 <h2>
-                  <CountUp end={totalPastSpectators} duration={2} />
+                  <CountUp end={totalPastSpectators} duration={5} preserveValue={true} />
                 </h2>
                 <h5>
                   {totalPastSpectators === 1 ? "SPECTATEUR" : "SPECTATEURS"}
@@ -67,7 +67,7 @@ const Accueil = ({ evenements }) => {
             {pastServices.length > 0 && (
               <div className="about-achievement">
                 <h2>
-                  <CountUp end={pastServices.length} duration={2} />
+                  <CountUp end={pastServices.length} duration={3} />
                 </h2>
                 <h5>
                   {pastServices.length === 1
