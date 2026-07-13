@@ -44,7 +44,8 @@
 
 .contact-title {
   position: relative;
-  margin-bottom: 55px;
+  margin-top: 15px;
+  /* margin-bottom: 55px; */
   display: flex;
   justify-content: center;
 }
@@ -90,6 +91,10 @@
   display: flex;
   gap: 30px;
   margin-top: 20px;
+  justify-content: space-around; /* Répartit l'espace libre autour des icônes */
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto 0;
 }
 
 
@@ -172,7 +177,7 @@
 
 .error {
   position: absolute;
-  bottom: -22px;
+  /* bottom: -22px; */
   left: 0;
   color: #ff6b6b;
   font-size: 0.8em;
