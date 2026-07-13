@@ -1,4 +1,5 @@
 import signature from "../../Assets/signature.png";
+import qrCode from "../../Assets/qr-code.svg";
 import "./Navbar.css";
 import { useState, useEffect, useMemo } from "react";
 import React from "react";
@@ -118,6 +119,11 @@ const Navbar = ({ evenements }) => {
                 <li className="nav-item">
                   <a className="nav-link" href="#contact" aria-label="Contact">
                     <i className="fa-solid fa-envelope" aria-hidden="true"></i> Contact
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#contact" aria-label="Contact">
+                    <img src={qrCode} alt="QR Code" width="360"/>
                   </a>
                 </li>
               </ul>
