@@ -1,29 +1,36 @@
 import "./PassedEvents.css";
 // import donnees_Services from "../../Assets/services_data";
 import CartePassedEvent from "../CartePassedEvent/CartePassedEvent";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 const PassedEvents = ({ evenements }) => {
   // Obtenir la date d'aujourd'hui
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = useMemo(() => {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    return date;
+  }, []);
   // Utiliser une variable d'état pour déterminer si l'élément doit être affiché
   const [showPassed, setShowPassed] = useState(false);
 
   // Filtrer les services dont la date est antérieure ou égale à aujourd'hui
 
-  const filteredServices = evenements.filter((service) => {
-    const serviceDate = new Date(service.s_date);
-    return serviceDate < today;
-  });
+  const filteredServices = useMemo(() => {
+    return evenements.filter((service) => {
+      const serviceDate = new Date(service.s_date);
+      return serviceDate < today;
+    });
+  }, [evenements, today]);
 
   // Trier les services par date en ordre décroissant (du plus récent au plus ancien)
 
-  const sortedServices = filteredServices.sort((a, b) => {
-    const dateA = new Date(a.s_date);
-    const dateB = new Date(b.s_date);
-    return dateB - dateA;
-  });
+  const sortedServices = useMemo(() => {
+    return [...filteredServices].sort((a, b) => {
+      const dateA = new Date(a.s_date);
+      const dateB = new Date(b.s_date);
+      return dateB - dateA;
+    });
+  }, [filteredServices]);
 
   useEffect(() => {
     // Vérifier si au moins un service est passé

@@ -1,20 +1,26 @@
 import "./FutursEvents.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 // import donnees_Services from "../../Assets/services_data";
 import CarteFuturEvent from "../CarteFuturEvent/CarteFuturEvent";
 
 const FutursEvents = ({ evenements }) => {
   // Obtenir la date d'aujourd'hui
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = useMemo(() => {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    return date;
+  }, []);
   // Utiliser une variable d'état pour déterminer si l'élément doit être affiché
   const [showAvenir, setShowAvenir] = useState(false);
 
   // Filtrer les services pour obtenir uniquement les événements à venir + celle d'aujourd'hui
-  const filteredServices = evenements.filter((service) => {
-    const serviceDate = new Date(service.s_date);
-    return serviceDate >= today;
-  });
+  const filteredServices = useMemo(() => {
+    return evenements.filter((service) => {
+      const serviceDate = new Date(service.s_date);
+      return serviceDate >= today;
+    });
+  }, [evenements, today]);
+  
   useEffect(() => {
     // Vérifier si au moins un service est à venir ou aujourd'hui
     const hasFutureEvents = filteredServices.length > 0;

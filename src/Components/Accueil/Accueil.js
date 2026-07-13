@@ -1,40 +1,46 @@
+import React, { useMemo } from "react";
 import "./Accueil.css";
-// import donnees_Services from "../../Assets/services_data";
 import logo from "../../Assets/Logo.png";
+import CountUp from "react-countup";
 
 const Accueil = ({ evenements }) => {
-  // Obtenir la date d'aujourd'hui
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = useMemo(() => {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    return date;
+  }, []);
 
-  // Filtrer les services dont la date est antérieure à aujourd'hui (evenements passés)
-  const pastServices = evenements.filter((service) => {
-    const serviceDate = new Date(service.s_date);
-    return serviceDate < today;
-  });
+  const pastServices = useMemo(() => {
+    return evenements.filter((service) => {
+      const serviceDate = new Date(service.s_date);
+      return serviceDate < today;
+    });
+  }, [evenements, today]);
 
-  // Compter le nombre d'événements à venir
-  const upcomingEventsCount = evenements.filter((service) => {
-    const serviceDate = new Date(service.s_date);
-    return serviceDate >= today;
-  }).length;
+  const upcomingEventsCount = useMemo(() => {
+    return evenements.filter((service) => {
+      const serviceDate = new Date(service.s_date);
+      return serviceDate >= today;
+    }).length;
+  }, [evenements, today]);
 
-  // Calculer la somme des spectateurs pour les événements passés
-  const totalPastSpectators = pastServices.reduce((sum, service) => {
-    return sum + (service.s_nbspectateurs || 0);
-  }, 0);
+  const totalPastSpectators = useMemo(() => {
+    return pastServices.reduce((sum, service) => sum + (service.s_nbspectateurs || 0), 0);
+  }, [pastServices]);
 
   return (
     <div id="home" className="accueil">
       <div className="accueil-cadre d-flex">
-        <div className="bas-gauche ">
+        <div className="bas-gauche">
           <h1>
             <span>LIVE</span> Music Show
           </h1>
           <div className="about-achievements">
             {upcomingEventsCount > 0 && (
               <div className="about-achievement">
-                <h2>{upcomingEventsCount}</h2>
+                <h2>
+                  <CountUp end={upcomingEventsCount} duration={2} />
+                </h2>
                 <h5>
                   {upcomingEventsCount === 1
                     ? "SPECTACLE À VENIR"
@@ -47,11 +53,11 @@ const Accueil = ({ evenements }) => {
             )}
             {totalPastSpectators > 0 && (
               <div className="about-achievement">
-                <h2>{totalPastSpectators}</h2>
+                <h2>
+                  <CountUp end={totalPastSpectators} duration={2} />
+                </h2>
                 <h5>
-                  {totalPastSpectators === 1
-                    ? "SPECTATEUR"
-                    : "SPECTATEURS"}
+                  {totalPastSpectators === 1 ? "SPECTATEUR" : "SPECTATEURS"}
                 </h5>
               </div>
             )}
@@ -60,7 +66,9 @@ const Accueil = ({ evenements }) => {
             )}
             {pastServices.length > 0 && (
               <div className="about-achievement">
-                <h2>{pastServices.length}</h2>
+                <h2>
+                  <CountUp end={pastServices.length} duration={2} />
+                </h2>
                 <h5>
                   {pastServices.length === 1
                     ? "ÉVÉNEMENT RÉALISÉ"
@@ -68,18 +76,25 @@ const Accueil = ({ evenements }) => {
                 </h5>
               </div>
             )}
-          </div>{" "}
+          </div>
           <a
             type="button"
             className="btn btn-danger btn-contactez-nous"
             href="#contact"
+            aria-label="Contactez-nous"
           >
             CONTACTEZ-NOUS
           </a>
           <div className="social-icons d-flex justify-content-evenly align-items-center">
-            <i className="fa-brands fa-youtube"></i>
-            <i className="fa-brands fa-facebook-f"></i>
-            <i className="fa-brands fa-instagram"></i>
+            <a href="https://youtube.com" aria-label="YouTube">
+              <i className="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://facebook.com" aria-label="Facebook">
+              <i className="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" aria-label="Instagram">
+              <i className="fa-brands fa-instagram"></i>
+            </a>
           </div>
         </div>
         <div className="haut-droite">
@@ -87,10 +102,12 @@ const Accueil = ({ evenements }) => {
             src={logo}
             alt="Logo Katy Perry Experience"
             className="logo-img"
+            loading="lazy"
           />
         </div>
       </div>
     </div>
   );
 };
-export default Accueil;
+
+export default React.memo(Accueil);

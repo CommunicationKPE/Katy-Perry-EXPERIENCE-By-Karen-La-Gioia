@@ -13,22 +13,28 @@ import { supabase, emailjs } from "./config/supabase";
 function App() {
   const [evenements, setEvenements] = useState([]);
   const [visits, setVisits] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const recuperationListeEvenements = async () => {
-      const { data, error } = await supabase
-        .from("Evenements")
-        .select("*")
-        .order("id", { ascending: false });
+      try {
+        const { data, error } = await supabase
+          .from("Evenements")
+          .select("*")
+          .order("id", { ascending: false });
 
-      if (error) {
-        console.error("Erreur lors de la récupération des événements :", error);
-      } else {
-        setEvenements(data);
+        if (error) {
+          throw new Error("Erreur lors de la récupération des événements");
+        } else {
+          setEvenements(data);
+        }
+      } catch (err) {
+        setError(err.message);
+        console.error(err);
       }
     };
     recuperationListeEvenements();
-  }, []); // Le tableau de dépendances est vide pour s'assurer que l'effet ne s'exécute qu'une seule fois
+  }, []); // Le tableau de dépendances est vide car cet effet ne doit s'exécuter qu'une seule fois
 
   useEffect(() => {
     const handleScroll = function () {
@@ -41,38 +47,48 @@ function App() {
     return () => {
       document.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, []); // Le tableau de dépendances est vide car cet effet ne doit s'exécuter qu'une seule fois
 
   useEffect(() => {
     const updateVisitCount = async () => {
-      // Récupérer la valeur actuelle
-      const { data, error } = await supabase
-        .from("Visits")
-        .select("count")
-        .eq("id", 1)
-        .single();
+      try {
+        // Récupérer la valeur actuelle
+        const { data, error } = await supabase
+          .from("Visits")
+          .select("count")
+          .eq("id", 1)
+          .single();
 
-      if (error) {
-        console.error(error);
-        return;
+        if (error) {
+          throw new Error("Erreur lors de la récupération du compteur de visites");
+        }
+
+        const newCount = data.count + 1;
+
+        // Incrémenter dans la base
+        const { error: updateError } = await supabase
+          .from("Visits")
+          .update({ count: newCount })
+          .eq("id", 1);
+
+        if (updateError) {
+          throw new Error("Erreur lors de la mise à jour du compteur de visites");
+        }
+
+        // Mettre à jour l’état local
+        setVisits(newCount);
+      } catch (err) {
+        setError(err.message);
+        console.error(err);
       }
-
-      const newCount = data.count + 1;
-
-      // Incrémenter dans la base
-      const { error: updateError } = await supabase
-        .from("Visits")
-        .update({ count: newCount })
-        .eq("id", 1);
-
-      if (updateError) console.error(updateError);
-
-      // Mettre à jour l’état local
-      setVisits(newCount);
     };
 
     updateVisitCount();
-  }, []);
+  }, []); // Le tableau de dépendances est vide car cet effet ne doit s'exécuter qu'une seule fois
+
+  if (error) {
+    return <div>Erreur : {error}</div>;
+  }
 
   return (
     <div className="parallax">

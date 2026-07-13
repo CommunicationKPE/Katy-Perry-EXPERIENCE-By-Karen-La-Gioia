@@ -1,32 +1,37 @@
 import signature from "../../Assets/signature.png";
 import "./Navbar.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import React from "react";
 
 const Navbar = ({ evenements }) => {
-  // Obtenir la date d'aujourd'hui
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = useMemo(() => {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    return date;
+  }, []);
 
-  // Utiliser une variable d'état pour déterminer si l'élément doit être affiché
   const [showPassed, setShowPassed] = useState(false);
   const [showAvenir, setShowAvenir] = useState(false);
-  // Filtrer les services pour obtenir uniquement les événements à venir + celle d'aujourd'hui
-  const futursServices = evenements.filter((service) => {
-    const serviceDate = new Date(service.s_date);
-    return serviceDate >= today;
-  });
-  const passedServices = evenements.filter((service) => {
-    const serviceDate = new Date(service.s_date);
-    return serviceDate < today;
-  });
+
+  const { futursServices, passedServices } = useMemo(() => {
+    const futurs = evenements.filter((service) => {
+      const serviceDate = new Date(service.s_date);
+      return serviceDate >= today;
+    });
+    const passed = evenements.filter((service) => {
+      const serviceDate = new Date(service.s_date);
+      return serviceDate < today;
+    });
+    return { futursServices: futurs, passedServices: passed };
+  }, [evenements, today]);
 
   useEffect(() => {
-    // Vérifier si au moins un service est à venir ou aujourd'hui
     const hasFutureEvents = futursServices.length > 0;
-    const haspassedEvents = passedServices.length > 0;
+    const hasPassedEvents = passedServices.length > 0;
     setShowAvenir(hasFutureEvents);
-    setShowPassed(haspassedEvents);
-  }, [futursServices, passedServices]);
+    setShowPassed(hasPassedEvents);
+  }, [futursServices.length, passedServices.length]);
+
   return (
     <div>
       <nav
@@ -34,11 +39,11 @@ const Navbar = ({ evenements }) => {
         data-bs-theme="dark"
       >
         <div className="container-fluid d-flex justify-content-between align-items-center">
-          <a className="navbar-brand" href="#home">
-            <img src={signature} alt="Bootstrap" height="45" />
+          <a className="navbar-brand" href="#home" aria-label="Accueil">
+            <img src={signature} alt="Signature" height="45" />
           </a>
           <button
-            className="navbar-toggler d-md-none" // Ajout de la classe d-md-none pour cacher le bouton sur les écrans moyens et plus grands
+            className="navbar-toggler d-md-none"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
@@ -68,89 +73,95 @@ const Navbar = ({ evenements }) => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className="nav-link" href="#home">
-                    <i className="fa-solid fa-house-chimney"></i>Accueil1
+                  <a
+                    className="nav-link"
+                    href="#home"
+                    aria-label="Accueil"
+                    aria-current="page"
+                  >
+                    <i className="fa-solid fa-house-chimney" aria-hidden="true"></i> Accueil
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#about">
-                    <i className="fa-solid fa-address-card"></i>A propos
+                  <a className="nav-link" href="#about" aria-label="À propos">
+                    <i className="fa-solid fa-address-card" aria-hidden="true"></i> À propos
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#medias">
-                    <i className="fa-solid fa-circle-play"></i>Média
+                  <a className="nav-link" href="#medias" aria-label="Médias">
+                    <i className="fa-solid fa-circle-play" aria-hidden="true"></i> Médias
                   </a>
                 </li>
                 {showAvenir && (
                   <li className="nav-item">
-                    <a className="nav-link" href="#avenirs">
-                      <i className="fa-solid fa-hourglass-end"></i>
-                        {futursServices.length === 1
-                          ? "Prochaine date"
-                          : "Prochaines dates"}
+                    <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">
+                      <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
+                      {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
+                      <span className="badge bg-primary ms-2">{futursServices.length}</span>
                     </a>
                   </li>
                 )}
                 {showPassed && (
                   <li className="nav-item">
-                    <a className="nav-link" href="#anciens">
-                      <i className="fa-solid fa-calendar-check"></i>
-                        {passedServices.length === 1
-                          ? "Date passée"
-                          : "Dates passées"}
+                    <a className="nav-link" href="#anciens" aria-label="Dates passées">
+                      <i className="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                      {passedServices.length === 1 ? "Date passée" : "Dates passées"}
+                      <span className="badge bg-secondary ms-2">{passedServices.length}</span>
                     </a>
                   </li>
                 )}
                 <li className="nav-item">
-                  <a className="nav-link" href="#contact">
-                    <i className="fa-solid fa-envelope"></i>Contact
+                  <a className="nav-link" href="#contact" aria-label="Contact">
+                    <i className="fa-solid fa-envelope" aria-hidden="true"></i> Contact
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           <div className="d-none d-md-flex">
-            <ul className="navbar-nav  flex-row ">
+            <ul className="navbar-nav flex-row">
               <li className="nav-item">
-                <a className="nav-link" href="#home">
-                  <i className="fa-solid fa-house-chimney"></i>
+                <a
+                  className="nav-link"
+                  href="#home"
+                  aria-label="Accueil"
+                  aria-current="page"
+                >
+                  <i className="fa-solid fa-house-chimney" aria-hidden="true"></i>
                   Accueil
                 </a>
               </li>
-              <li className="nav-item ">
-                <a className="nav-link" href="#about">
-                  <i className="fa-solid fa-address-card"></i>A propos
+              <li className="nav-item">
+                <a className="nav-link" href="#about" aria-label="À propos">
+                  <i className="fa-solid fa-address-card" aria-hidden="true"></i> À propos
                 </a>
               </li>
-              <li className="nav-item ">
-                <a className="nav-link" href="#medias">
-                  <i className="fa-solid fa-circle-play"></i>Média
+              <li className="nav-item">
+                <a className="nav-link" href="#medias" aria-label="Médias">
+                  <i className="fa-solid fa-circle-play" aria-hidden="true"></i> Médias
                 </a>
               </li>
               {showAvenir && (
-                <li className="nav-item ">
-                  <a className="nav-link" href="#avenirs">
-                    <i className="fa-solid fa-hourglass-end"></i>
-                    {futursServices.length === 1
-                      ? "Prochaine date"
-                      : "Prochaines dates"}
+                <li className="nav-item">
+                  <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">
+                    <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
+                    {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
+                    <span className="badge bg-primary ms-2">{futursServices.length}</span>
                   </a>
                 </li>
               )}
               {showPassed && (
-                <li className="nav-item ">
-                  <a className="nav-link" href="#anciens">
-                    <i className="fa-solid fa-calendar-check"></i>
-                    {passedServices.length === 1
-                      ? "Date passée"
-                      : "Dates passées"}
+                <li className="nav-item">
+                  <a className="nav-link" href="#anciens" aria-label="Dates passées">
+                    <i className="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                    {passedServices.length === 1 ? "Date passée" : "Dates passées"}
+                    <span className="badge bg-secondary ms-2">{passedServices.length}</span>
                   </a>
                 </li>
               )}
-              <li className="nav-item ">
-                <a className="nav-link" href="#contact">
-                  <i className="fa-solid fa-envelope"></i>Contact
+              <li className="nav-item">
+                <a className="nav-link" href="#contact" aria-label="Contact">
+                  <i className="fa-solid fa-envelope" aria-hidden="true"></i> Contact
                 </a>
               </li>
             </ul>
@@ -160,4 +171,5 @@ const Navbar = ({ evenements }) => {
     </div>
   );
 };
-export default Navbar;
+
+export default React.memo(Navbar);

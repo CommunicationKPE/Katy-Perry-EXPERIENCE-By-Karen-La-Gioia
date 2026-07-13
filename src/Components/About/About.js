@@ -1,13 +1,14 @@
+import React from "react";
 import "./About.css";
 
 const About = () => {
   return (
     <section id="about" className="about">
       <div className="about-cadre">
-        <div className="about-titre">
+        <header className="about-titre">
           <h1 className="title">À Propos</h1>
-        </div>
-        <div className="about-container">
+        </header>
+        <article className="about-container">
           <p className="intro">
             <strong>Katy Perry EXPERIENCE by Karen La Gioia</strong> c’est une
             immersion totale dans l’univers pop moderne. Un spectacle où la
@@ -15,7 +16,7 @@ const About = () => {
             expérience unique.
           </p>
 
-          <div className="content">
+          <section className="content">
             <p>
               Portée par <strong>Karen La Gioia</strong>, artiste à la voix
               puissante et à la présence scénique captivante, l’expérience
@@ -50,10 +51,20 @@ const About = () => {
                 Perry EXPERIENCE by Karen La Gioia”.
               </strong>
             </p>
-          </div>
-        </div>
+
+            {/* Bouton CTA pour rediriger vers la section Contact */}
+            <button
+              className="btn-cta"
+              onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+              aria-label="Contactez-nous"
+            >
+              Contactez-nous
+            </button>
+          </section>
+        </article>
       </div>
     </section>
   );
 };
-export default About;
+
+export default React.memo(About);
