@@ -53,13 +53,13 @@ const About = () => {
             </p>
 
             {/* Bouton CTA pour rediriger vers la section Contact */}
-            <button
+            <a
+              href="#contact"
               className="btn-cta"
-              onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
               aria-label="Contactez-nous"
             >
               Contactez-nous
-            </button>
+            </a>
           </section>
         </article>
       </div>

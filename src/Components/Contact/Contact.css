@@ -271,6 +271,39 @@
 .toast-progress-error {
   background-color: #ba1f33 !important;
 }
+/* Style pour l'icône YouTube (rouge) */
+.contact-detail i.fa-youtube {
+  color: #FF0000; /* Rouge YouTube */
+}
+
+/* Style pour l'icône Facebook (bleu) */
+.contact-detail i.fa-facebook-f {
+  color: #1877F2; /* Bleu Facebook */
+}
+
+/* Style pour l'icône Instagram (dégradé violet/rose/orange) */
+.contact-detail i.fa-instagram {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Rendre le texte transparent pour afficher le dégradé */
+}
+
+/* Animation au survol pour les icônes */
+.contact-detail:hover i.fa-youtube {
+  color: #FF3333; /* Rouge plus clair au survol */
+}
+
+.contact-detail:hover i.fa-facebook-f {
+  color: #4285F4; /* Bleu plus clair au survol */
+}
+
+.contact-detail:hover i.fa-instagram {
+  background: linear-gradient(45deg, #6A67CE, #FF8E53, #FF6B6B);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
