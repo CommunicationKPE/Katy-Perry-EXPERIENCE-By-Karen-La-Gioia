@@ -87,13 +87,13 @@ const Accueil = ({ evenements }) => {
           </a>
           <div className="social-icons d-flex justify-content-evenly align-items-center">
             <a href="https://youtube.com" aria-label="YouTube">
-              <i className="fa-brands fa-youtube"></i>
+              <i className="fa-brands fa-youtube youtube-icon"></i>
             </a>
             <a href="https://facebook.com" aria-label="Facebook">
-              <i className="fa-brands fa-facebook-f"></i>
+              <i className="fa-brands fa-facebook-f facebook-icon"></i>
             </a>
             <a href="https://instagram.com" aria-label="Instagram">
-              <i className="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-instagram instagram-icon"></i>
             </a>
           </div>
         </div>

@@ -20,6 +20,20 @@
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease forwards;
 }
+/* Style pour les messages d'erreur */
+.error {
+  color: #ff0000; /* Rouge pour attirer l'attention */
+  font-size: 12px;
+  margin-top: 5px; /* Espace entre le champ et le message */
+  margin-bottom: 10px; /* Espace avant le prochain élément */
+  display: block; /* Assure que le message prend toute la largeur */
+  text-align: left; /* Alignement à gauche */
+}
+/* Style pour les champs en erreur */
+.error-input {
+  border: 1px solid #ff0000; /* Bordure rouge pour indiquer une erreur */
+  background-color: #ffebee; /* Fond léger pour mettre en évidence */
+}
 
 @keyframes fadeInUp {
   to {
@@ -68,7 +82,7 @@
   flex-direction: column;
   gap: 30px;
   color: #d8d8d8;
-  font-size: 20px;
+  font-size: 40px;
 }
 
 .icons-reseaux {
@@ -76,6 +90,7 @@
   gap: 30px;
   margin-top: 20px;
 }
+
 
 .contact-detail {
   display: flex;
@@ -92,7 +107,7 @@
 
 .contact-detail i {
   color: #ba1f33;
-  font-size: 30px;
+  font-size: 40px;
   transition: color 0.3s ease;
 }
 
@@ -311,10 +326,12 @@
   }
 
   .contact-detail {
-    gap: 5px;
+    display: block;
+
+    margin: 0 auto;
   }
 
   .contact-detail i {
-    font-size: 24px;
+    font-size: 35px;
   }
 }

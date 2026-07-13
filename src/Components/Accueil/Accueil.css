@@ -79,7 +79,28 @@
 }
 
 .social-icons i {
-  font-size: 30px;
+  font-size: 60px;
+}
+/* Style pour l'icône YouTube (rouge) */
+.youtube-icon {
+  color: #FF0000; /* Rouge YouTube */
+  font-size: 24px; /* Taille de l'icône */
+  margin: 0 10px; /* Espace autour de l'icône */
+}
+/* Style pour l'icône Facebook (bleu) */
+.facebook-icon {
+  color: #1877F2; /* Bleu Facebook */
+  font-size: 24px; /* Taille de l'icône */
+  margin: 0 10px; /* Espace autour de l'icône */
+}
+/* Style pour l'icône Instagram (dégradé violet/rose/orange) */
+.instagram-icon {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Rendre le texte transparent pour afficher le dégradé */
+  font-size: 24px; /* Taille de l'icône */
+  margin: 0 10px; /* Espace autour de l'icône */
 }
 
 /************************ Styles pour les grands écrans */
@@ -112,6 +133,40 @@
     justify-content: space-around;
     /* margin-bottom: 80px; */
   }
+}
+/* Conteneur des icônes sociales */
+.social-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animation au survol */
+.social-icons a:hover {
+  transform: scale(1.2); /* Agrandit l'icône */
+  opacity: 0.8; /* Réduit légèrement l'opacité */
+}
+
+/* Animation au clic */
+.social-icons a:active {
+  transform: scale(0.9); /* Rétrécit légèrement l'icône */
+}
+
+/* Animation spécifique pour YouTube */
+.youtube-icon:hover {
+  color: #FF3333; /* Rouge plus clair au survol */
+}
+
+/* Animation spécifique pour Facebook */
+.facebook-icon:hover {
+  color: #4285F4; /* Bleu plus clair au survol */
+}
+
+/* Animation spécifique pour Instagram (dégradé plus lumineux) */
+.instagram-icon:hover {
+  background: linear-gradient(45deg, #6A67CE, #FF8E53, #FF6B6B);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /*************************** Styles pour les écrans mobiles */
@@ -156,7 +211,7 @@
     margin-top: -5px;
   }
   .social-icons i {
-    font-size: 20px;
+    font-size: 35px;
     margin-top: -10px;
   }
   .btn-contactez-nous {

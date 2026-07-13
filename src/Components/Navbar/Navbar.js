@@ -97,7 +97,7 @@ const Navbar = ({ evenements }) => {
                     <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">
                       <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
                       {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
-                      <span className="badge bg-primary ms-2">{futursServices.length}</span>
+                      <span className="badge text-bg-warning ms-2">{futursServices.length}</span>
                     </a>
                   </li>
                 )}
@@ -106,7 +106,6 @@ const Navbar = ({ evenements }) => {
                     <a className="nav-link" href="#anciens" aria-label="Dates passées">
                       <i className="fa-solid fa-calendar-check" aria-hidden="true"></i>
                       {passedServices.length === 1 ? "Date passée" : "Dates passées"}
-                      <span className="badge bg-secondary ms-2">{passedServices.length}</span>
                     </a>
                   </li>
                 )}
@@ -146,16 +145,16 @@ const Navbar = ({ evenements }) => {
                   <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">
                     <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
                     {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
-                    <span className="badge bg-primary ms-2">{futursServices.length}</span>
+                    <span className="badge text-bg-warning ms-2">{futursServices.length}</span>
                   </a>
                 </li>
               )}
               {showPassed && (
                 <li className="nav-item">
-                  <a className="nav-link" href="#anciens" aria-label="Dates passées">
-                    <i className="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                  <a className="nav-link position-relative" href="#anciens" aria-label="Dates passées" >
+                    <i className="fa-solid fa-calendar-check " aria-hidden="true" ></i>
                     {passedServices.length === 1 ? "Date passée" : "Dates passées"}
-                    <span className="badge bg-secondary ms-2">{passedServices.length}</span>
+
                   </a>
                 </li>
               )}

@@ -36,7 +36,7 @@ const Contact = ({ serviceEmailJS }) => {
     if (!value.trim()) {
       setErrors(prev => ({
         ...prev,
-        [name]: `Le champ ${name} est nécessaire`,
+        [name]: `   `,
       }));
     } else if (name === "email" && !/\S+@\S+\.\S+/.test(value)) {
       setErrors(prev => ({
@@ -54,14 +54,14 @@ const Contact = ({ serviceEmailJS }) => {
 
   const validateForm = useCallback(() => {
     const newErrors = {};
-    if (!formData.firstName.trim()) newErrors.firstName = "Le prénom est requis";
-    if (!formData.lastName.trim()) newErrors.lastName = "Le nom est requis";
+    if (!formData.firstName.trim()) newErrors.firstName = "Votre prénom est nécessaire";
+    if (!formData.lastName.trim()) newErrors.lastName = "Votre nom est nécessaire";
     if (!formData.email.trim()) {
-      newErrors.email = "L'email est requis";
+      newErrors.email = "Votre email est obligatoire";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "L'email n'est pas valide";
+      newErrors.email = "Votre email n'est pas valide";
     }
-    if (!formData.message.trim()) newErrors.message = "Le message est requis";
+    if (!formData.message.trim()) newErrors.message = "Veuillez nous laissez votre message";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }, [formData]);
@@ -164,22 +164,22 @@ const sendEmail = useCallback(() => {
               <input
                 type="text"
                 id="firstName"
-                placeholder="Prénom"
+                placeholder="Camille"
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.firstName ? "error-input" : ""}
                 aria-required="true"
-              />
-              {errors.firstName && <p className="error">{errors.firstName}</p>}
+              />                 
+              {errors.firstName && <p className="error">{errors.firstName}</p>}                      
             </div>
             <div className="form-group">
               <label htmlFor="lastName">Nom</label>
               <input
                 type="text"
                 id="lastName"
-                placeholder="Nom"
+                placeholder="Martin"
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
@@ -202,7 +202,11 @@ const sendEmail = useCallback(() => {
                 className={errors.email ? "error-input" : ""}
                 aria-required="true"
               />
-              {errors.email && <p className="error">{errors.email}</p>}
+              {errors.email && (
+              <div className="error-container">
+                <p className="error">{errors.email}</p>
+              </div>
+            )}
             </div>
             <div className="form-group">
               <label htmlFor="message">Message</label>
