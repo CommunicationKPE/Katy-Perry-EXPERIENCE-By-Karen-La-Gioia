@@ -210,7 +210,7 @@ const sendEmail = useCallback(() => {
                 id="message"
                 name="message"
                 rows="8"
-                placeholder="Votre Message ici"
+                placeholder="Votre Message ici..."
                 value={formData.message}
                 onChange={handleChange}
                 onBlur={handleBlur}

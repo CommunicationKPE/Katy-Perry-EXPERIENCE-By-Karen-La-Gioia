@@ -82,9 +82,9 @@
 .contact-details {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  color: #d8d8d8;
-  font-size: 40px;
+  /* gap: 30px; */
+  /* color: #d8d8d8; */
+  /* font-size: 40px; */
 }
 
 .icons-reseaux {
