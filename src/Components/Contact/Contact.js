@@ -125,7 +125,7 @@ const sendEmail = useCallback(() => {
     <div id="contact" className="contact">
       <div className="contact-cadre">
         <div className="contact-title">
-          <h1>Contactez-nous</h1>
+          <h1>Contact</h1>
         </div>
         <div className="contact-section">
           <div className="contact-left">
