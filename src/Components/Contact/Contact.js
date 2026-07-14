@@ -221,7 +221,7 @@ const sendEmail = useCallback(() => {
             </div>
             <button
               type="submit"
-              className="contact-submit"
+              className="btn-contact-submit"
               disabled={isLoading}
               aria-label="Envoyer le formulaire"
             >

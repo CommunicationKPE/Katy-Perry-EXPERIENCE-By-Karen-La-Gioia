@@ -55,7 +55,7 @@ const About = () => {
             {/* Bouton CTA pour rediriger vers la section Contact */}
             <a
               href="#contact"
-              className="btn-cta"
+              className="btn-contactez-nous"
               aria-label="Contactez-nous"
             >
               Contactez-nous

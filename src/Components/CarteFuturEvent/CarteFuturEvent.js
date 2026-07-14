@@ -62,11 +62,9 @@ const CarteFuturEvent = ({
         <p>{description}</p>
         <button
           type="button"
-          // className="btn btn-danger btn-contactez-nous"
+          className="btn-consulter-affiche"
           data-bs-toggle="modal"
           data-bs-target={`#modalCarteFutur${id}`}
-          // className="contact-submit"
-          className="btn btn-red"
         >
           Consultez l'affiche
         </button>
@@ -123,7 +121,7 @@ const CarteFuturEvent = ({
                 <i className="fa-solid fa-location-dot"></i> {ou}
               </h5>
               {afficheUrl ? (
-                <button onClick={handleShare} className="btn btn-red">
+                <button onClick={handleShare} className="btn-partager-affiche">
                   Partager
                 </button>
               ) : (

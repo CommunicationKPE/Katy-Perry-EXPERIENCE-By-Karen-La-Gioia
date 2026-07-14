@@ -47,6 +47,31 @@
 .modal-backdrop {
   z-index: -1;
 }
+.btn-revivre-l-evenement {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: none;
+  color: white;
+  border-radius: 50px;
+  background: #ba1f33;
+  font-weight: bold;
+  padding: 20px 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  max-width: fit-content;
+  max-width: -moz-fit-content;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-revivre-l-evenement:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+.btn-revivre-l-evenement:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(186, 31, 51, 0.5);
+}
 /*************************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {
   .carte-Event-passed {

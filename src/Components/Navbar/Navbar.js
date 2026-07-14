@@ -157,7 +157,7 @@ const Navbar = ({ evenements }) => {
                   <img src={qrCode} alt="QR Code" className="navbar-qr-code" />
                 </li>
                 <li className="nav-item">
-                  <button className="btn btn-red" onClick={handleAppliShare} aria-label="Partager l'application">
+                  <button className="btn-partager-app" onClick={handleAppliShare} aria-label="Partager l'application">
                     Partager
                   </button>
                 </li>

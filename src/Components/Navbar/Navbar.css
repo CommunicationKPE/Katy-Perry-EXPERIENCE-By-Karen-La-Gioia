@@ -39,6 +39,31 @@
   padding: 0 15px; /* Ajoute un padding horizontal pour éviter que l'image ne touche les bords */
   box-sizing: border-box; /* Inclut le padding dans la largeur totale */
 }
+.btn-partager-app {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: none;
+  color: white;
+  border-radius: 50px;
+  background: #ba1f33;
+  font-weight: bold;
+  padding: 20px 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  max-width: fit-content;
+  max-width: -moz-fit-content;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-partager-app:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+.btn-partager-app:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(186, 31, 51, 0.5);
+}
 /* Animation pour l'effet glowy */
 @keyframes pulse {
   0% {

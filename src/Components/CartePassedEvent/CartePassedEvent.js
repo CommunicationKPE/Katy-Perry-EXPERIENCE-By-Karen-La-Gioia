@@ -41,7 +41,7 @@ const CartePassedEvent = ({
           // className="btn btn-danger btn-contactez-nous"
           data-bs-toggle="modal"
           data-bs-target={`#modalCartePassedEvent${id}`}
-          className="contact-submit"
+          className="btn-revivre-l-evenement"
         >
           Revivez l'événement
         </button>

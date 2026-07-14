@@ -79,11 +79,11 @@ const Accueil = ({ evenements }) => {
           </div>
           <a
             type="button"
-            className="btn btn-danger btn-contactez-nous"
+            className="btn-contactez-nous"
             href="#contact"
             aria-label="Contactez-nous"
           >
-            CONTACTEZ-NOUS
+            Contactez-nous
           </a>
           <div className="social-icons d-flex justify-content-evenly align-items-center">
             <a href="https://youtube.com" aria-label="YouTube">
