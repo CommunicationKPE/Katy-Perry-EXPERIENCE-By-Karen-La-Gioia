@@ -28,7 +28,7 @@ const CarteFuturEvent = ({
       try {
         await navigator.share({
           title: "Affiche de l'événement",
-          text: `Consultez l'affiche de l'événement ${description} à ${ou} le ${formattedDate}`,
+          text: `Affiche de l'événement "${description}", ${ou} le ${formattedDate}`,
           url: afficheUrl,
         });
       } catch (error) {
