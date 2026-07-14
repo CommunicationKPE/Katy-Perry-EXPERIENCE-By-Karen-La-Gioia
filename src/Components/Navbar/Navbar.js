@@ -32,8 +32,8 @@ const Navbar = ({ evenements }) => {
         // Utilise l'API Web Share pour partager le lien
         try {
           await navigator.share({
-            title: "Partager l'application",
-            text: "Consultez cette application :",
+            title: "Merci de partager l'application",
+            text: "Consultez dès maintenant l'application: Katy-Perry-EXPERIENCE-By-Karen-La-Gioia",
             url: appUrl,
           });
         } catch (error) {
