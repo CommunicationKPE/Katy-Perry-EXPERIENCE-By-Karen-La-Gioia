@@ -33,7 +33,7 @@ const Navbar = ({ evenements }) => {
         try {
           await navigator.share({
             title: "Merci de partager l'application",
-            text: "Consultez dès maintenant l'application: Katy-Perry-EXPERIENCE-By-Karen-La-Gioia",
+            // text: "Consultez dès maintenant l'application: Katy-Perry-EXPERIENCE-By-Karen-La-Gioia",
             url: appUrl,
           });
         } catch (error) {
