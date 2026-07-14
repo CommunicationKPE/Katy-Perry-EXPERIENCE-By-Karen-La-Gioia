@@ -27,7 +27,15 @@
   box-shadow: 0 0 10px #FFF500; /* Effet glowy avec la même couleur */
   animation: pulse 1.5s infinite; /* Animation pour un effet pulsatif */
 }
-
+/* Style pour le QR code dans la navbar */
+.navbar-qr-code {
+  margin: 15px 0; /* Marge de 15px en haut et en bas */
+  display: block; /* Assure que la marge est appliquée correctement */
+  max-width: 100%; /* Utilise toute la largeur disponible */
+  height: auto; /* Conserve les proportions de l'image */
+  padding: 0 15px; /* Ajoute un padding horizontal pour éviter que l'image ne touche les bords */
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+}
 /* Animation pour l'effet glowy */
 @keyframes pulse {
   0% {

@@ -122,9 +122,12 @@ const Navbar = ({ evenements }) => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#contact" aria-label="Contact">
-                    <img src={qrCode} alt="QR Code" width="360"/>
-                  </a>
+                  <img src={qrCode} alt="QR Code" className="navbar-qr-code" />
+                </li>
+                <li className="nav-item">
+                  <button className="btn btn-red">
+                    Partager
+                  </button>
                 </li>
               </ul>
             </div>
