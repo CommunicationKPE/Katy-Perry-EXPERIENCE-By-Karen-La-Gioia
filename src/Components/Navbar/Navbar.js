@@ -42,7 +42,7 @@ const Navbar = ({ evenements }) => {
         <div className="container-fluid d-flex justify-content-between align-items-center">
           <a className="navbar-brand" href="#home" aria-label="Accueil">
             <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-              <span>LIVE</span> Music Show
+              <span className="live-text">LIVE</span> Music Show
             </h5>          
             {/* <img src={signature} alt="Signature" height="45" /> */}
           </a>

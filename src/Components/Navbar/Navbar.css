@@ -10,10 +10,13 @@
   padding-right: 10px;
   color: #ba1f33;
 }
-.offcanvas-title span {
-  color: #ba1f33;
-  font-weight: bold;
+.live-text {
+  font-family: 'Arial Black', sans-serif; /* Police plus épaisse */
+  font-weight: 900;
   font-size: 1.3em;
+  color: #ba1f33;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .bg-dark {
   background-color: #1f242d !important;
