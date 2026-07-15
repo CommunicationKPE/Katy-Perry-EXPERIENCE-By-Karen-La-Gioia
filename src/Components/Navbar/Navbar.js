@@ -3,6 +3,7 @@ import qrCode from "../../Assets/qr-code.svg";
 import "./Navbar.css";
 import { useState, useEffect, useMemo } from "react";
 import React from "react";
+import * as bootstrap from 'bootstrap'; // Importez Bootstrap
 
 const Navbar = ({ evenements }) => {
   const today = useMemo(() => {
@@ -25,38 +26,47 @@ const Navbar = ({ evenements }) => {
     });
     return { futursServices: futurs, passedServices: passed };
   }, [evenements, today]);
-    const handleAppliShare = async () => {
-      const appUrl = "https://communicationkpe.github.io/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia"; // Lien en dur de l'application
 
-      if (navigator.share) {
-        // Utilise l'API Web Share pour partager le lien
-        try {
-          await navigator.share({
-            title: "Merci de partager l'application",
-            // text: "Consultez dès maintenant l'application: Katy-Perry-EXPERIENCE-By-Karen-La-Gioia",
-            url: appUrl,
-          });
-        } catch (error) {
-          console.error("Erreur lors du partage :", error);
-        }
-      } else if (navigator.clipboard) {
-        // Utilise l'API Clipboard pour copier le lien dans le presse-papiers
-        try {
-          await navigator.clipboard.writeText(appUrl);
-          alert(
-            "Le lien a été copié dans le presse-papiers. Vous pouvez le coller pour le partager."
-          );
-        } catch (error) {
-          console.error("Erreur lors de la copie du lien :", error);
-        }
-      } else {
-        // Fallback pour les navigateurs qui ne supportent pas les API Web Share et Clipboard
-        alert(
-          "L'API Web Share et l'API Clipboard ne sont pas supportées par votre navigateur. Voici le lien à partager : " +
-            appUrl
-        );
+  const handleAppliShare = async () => {
+    const appUrl = "https://communicationkpe.github.io/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia"; // Lien en dur de l'application
+
+    if (navigator.share) {
+      // Utilise l'API Web Share pour partager le lien
+      try {
+        await navigator.share({
+          title: "Merci de partager l'application",
+          // text: "Consultez dès maintenant l'application: Katy-Perry-EXPERIENCE-By-Karen-La-Gioia",
+          url: appUrl,
+        });
+      } catch (error) {
+        console.error("Erreur lors du partage :", error);
       }
-    };
+    } else if (navigator.clipboard) {
+      // Utilise l'API Clipboard pour copier le lien dans le presse-papiers
+      try {
+        await navigator.clipboard.writeText(appUrl);
+        alert(
+          "Le lien a été copié dans le presse-papiers. Vous pouvez le coller pour le partager."
+        );
+      } catch (error) {
+        console.error("Erreur lors de la copie du lien :", error);
+      }
+    } else {
+      // Fallback pour les navigateurs qui ne supportent pas les API Web Share et Clipboard
+      alert(
+        "L'API Web Share et l'API Clipboard ne sont pas supportées par votre navigateur. Voici le lien à partager : " +
+          appUrl
+      );
+    }
+  };
+
+  const handleNavLinkClick = () => {
+    const offcanvasElement = document.getElementById('offcanvasNavbar');
+    const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
+    if (offcanvasInstance) {
+      offcanvasInstance.hide();
+    }
+  };
 
   useEffect(() => {
     const hasFutureEvents = futursServices.length > 0;
@@ -75,7 +85,7 @@ const Navbar = ({ evenements }) => {
           <a className="navbar-brand" href="#home" aria-label="Accueil">
             <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
               <span className="live-text">LIVE</span> Music Show
-            </h5>          
+            </h5>
             {/* <img src={signature} alt="Signature" height="45" /> */}
           </a>
           <button
@@ -117,23 +127,24 @@ const Navbar = ({ evenements }) => {
                     href="#home"
                     aria-label="Accueil"
                     aria-current="page"
+                    onClick={handleNavLinkClick}
                   >
                     <i className="fa-solid fa-house-chimney" aria-hidden="true"></i> Accueil
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#about" aria-label="À propos">
+                  <a className="nav-link" href="#about" aria-label="À propos" onClick={handleNavLinkClick}>
                     <i className="fa-solid fa-address-card" aria-hidden="true"></i> À propos
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#medias" aria-label="Médias">
+                  <a className="nav-link" href="#medias" aria-label="Médias" onClick={handleNavLinkClick}>
                     <i className="fa-solid fa-circle-play" aria-hidden="true"></i> Médias
                   </a>
                 </li>
                 {showAvenir && (
                   <li className="nav-item">
-                    <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">
+                    <a className="nav-link" href="#avenirs" aria-label="Prochaines dates" onClick={handleNavLinkClick}>
                       <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
                       {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
                       <span className="badge notification ms-3">{futursServices.length}</span>
@@ -142,14 +153,14 @@ const Navbar = ({ evenements }) => {
                 )}
                 {showPassed && (
                   <li className="nav-item">
-                    <a className="nav-link" href="#anciens" aria-label="Dates passées">
+                    <a className="nav-link" href="#anciens" aria-label="Dates passées" onClick={handleNavLinkClick}>
                       <i className="fa-solid fa-calendar-check" aria-hidden="true"></i>
                       {passedServices.length === 1 ? "Date passée" : "Dates passées"}
                     </a>
                   </li>
                 )}
                 <li className="nav-item">
-                  <a className="nav-link" href="#contact" aria-label="Contact">
+                  <a className="nav-link" href="#contact" aria-label="Contact" onClick={handleNavLinkClick}>
                     <i className="fa-solid fa-envelope" aria-hidden="true"></i> Contact
                   </a>
                 </li>
