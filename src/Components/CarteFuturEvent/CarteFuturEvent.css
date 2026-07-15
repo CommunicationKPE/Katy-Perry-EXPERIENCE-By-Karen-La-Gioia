@@ -13,6 +13,8 @@
   /* cursor: pointer; */
 }
 .carte-avant h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-size: 28px;
   font-weight: 600;
 }
@@ -21,11 +23,15 @@
   color: #ba1f33;
 }
 .carte-avant h2 {
+  margin-top: 0px;
+  margin-bottom: 5px;
   font-size: 38px;
   font-weight: 800;
   color: #ba1f33;
 }
 .carte-avant p {
+  margin-top: 0px;
+  margin-bottom: 5px;
   font-size: 24px;
   line-height: 40px;
   max-width: 300px;
@@ -50,7 +56,7 @@
 }
 .btn-consulter-affiche {
   display: block;
-  margin: 20px auto;
+  margin: 15px auto 5px auto;
   text-align: center;
   border: none;
   color: white;

@@ -27,7 +27,7 @@ const CartePassedEvent = ({
     <div>
       <div className="carte-Event-passed align-items-center" id="liveToastBtn">
         <div className="card ">
-          <img src={premiereimage} className="card-img-top" alt="..." />
+          <img src={premiereimage} className="card-old-img-top" alt="..." />
         </div>
         <br></br>
         <h3>

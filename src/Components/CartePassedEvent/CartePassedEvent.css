@@ -13,11 +13,8 @@
 .carte-Event-passed:hover {
   background-image: linear-gradient(45deg, #ba1f33 0.36%, #1a1761 102.06%);
 }
-.carte-Event-passed img {
-  border: 3px solid white;
-}
 .carte-Event-passed h3 {
-  margin-top: 25px;
+  margin-top: 15px;
   font-size: 20px;
   font-weight: 600;
 }
@@ -49,7 +46,7 @@
 }
 .btn-revivre-l-evenement {
   display: block;
-  margin: 20px auto;
+  margin: auto auto;
   text-align: center;
   border: none;
   color: white;
@@ -71,6 +68,11 @@
 .btn-revivre-l-evenement:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(186, 31, 51, 0.5);
+}
+.card-old-img-top {
+  width: 168px;
+  height: auto;
+  /* border-radius: 10px; */
 }
 /*************************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {

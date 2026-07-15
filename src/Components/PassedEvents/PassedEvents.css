@@ -23,7 +23,7 @@
 }
 .anciens-title {
   position: relative;
-  margin-bottom: 55px;
+  /* margin-bottom: 55px; */
   display: flex;
   justify-content: center;
 }

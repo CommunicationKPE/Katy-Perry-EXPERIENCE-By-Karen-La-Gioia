@@ -149,9 +149,9 @@ const sendEmail = useCallback(() => {
               </div>
             </div>
             <p>
-              Vous avez une question, une suggestion? Vous souhaitez réserver le
-              spectacle ou simplement échanger? Remplissez le formulaire et
-              notre équipe reviendra vers vous dans les plus brefs délais...
+              Vous avez une question, une suggestion?<br></br> Vous souhaitez réserver le
+              spectacle ou simplement échanger?<br></br> Remplissez le formulaire et
+              notre équipe reviendra vers vous, dans les plus brefs délais...
             </p>
           </div>
           <form className="contact-right" ref={formRef} onSubmit={handleSubmit}>

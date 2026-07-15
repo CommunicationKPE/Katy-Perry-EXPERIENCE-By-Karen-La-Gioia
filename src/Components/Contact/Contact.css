@@ -90,7 +90,7 @@
 .icons-reseaux {
   display: flex;
   gap: 30px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   justify-content: space-around; /* Répartit l'espace libre autour des icônes */
   width: 100%;
   max-width: 300px;
