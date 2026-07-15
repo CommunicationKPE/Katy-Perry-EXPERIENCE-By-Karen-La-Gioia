@@ -62,9 +62,15 @@ const Navbar = ({ evenements }) => {
 
   const handleNavLinkClick = () => {
     const offcanvasElement = document.getElementById('offcanvasNavbar');
-    const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
+    const offcanvasInstance = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
     if (offcanvasInstance) {
       offcanvasInstance.hide();
+    }
+
+    // Masquer le backdrop manuellement
+    const backdrop = document.querySelector('.offcanvas-backdrop');
+    if (backdrop) {
+      backdrop.style.display = 'none';
     }
   };
 
