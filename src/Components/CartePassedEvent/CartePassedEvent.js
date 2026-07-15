@@ -26,7 +26,7 @@ const CartePassedEvent = ({
   return (
     <div>
       <div className="carte-Event-passed align-items-center" id="liveToastBtn">
-        <div className="card ">
+        <div className="card-affiche-passed-event">
           <img src={premiereimage} className="card-old-img-top" alt="..." />
         </div>
         <br></br>
