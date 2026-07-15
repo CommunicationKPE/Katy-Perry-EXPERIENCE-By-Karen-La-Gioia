@@ -60,6 +60,12 @@ const CarteFuturEvent = ({
           {ou}
         </h3>
         <p>{description}</p>
+        <img
+        src={afficheUrl}
+        alt={`Affiche pour ${description}`}
+        className="card-img-top affiche-reduite"
+
+        />
         <button
           type="button"
           className="btn-consulter-affiche"

@@ -98,6 +98,10 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(186, 31, 51, 0.5);
 }
+.affiche-reduite {
+  width: 50%;
+  height: auto;
+}
 /*************************** Styles pour les écrans mobiles */
 @media (max-width: 767px) {
   .carte-avant {
