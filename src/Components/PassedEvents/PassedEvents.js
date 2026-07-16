@@ -1,6 +1,5 @@
 import "./PassedEvents.css";
-import { useState, useEffect, useMemo, useRef } from "react";
-import * as bootstrap from 'bootstrap';
+import { useState, useEffect, useMemo } from "react";
 
 const PassedEvents = ({ evenements }) => {
   // Obtenir la date d'aujourd'hui
@@ -33,37 +32,15 @@ const PassedEvents = ({ evenements }) => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Les mois sont indexés à partir de 0
+    const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   };
-
-  // Référence pour le carousel
-  const carouselRef = useRef(null);
 
   useEffect(() => {
     // Vérifier si au moins un service est passé
     const haspassedEvents = filteredServices.length > 0;
     setShowPassed(haspassedEvents);
-
-    // Initialiser le carousel
-    if (carouselRef.current) {
-      const carousel = new bootstrap.Carousel(carouselRef.current, {
-        interval: 5000, // Intervalle de défilement automatique (5 secondes)
-      });
-
-      // Écouter les événements d'ouverture et de fermeture des modales
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach((modal) => {
-        modal.addEventListener('show.bs.modal', () => {
-          carousel.pause(); // Arrêter le carousel lorsque la modale est ouverte
-        });
-
-        modal.addEventListener('hidden.bs.modal', () => {
-          carousel.cycle(); // Relancer le carousel lorsque la modale est fermée
-        });
-      });
-    }
   }, [filteredServices]);
 
   return (
@@ -76,8 +53,7 @@ const PassedEvents = ({ evenements }) => {
           <div
             id="carouselExampleCaptions"
             className="carousel slide"
-            data-bs-ride="carousel"
-            ref={carouselRef}
+            data-bs-ride="false" // Désactive complètement le défilement automatique
           >
             <div className="carousel-indicators">
               {sortedServices.map((service, index) => (
