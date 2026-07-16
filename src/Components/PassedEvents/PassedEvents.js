@@ -1,6 +1,4 @@
 import "./PassedEvents.css";
-// import donnees_Services from "../../Assets/services_data";
-import CartePassedEvent from "../CartePassedEvent/CartePassedEvent";
 import { useState, useEffect, useMemo } from "react";
 
 const PassedEvents = ({ evenements }) => {
@@ -31,6 +29,14 @@ const PassedEvents = ({ evenements }) => {
       return dateB - dateA;
     });
   }, [filteredServices]);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // Les mois sont indexés à partir de 0
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
 
   useEffect(() => {
     // Vérifier si au moins un service est passé
@@ -69,25 +75,111 @@ const PassedEvents = ({ evenements }) => {
                   key={index}
                   className={`carousel-item ${index === 0 ? "active" : ""}`}
                 >
-                  <CartePassedEvent
-                    icone={service.s_no}
-                    ou={service.s_lieu}
-                    description={service.s_description}
-                    quand={service.s_date}
-                    premiereimage={service.s_image}
-                    spectateurs={service.s_nbspectateurs}
-                    id={index} // Utilisez l'index comme identifiant unique
-                    photo1={service.photo1}
-                    photo2={service.photo2}
-                    photo3={service.photo3}
-                    photo4={service.photo4}
-                    photo5={service.photo5}
-                    style={{ width: "100%" }}
-                  />
-                  {/* <div className="carousel-caption d-none d-md-block">
-                  <h5>{service.s_lieu}</h5>
-                  <p>{service.s_description}</p>
-                </div> */}
+                  <div className="carte-Event-passed align-items-center" id="liveToastBtn">
+                    <div className="card-affiche-passed-event">
+                      <img src={service.s_image} className="card-old-img-top" alt="..." />
+                    </div>
+                    <br></br>
+                    <h3>
+                      <i className="fa-solid fa-location-dot"></i>
+                      {service.s_lieu}
+                    </h3>
+                    <h2>{formatDate(service.s_date)}</h2>
+                    <p>{service.s_description}</p>
+                    <button
+                      type="button"
+                      // className="btn btn-danger btn-contactez-nous"
+                      data-bs-toggle="modal"
+                      data-bs-target={`#modalCartePassedEvent${index}`}
+                      className="btn-revivre-l-evenement"
+                    >
+                      Revivez l'événement
+                    </button>
+                  </div>
+                  <div
+                    className="modal fade"
+                    id={`modalCartePassedEvent${index}`}
+                    data-bs-backdrop="static"
+                    data-bs-keyboard="false"
+                    tabIndex="-1"
+                    aria-labelledby={`modalCartePassedEventLabel${index}`}
+                  >
+                    <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5
+                            className="modal-title"
+                            id={`modalCartePassedEventLabel${index}`}
+                          >
+                            {`${service.s_lieu} - ${formatDate(service.s_date)}`}
+                          </h5>
+                          <button
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div
+                          className="modal-body d-flex flex-column"
+                        >
+                          <img
+                            src={service.photo1}
+                            alt="Affiche de l'événement"
+                            style={{
+                              maxWidth: "100%",
+                              maxHeight: "100%",
+                              objectFit: "contain",
+                              marginBottom: "20px",
+                            }}
+                          />
+                          <img
+                            src={service.photo2}
+                            alt="Affiche de l'événement"
+                            style={{
+                              maxWidth: "100%",
+                              maxHeight: "100%",
+                              objectFit: "contain",
+                              marginBottom: "20px",
+                            }}
+                          />
+                          <img
+                            src={service.photo3}
+                            alt="Affiche de l'événement"
+                            style={{
+                              maxWidth: "100%",
+                              maxHeight: "100%",
+                              objectFit: "contain",
+                              marginBottom: "20px",
+                            }}
+                          />
+                          <img
+                            src={service.photo4}
+                            alt="Affiche de l'événement"
+                            style={{
+                              maxWidth: "100%",
+                              maxHeight: "100%",
+                              objectFit: "contain",
+                              marginBottom: "20px",
+                            }}
+                          />
+                          <img
+                            src={service.photo5}
+                            alt="Affiche de l'événement"
+                            style={{
+                              maxWidth: "100%",
+                              maxHeight: "100%",
+                              objectFit: "contain",
+                            }}
+                          />
+                        </div>
+                        <div className="modal-footer justify-content-between">
+                          <h6>{service.s_description}</h6>
+                          <h6>{service.s_nbspectateurs} spectateurs</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

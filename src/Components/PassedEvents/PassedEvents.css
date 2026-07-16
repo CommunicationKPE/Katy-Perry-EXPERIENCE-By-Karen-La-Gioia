@@ -5,7 +5,6 @@
 .anciens-cadre {
   width: 85%;
   color: white;
-  /* background: #1f242d; */
   border-radius: 10px;
   margin-top: 85px;
   margin-bottom: 15px;
@@ -15,15 +14,8 @@
   border: 3px solid white;
   transition: 0.4s;
 }
-.carousel:hover {
-  border: 3px solid #ba1f33;
-  border-radius: 10px;
-  transform: scale(1.05);
-  transition: 0.4s;
-}
 .anciens-title {
   position: relative;
-  /* margin-bottom: 55px; */
   display: flex;
   justify-content: center;
 }
@@ -34,11 +26,66 @@
   font-weight: 600;
   text-align: center;
 }
-.anciens-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 80px;
+.carte-Event-passed {
+  border-radius: 10px;
+  background-color: #1f242d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+.carte-Event-passed h3 {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.carte-Event-passed h3 i {
+  margin-right: 10px;
+  color: #ba1f33;
+}
+.carte-Event-passed h2 {
+  margin: 0px auto 0px auto;
+  font-size: 38px;
+  font-weight: 800;
+  color: #ba1f33;
+}
+p {
+  margin: 0px auto 0px auto;
+  font-size: 24px;
+  line-height: 40px;
+  max-width: 300px;
+}
+
+.btn-revivre-l-evenement {
+  display: block;
+  margin: auto auto;
+  text-align: center;
+  border: none;
+  color: white;
+  border-radius: 50px;
+  background: #ba1f33;
+  font-weight: bold;
+  padding: 20px 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  max-width: fit-content;
+  max-width: -moz-fit-content;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-revivre-l-evenement:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+.btn-revivre-l-evenement:focus {
+  margin: 0 auto 0px auto; 
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(186, 31, 51, 0.5);
+}
+.card-old-img-top {
+  width: 168px;
+  height: auto;
+  /* border-radius: 10px; */
 }
 
 /******************** Styles pour les écrans mobiles */
