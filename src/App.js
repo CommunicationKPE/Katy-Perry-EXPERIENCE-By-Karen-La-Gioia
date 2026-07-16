@@ -12,8 +12,29 @@ import { supabase, emailjs } from "./config/supabase";
 
 function App() {
   const [evenements, setEvenements] = useState([]);
+  const [medias, setMedias] = useState([]);
   const [visits, setVisits] = useState(null);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchMedias = async () => {
+  try {
+    const { data, error } = await supabase
+      .from('Medias')
+      .select('*')
+      .order("id", { ascending: false });
+
+    if (error) {
+      throw new Error("Erreur lors de la récupération des médias");
+    }
+    setMedias(data);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des médias:', error.message)
+    return []
+  }
+}
+    fetchMedias();
+  }, []); // Le tableau de dépendances est vide car cet effet ne doit s'exécuter qu'une seule fois
 
   useEffect(() => {
     const recuperationListeEvenements = async () => {
@@ -28,9 +49,9 @@ function App() {
         } else {
           setEvenements(data);
         }
-      } catch (err) {
-        setError(err.message);
-        console.error(err);
+      } catch (error){
+        setError('Erreur lors de la récupération des evenements:', error.message);
+        return []
       }
     };
     recuperationListeEvenements();
@@ -89,14 +110,15 @@ function App() {
   if (error) {
     return <div>Erreur : {error}</div>;
   }
+  console.log(medias);
 
   return (
     <div className="parallax">
       <div className="content">
-        <Navbar evenements={evenements} />
+        <Navbar evenements={evenements} medias={medias} />
         <Accueil evenements={evenements} />
         <About />
-        <Media />
+        <Media medias={medias} />
         <FutursEvents evenements={evenements} />
         <PassedEvents evenements={evenements} />
         <Contact serviceEmailJS={emailjs} />

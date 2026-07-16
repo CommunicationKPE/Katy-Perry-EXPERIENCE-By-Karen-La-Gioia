@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { useState, useEffect, useMemo } from "react";
 import React from "react";
 
-const Navbar = ({ evenements }) => {
+const Navbar = ({ evenements, medias }) => {
   const today = useMemo(() => {
     const date = new Date();
     date.setHours(0, 0, 0, 0);
@@ -13,6 +13,7 @@ const Navbar = ({ evenements }) => {
 
   const [showPassed, setShowPassed] = useState(false);
   const [showAvenir, setShowAvenir] = useState(false);
+  const [showMedia, setShowMedia] = useState(false);
 
   const { futursServices, passedServices } = useMemo(() => {
     const futurs = evenements.filter((service) => {
@@ -58,9 +59,11 @@ const Navbar = ({ evenements }) => {
   useEffect(() => {
     const hasFutureEvents = futursServices.length > 0;
     const hasPassedEvents = passedServices.length > 0;
+    const hasMedia = medias.length > 0;
     setShowAvenir(hasFutureEvents);
     setShowPassed(hasPassedEvents);
-  }, [futursServices.length, passedServices.length]);
+    setShowMedia(hasMedia);
+  }, [futursServices.length, medias.length, passedServices.length]);
 
   return (
     <div>
@@ -120,11 +123,13 @@ const Navbar = ({ evenements }) => {
                     <i className="fa-solid fa-address-card" aria-hidden="true"></i> À propos
                   </a>
                 </li>
+                {showMedia && (
                 <li className="nav-item" data-bs-dismiss="offcanvas">
                   <a className="nav-link" href="#medias" aria-label="Médias" >
                     <i className="fa-solid fa-circle-play" aria-hidden="true"></i> Médias
                   </a>
                 </li>
+                )}
                 {showAvenir && (
                   <li className="nav-item" data-bs-dismiss="offcanvas">
                     <a className="nav-link" href="#avenirs" aria-label="Prochaines dates" >
@@ -176,11 +181,13 @@ const Navbar = ({ evenements }) => {
                   <i className="fa-solid fa-address-card" aria-hidden="true"></i> À propos
                 </a>
               </li>
+              {showMedia && (
               <li className="nav-item">
                 <a className="nav-link" href="#medias" aria-label="Médias">
                   <i className="fa-solid fa-circle-play" aria-hidden="true"></i> Médias
                 </a>
               </li>
+              )}
               {showAvenir && (
                 <li className="nav-item">
                   <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">

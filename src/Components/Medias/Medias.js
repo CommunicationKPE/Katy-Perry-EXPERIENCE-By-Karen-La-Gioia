@@ -1,31 +1,37 @@
 import "./Medias.css";
+import { useState, useEffect } from "react";
 
-const Media = () => {
+const Media = ({ medias }) => {
+  const [showMedia, setShowMedia] = useState(false);
+
+  useEffect(() => {
+    if (medias && medias.length > 0) {
+      setShowMedia(true);
+    }
+  }, [medias]); // Ajoutez medias comme dépendance
+
   return (
     <div id="medias" className="medias">
-      <div className="medias-cadre">
-        <div className="medias-title">
-          <h1>Média</h1>
-        </div>
-        <div className="medias-container">
-          <div className="ratio ratio-16x9">
-            <iframe
-              src="https://www.youtube.com/embed/UBWIznYP4M0?si=CZ1E1FU-uJaL7qAG"
-              title="YouTube video player"
-              allowFullScreen
-            ></iframe>
+      {showMedia && (
+        <div className="medias-cadre">
+          <div className="medias-title">
+            <h1>Média</h1>
           </div>
-          <br></br>
-          <div className="ratio ratio-16x9">
-            <iframe
-              src="https://www.youtube.com/embed/tSBqepYfhpY?si=bSI9S5Yar1zx8zdz"
-              title="YouTube video player"
-              allowFullScreen
-            ></iframe>
+          <div className="medias-container">
+            {medias.map((media, index) => (
+              <div key={index} className="ratio ratio-16x9">
+                <iframe
+                  src={media.url}
+                  title={media.title || `YouTube video player ${index}`}
+                  allowFullScreen
+                ></iframe>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
+
 export default Media;
