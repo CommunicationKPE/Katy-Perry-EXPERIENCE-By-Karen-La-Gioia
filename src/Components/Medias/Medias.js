@@ -20,11 +20,22 @@ const Media = ({ medias }) => {
           <div className="medias-container">
             {medias.map((media, index) => (
               <div key={index} className="ratio ratio-16x9">
-                <iframe
-                  src={media.url}
-                  title={media.title || `YouTube video player ${index}`}
-                  allowFullScreen
-                ></iframe>
+                <iframe 
+                width="560" 
+                height="315"
+                src={media.video}
+                title={media.title || `YouTube video player ${index}`} 
+                frameborder="0" 
+                allow="accelerometer; 
+                autoplay; 
+                clipboard-write; 
+                encrypted-media; 
+                gyroscope; 
+                picture-in-picture; 
+                web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>                 
+                </iframe>
               </div>
             ))}
           </div>
