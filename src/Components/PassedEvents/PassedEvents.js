@@ -1,5 +1,6 @@
 import "./PassedEvents.css";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
+import * as bootstrap from 'bootstrap';
 
 const PassedEvents = ({ evenements }) => {
   // Obtenir la date d'aujourd'hui
@@ -8,11 +9,11 @@ const PassedEvents = ({ evenements }) => {
     date.setHours(0, 0, 0, 0);
     return date;
   }, []);
+
   // Utiliser une variable d'état pour déterminer si l'élément doit être affiché
   const [showPassed, setShowPassed] = useState(false);
 
   // Filtrer les services dont la date est antérieure ou égale à aujourd'hui
-
   const filteredServices = useMemo(() => {
     return evenements.filter((service) => {
       const serviceDate = new Date(service.s_date);
@@ -21,7 +22,6 @@ const PassedEvents = ({ evenements }) => {
   }, [evenements, today]);
 
   // Trier les services par date en ordre décroissant (du plus récent au plus ancien)
-
   const sortedServices = useMemo(() => {
     return [...filteredServices].sort((a, b) => {
       const dateA = new Date(a.s_date);
@@ -38,10 +38,32 @@ const PassedEvents = ({ evenements }) => {
     return `${day}-${month}-${year}`;
   };
 
+  // Référence pour le carousel
+  const carouselRef = useRef(null);
+
   useEffect(() => {
     // Vérifier si au moins un service est passé
     const haspassedEvents = filteredServices.length > 0;
     setShowPassed(haspassedEvents);
+
+    // Initialiser le carousel
+    if (carouselRef.current) {
+      const carousel = new bootstrap.Carousel(carouselRef.current, {
+        interval: 5000, // Intervalle de défilement automatique (5 secondes)
+      });
+
+      // Écouter les événements d'ouverture et de fermeture des modales
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach((modal) => {
+        modal.addEventListener('show.bs.modal', () => {
+          carousel.pause(); // Arrêter le carousel lorsque la modale est ouverte
+        });
+
+        modal.addEventListener('hidden.bs.modal', () => {
+          carousel.cycle(); // Relancer le carousel lorsque la modale est fermée
+        });
+      });
+    }
   }, [filteredServices]);
 
   return (
@@ -55,6 +77,7 @@ const PassedEvents = ({ evenements }) => {
             id="carouselExampleCaptions"
             className="carousel slide"
             data-bs-ride="carousel"
+            ref={carouselRef}
           >
             <div className="carousel-indicators">
               {sortedServices.map((service, index) => (
@@ -88,7 +111,6 @@ const PassedEvents = ({ evenements }) => {
                     <p>{service.s_description}</p>
                     <button
                       type="button"
-                      // className="btn btn-danger btn-contactez-nous"
                       data-bs-toggle="modal"
                       data-bs-target={`#modalCartePassedEvent${index}`}
                       className="btn-revivre-l-evenement"
@@ -213,4 +235,5 @@ const PassedEvents = ({ evenements }) => {
     </div>
   );
 };
+
 export default PassedEvents;
