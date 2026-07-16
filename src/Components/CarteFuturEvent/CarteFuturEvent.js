@@ -2,12 +2,17 @@ import "./CarteFuturEvent.css";
 import { useEffect } from "react";
 
 const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0"); // Les mois sont indexés à partir de 0
-  const year = date.getFullYear();
-  return `${day}-${month}-${year}`;
-};
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const monthNames = [
+      "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+      "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+    ];
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+
+    return `${day} ${month} ${year}`;
+  };
 
 const CarteFuturEvent = ({
   ou,
@@ -91,7 +96,7 @@ const CarteFuturEvent = ({
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id={`modalCarteFuturLabel${id}`}>
-                Retrouvez-nous le : {formattedDate}
+                Retrouvez-nous,<br></br> le  {formattedDate} prochain.
               </h5>
               <button
                 type="button"

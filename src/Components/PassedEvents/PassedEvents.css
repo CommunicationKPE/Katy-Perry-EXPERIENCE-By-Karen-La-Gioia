@@ -33,24 +33,26 @@
   flex-direction: column;
   justify-content: center;
   padding: 50px;
+  margin-top: -15px;
 }
 .carte-Event-passed h3 {
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 28px;
   font-weight: 600;
 }
-.carte-Event-passed h3 i {
+.fa-location-dot {
   margin-right: 10px;
   color: #ba1f33;
 }
 .carte-Event-passed h2 {
-  margin: 0px auto 0px auto;
+  margin: 13px auto 10px auto;
   font-size: 38px;
   font-weight: 800;
   color: #ba1f33;
 }
-p {
-  margin: 0px auto 0px auto;
+.carte-Event-passed p {
+  margin: 0px 0px 12px 0px;
   font-size: 24px;
   line-height: 40px;
   max-width: 300px;
@@ -58,7 +60,6 @@ p {
 
 .btn-revivre-l-evenement {
   display: block;
-  margin: auto auto;
   text-align: center;
   border: none;
   color: white;
@@ -71,17 +72,12 @@ p {
   max-width: fit-content;
   max-width: -moz-fit-content;
   text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .btn-revivre-l-evenement:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
-.btn-revivre-l-evenement:focus {
-  margin: 0 auto 0px auto; 
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(186, 31, 51, 0.5);
-}
+
 .card-old-img-top {
   width: 168px;
   height: auto;
@@ -101,6 +97,11 @@ p {
     font-size: 50px;
     margin-bottom: 20px;
     text-align: center;
+  }
+  .carte-Event-passed h2{
+    font-size: 23px;
+    font-weight: 800;
+    color: #ba1f33;
   }
 }
 /* ***************************** */

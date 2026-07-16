@@ -32,9 +32,14 @@ const PassedEvents = ({ evenements }) => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const monthNames = [
+      "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+      "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+    ];
+    const month = monthNames[date.getMonth()];
     const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
+
+    return `${day} ${month} ${year}`;
   };
 
   useEffect(() => {
@@ -53,7 +58,7 @@ const PassedEvents = ({ evenements }) => {
           <div
             id="carouselExampleCaptions"
             className="carousel slide"
-            data-bs-ride="false" // Désactive complètement le défilement automatique
+            data-bs-ride="false"
           >
             <div className="carousel-indicators">
               {sortedServices.map((service, index) => (
@@ -78,12 +83,11 @@ const PassedEvents = ({ evenements }) => {
                     <div className="card-affiche-passed-event">
                       <img src={service.s_image} className="card-old-img-top" alt="..." />
                     </div>
-                    <br></br>
+                    <h2>{formatDate(service.s_date)}</h2>
                     <h3>
                       <i className="fa-solid fa-location-dot"></i>
                       {service.s_lieu}
-                    </h3>
-                    <h2>{formatDate(service.s_date)}</h2>
+                    </h3>                    
                     <p>{service.s_description}</p>
                     <button
                       type="button"
@@ -172,8 +176,8 @@ const PassedEvents = ({ evenements }) => {
                           />
                         </div>
                         <div className="modal-footer justify-content-between">
-                          <h6>{service.s_description}</h6>
-                          <h6>{service.s_nbspectateurs} spectateurs</h6>
+                          <h5>{service.s_description}</h5>
+                          <h5>{service.s_nbspectateurs} spectateurs</h5>
                         </div>
                       </div>
                     </div>
