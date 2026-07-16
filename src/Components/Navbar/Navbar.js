@@ -126,7 +126,7 @@ const Navbar = ({ evenements, medias }) => {
                 {showMedia && (
                 <li className="nav-item" data-bs-dismiss="offcanvas">
                   <a className="nav-link" href="#medias" aria-label="Médias" >
-                    <i className="fa-solid fa-circle-play" aria-hidden="true"></i> Médias
+                    <i className="fa-solid fa-circle-play" aria-hidden="true"></i> {medias.length === 1 ? "Média" : "Médias"}
                   </a>
                 </li>
                 )}
@@ -184,7 +184,7 @@ const Navbar = ({ evenements, medias }) => {
               {showMedia && (
               <li className="nav-item">
                 <a className="nav-link" href="#medias" aria-label="Médias">
-                  <i className="fa-solid fa-circle-play" aria-hidden="true"></i> Médias
+                  <i className="fa-solid fa-circle-play" aria-hidden="true"></i> {medias.length === 1 ? "Média" : "Médias"}
                 </a>
               </li>
               )}
