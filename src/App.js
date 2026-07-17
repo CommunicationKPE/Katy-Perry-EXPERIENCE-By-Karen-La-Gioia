@@ -88,8 +88,12 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Chargement en cours...</div>;
-  }
+    return  <div class="d-flex justify-content-center">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span> 
+              </div>
+            </div>
+    };
 
   if (error) {
     return <div>Erreur : {error}</div>;
