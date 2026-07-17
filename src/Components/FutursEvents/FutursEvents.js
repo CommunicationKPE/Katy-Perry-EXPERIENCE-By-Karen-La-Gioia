@@ -10,15 +10,18 @@ const FutursEvents = ({ evenements }) => {
     return date;
   }, []);
 
-  // Filtrer les services pour obtenir uniquement les événements à venir + celle d'aujourd'hui
-  const filteredServices = useMemo(() => {
-    return evenements.filter((service) => {
-      const serviceDate = new Date(service.s_date);
-      return serviceDate >= today;
-    });
+  // Filtrer et trier les événements
+  const sortedEvents = useMemo(() => {
+    return evenements
+      .filter((service) => new Date(service.s_date) >= today)
+      .sort((a, b) => {
+        const dateA = new Date(a.s_date).getTime();
+        const dateB = new Date(b.s_date).getTime();
+        return dateA - dateB; // Tri par ordre chronologique (plus proche d'abord)
+      });
   }, [evenements, today]);
 
-  if (filteredServices.length === 0) {
+  if (sortedEvents.length === 0) {
     return (
       <div id="avenirs" className="a-venirs">
         <div className="no-events">
@@ -34,7 +37,7 @@ const FutursEvents = ({ evenements }) => {
           <h1>Prochainement</h1>
         </div>
         <div className="a-venirs-container">
-          {filteredServices.map((service) => (
+          {sortedEvents.map((service) => (
             <CarteFuturEvent
               key={service.id || `${service.s_date}-${service.s_no}`}
               id={service.id}
