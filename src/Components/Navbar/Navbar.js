@@ -1,8 +1,11 @@
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import PropTypes from 'prop-types';
 import signature from "../../Assets/signature.png";
 import qrCode from "../../Assets/qr-code.svg";
 import "./Navbar.css";
-import { useState, useEffect, useMemo } from "react";
-import React from "react";
+
+const APP_URL = "https://communicationkpe.github.io/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia";
+const APP_TITLE = "Merci de partager l'application";
 
 const Navbar = ({ evenements, medias }) => {
   const today = useMemo(() => {
@@ -27,34 +30,24 @@ const Navbar = ({ evenements, medias }) => {
     return { futursServices: futurs, passedServices: passed };
   }, [evenements, today]);
 
-  const handleAppliShare = async () => {
-    const appUrl = "https://communicationkpe.github.io/Katy-Perry-EXPERIENCE-By-Karen-La-Gioia";
-
-    if (navigator.share) {
-      try {
+  const handleAppliShare = useCallback(async () => {
+    try {
+      if (navigator.share) {
         await navigator.share({
-          title: "Merci de partager l'application",
-          url: appUrl,
+          title: APP_TITLE,
+          url: APP_URL,
         });
-      } catch (error) {
-        console.error("Erreur lors du partage :", error);
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(APP_URL);
+        alert("Le lien a été copié dans le presse-papiers. Vous pouvez le coller pour le partager.");
+      } else {
+        alert(`L'API Web Share et l'API Clipboard ne sont pas supportées par votre navigateur. Voici le lien à partager : ${APP_URL}`);
       }
-    } else if (navigator.clipboard) {
-      try {
-        await navigator.clipboard.writeText(appUrl);
-        alert(
-          "Le lien a été copié dans le presse-papiers. Vous pouvez le coller pour le partager."
-        );
-      } catch (error) {
-        console.error("Erreur lors de la copie du lien :", error);
-      }
-    } else {
-      alert(
-        "L'API Web Share et l'API Clipboard ne sont pas supportées par votre navigateur. Voici le lien à partager : " +
-          appUrl
-      );
+    } catch (error) {
+      console.error("Erreur lors du partage :", error);
+      alert("Une erreur est survenue lors du partage. Veuillez réessayer.");
     }
-  };
+  }, []);
 
   useEffect(() => {
     const hasFutureEvents = futursServices.length > 0;
@@ -64,6 +57,57 @@ const Navbar = ({ evenements, medias }) => {
     setShowPassed(hasPassedEvents);
     setShowMedia(hasMedia);
   }, [futursServices.length, medias.length, passedServices.length]);
+
+  const renderNavItem = (condition, href, label, icon, text, badgeCount = null, isMobile = false) => {
+    if (!condition) return null;
+
+    const dismissAttr = isMobile ? { "data-bs-dismiss": "offcanvas" } : {};
+
+    return (
+      <li className="nav-item" {...dismissAttr}>
+        <a className="nav-link" href={href} aria-label={label}>
+          <i className={icon} aria-hidden="true"></i> {text}
+          {badgeCount !== null && (
+            <span className="badge notification ms-2">{badgeCount}</span>
+          )}
+        </a>
+      </li>
+    );
+  };
+
+  const renderNavItems = (isMobile = false) => {
+    return (
+      <>
+        {renderNavItem(true, "#home", "Accueil", "fa-solid fa-house-chimney", "Accueil", null, isMobile)}
+        {renderNavItem(true, "#about", "À propos", "fa-solid fa-address-card", "À propos", null, isMobile)}
+        {renderNavItem(showMedia, "#medias", "Médias", "fa-solid fa-circle-play", medias.length === 1 ? "Média" : "Médias", null, isMobile)}
+        {renderNavItem(showAvenir, "#avenirs", "Prochaines dates", "fa-solid fa-hourglass-end", futursServices.length === 1 ? "Prochaine date" : "Prochaines dates", futursServices.length, isMobile)}
+        {renderNavItem(showPassed, "#anciens", "Dates passées", "fa-solid fa-calendar-check", passedServices.length === 1 ? "Date passée" : "Dates passées", null, isMobile)}
+        {renderNavItem(true, "#contact", "Contact", "fa-solid fa-envelope", "Contact", null, isMobile)}
+      </>
+    );
+  };
+
+  const renderMobileSpecificItems = () => {
+    return (
+      <>
+        <li className="nav-item">
+          <img src={qrCode} alt="QR Code" className="navbar-qr-code" />
+        </li>
+        <li className="nav-item">
+          <button
+            className="btn-partager-app"
+            onClick={handleAppliShare}
+            aria-label="Partager l'application"
+            aria-expanded="false"
+            aria-controls="share-menu"
+          >
+            Partager
+          </button>
+        </li>
+      </>
+    );
+  };
 
   return (
     <div>
@@ -107,116 +151,29 @@ const Navbar = ({ evenements, medias }) => {
             </div>
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li className="nav-item" data-bs-dismiss="offcanvas">
-                  <a
-                    className="nav-link"
-                    href="#home"
-                    aria-label="Accueil"
-                    aria-current="page"
-                    
-                  >
-                    <i className="fa-solid fa-house-chimney" aria-hidden="true"></i> Accueil
-                  </a>
-                </li>
-                <li className="nav-item" data-bs-dismiss="offcanvas">
-                  <a className="nav-link" href="#about" aria-label="À propos" >
-                    <i className="fa-solid fa-address-card" aria-hidden="true"></i> À propos
-                  </a>
-                </li>
-                {showMedia && (
-                <li className="nav-item" data-bs-dismiss="offcanvas">
-                  <a className="nav-link" href="#medias" aria-label="Médias" >
-                    <i className="fa-solid fa-circle-play" aria-hidden="true"></i> {medias.length === 1 ? "Média" : "Médias"}
-                  </a>
-                </li>
-                )}
-                {showAvenir && (
-                  <li className="nav-item" data-bs-dismiss="offcanvas">
-                    <a className="nav-link" href="#avenirs" aria-label="Prochaines dates" >
-                      <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
-                      {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
-                      <span className="badge notification ms-3">{futursServices.length}</span>
-                    </a>
-                  </li>
-                )}
-                {showPassed && (
-                  <li className="nav-item" data-bs-dismiss="offcanvas">
-                    <a className="nav-link" href="#anciens" aria-label="Dates passées" >
-                      <i className="fa-solid fa-calendar-check" aria-hidden="true"></i>
-                      {passedServices.length === 1 ? "Date passée" : "Dates passées"}
-                    </a>
-                  </li>
-                )}
-                <li className="nav-item" data-bs-dismiss="offcanvas">
-                  <a className="nav-link" href="#contact" aria-label="Contact" >
-                    <i className="fa-solid fa-envelope" aria-hidden="true"></i> Contact
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <img src={qrCode} alt="QR Code" className="navbar-qr-code" />
-                </li>
-                <li className="nav-item">
-                  <button className="btn-partager-app" onClick={handleAppliShare} aria-label="Partager l'application">
-                    Partager
-                  </button>
-                </li>
+                {renderNavItems(true)}
+                {renderMobileSpecificItems()}
               </ul>
             </div>
           </div>
           <div className="d-none d-md-flex">
             <ul className="navbar-nav flex-row">
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="#home"
-                  aria-label="Accueil"
-                  aria-current="page"
-                >
-                  <i className="fa-solid fa-house-chimney" aria-hidden="true"></i>
-                  Accueil
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#about" aria-label="À propos">
-                  <i className="fa-solid fa-address-card" aria-hidden="true"></i> À propos
-                </a>
-              </li>
-              {showMedia && (
-              <li className="nav-item">
-                <a className="nav-link" href="#medias" aria-label="Médias">
-                  <i className="fa-solid fa-circle-play" aria-hidden="true"></i> {medias.length === 1 ? "Média" : "Médias"}
-                </a>
-              </li>
-              )}
-              {showAvenir && (
-                <li className="nav-item">
-                  <a className="nav-link" href="#avenirs" aria-label="Prochaines dates">
-                    <i className="fa-solid fa-hourglass-end" aria-hidden="true"></i>
-                    {futursServices.length === 1 ? "Prochaine date" : "Prochaines dates"}
-                    <span className="badge notification ms-2">{futursServices.length}</span>
-                  </a>
-                </li>
-              )}
-              {showPassed && (
-                <li className="nav-item">
-                  <a className="nav-link position-relative" href="#anciens" aria-label="Dates passées" >
-                    <i className="fa-solid fa-calendar-check " aria-hidden="true" ></i>
-                    {passedServices.length === 1 ? "Date passée" : "Dates passées"}
-
-                  </a>
-                </li>
-              )}
-              <li className="nav-item">
-                <a className="nav-link" href="#contact" aria-label="Contact">
-                  <i className="fa-solid fa-envelope" aria-hidden="true"></i> Contact
-                </a>
-              </li>
+              {renderNavItems(false)}
             </ul>
           </div>
         </div>
       </nav>
     </div>
   );
+};
+
+Navbar.propTypes = {
+  evenements: PropTypes.arrayOf(
+    PropTypes.shape({
+      s_date: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  medias: PropTypes.array.isRequired,
 };
 
 export default React.memo(Navbar);

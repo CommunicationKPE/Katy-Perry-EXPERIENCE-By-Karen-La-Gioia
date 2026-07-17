@@ -1,7 +1,36 @@
 import React, { useMemo } from "react";
+import PropTypes from 'prop-types';
 import "./Accueil.css";
 import logo from "../../Assets/Logo.png";
 import CountUp from "react-countup";
+
+const ANIMATION_DURATIONS = {
+  UPCOMING_EVENTS: 2,
+  PAST_SPECTATORS: 4,
+  PAST_EVENTS: 3,
+};
+
+const LABELS = {
+  SPECTACLE: "SPECTACLE",
+  SPECTACLES: "SPECTACLES",
+  SPECTATEUR: "SPECTATEUR",
+  SPECTATEURS: "SPECTATEURS",
+  EVENT_REALISE: "ÉVÉNEMENT RÉALISÉ",
+  EVENTS_REALISES: "ÉVÉNEMENTS RÉALISÉS",
+};
+
+const Achievement = ({ count, duration, labelSingular, labelPlural }) => {
+  return (
+    <div className="about-achievement">
+      <h2>
+        <CountUp end={count} duration={duration} separator="" />
+      </h2>
+      <h5>
+        {count === 1 ? labelSingular : labelPlural}
+      </h5>
+    </div>
+  );
+};
 
 const Accueil = ({ evenements }) => {
   const today = useMemo(() => {
@@ -29,52 +58,42 @@ const Accueil = ({ evenements }) => {
   }, [pastServices]);
 
   return (
-    <div id="home" className="accueil">
-      <div className="accueil-cadre d-flex">
-        <div className="bas-gauche">
-          <h1>
+    <div id="home" className="accueil" role="region" aria-label="Section d'accueil">
+      <div className="accueil-cadre d-flex" role="main">
+        <div className="bas-gauche" role="complementary">
+          <h1 aria-label="Live Music Show">
             <span>LIVE</span> Music Show
           </h1>
-          <div className="about-achievements">
+          <div className="about-achievements" aria-label="Nos réalisations">
             {upcomingEventsCount > 0 && (
-              <div className="about-achievement">
-                <h2>
-                  <CountUp end={upcomingEventsCount} duration={2} separator="" />
-                </h2>
-                <h5>
-                  {upcomingEventsCount === 1
-                    ? "SPECTACLE À VENIR"
-                    : "SPECTACLES À VENIR"}
-                </h5>
-              </div>
+              <Achievement
+                count={upcomingEventsCount}
+                duration={ANIMATION_DURATIONS.UPCOMING_EVENTS}
+                labelSingular={`${LABELS.SPECTACLE} À VENIR`}
+                labelPlural={`${LABELS.SPECTACLES} À VENIR`}
+              />
             )}
             {upcomingEventsCount > 0 && totalPastSpectators > 0 && (
               <hr className="border border-light border-1 opacity-100" />
             )}
             {totalPastSpectators > 0 && (
-              <div className="about-achievement">
-                <h2>
-                  <CountUp end={totalPastSpectators} duration={4} separator="" />
-                </h2>
-                <h5>
-                  {totalPastSpectators === 1 ? "SPECTATEUR" : "SPECTATEURS"}
-                </h5>
-              </div>
+              <Achievement
+                count={totalPastSpectators}
+                duration={ANIMATION_DURATIONS.PAST_SPECTATORS}
+                labelSingular={`${LABELS.SPECTATEUR}`}
+                labelPlural={`${LABELS.SPECTATEURS}`}
+              />
             )}
             {totalPastSpectators > 0 && pastServices.length > 0 && (
               <hr className="border border-light border-1 opacity-100" />
             )}
             {pastServices.length > 0 && (
-              <div className="about-achievement">
-                <h2>
-                  <CountUp end={pastServices.length} duration={3} separator="" />
-                </h2>
-                <h5>
-                  {pastServices.length === 1
-                    ? "ÉVÉNEMENT RÉALISÉ"
-                    : "ÉVÉNEMENTS RÉALISÉS"}
-                </h5>
-              </div>
+              <Achievement
+                count={pastServices.length}
+                duration={ANIMATION_DURATIONS.PAST_EVENTS}
+                labelSingular={`${LABELS.EVENT_REALISE}`}
+                labelPlural={`${LABELS.EVENTS_REALISES}`}
+              />
             )}
           </div>
           <a
@@ -82,22 +101,23 @@ const Accueil = ({ evenements }) => {
             className="btn-contactez-nous"
             href="#contact"
             aria-label="Contactez-nous"
+            rel="noopener noreferrer"
           >
             Contactez-nous
           </a>
           <div className="social-icons d-flex justify-content-evenly align-items-center">
-            <a href="https://youtube.com" aria-label="YouTube">
+            <a href="https://youtube.com" aria-label="YouTube" rel="noopener noreferrer">
               <i className="fa-brands fa-youtube youtube-icon"></i>
             </a>
-            <a href="https://facebook.com" aria-label="Facebook">
+            <a href="https://facebook.com" aria-label="Facebook" rel="noopener noreferrer">
               <i className="fa-brands fa-facebook-f facebook-icon"></i>
             </a>
-            <a href="https://instagram.com" aria-label="Instagram">
+            <a href="https://instagram.com" aria-label="Instagram" rel="noopener noreferrer">
               <i className="fa-brands fa-instagram instagram-icon"></i>
             </a>
           </div>
         </div>
-        <div className="haut-droite">
+        <div className="haut-droite" role="img" aria-label="Logo Katy Perry Experience">
           <img
             src={logo}
             alt="Logo Katy Perry Experience"
@@ -108,6 +128,15 @@ const Accueil = ({ evenements }) => {
       </div>
     </div>
   );
+};
+
+Accueil.propTypes = {
+  evenements: PropTypes.arrayOf(
+    PropTypes.shape({
+      s_date: PropTypes.string.isRequired,
+      s_nbspectateurs: PropTypes.number,
+    })
+  ).isRequired,
 };
 
 export default React.memo(Accueil);

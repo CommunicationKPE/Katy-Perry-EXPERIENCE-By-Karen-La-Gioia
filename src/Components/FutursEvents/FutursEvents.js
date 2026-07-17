@@ -1,6 +1,5 @@
+import React, { useMemo } from "react";
 import "./FutursEvents.css";
-import React, { useState, useEffect, useMemo } from "react";
-// import donnees_Services from "../../Assets/services_data";
 import CarteFuturEvent from "../CarteFuturEvent/CarteFuturEvent";
 
 const FutursEvents = ({ evenements }) => {
@@ -10,8 +9,6 @@ const FutursEvents = ({ evenements }) => {
     date.setHours(0, 0, 0, 0);
     return date;
   }, []);
-  // Utiliser une variable d'état pour déterminer si l'élément doit être affiché
-  const [showAvenir, setShowAvenir] = useState(false);
 
   // Filtrer les services pour obtenir uniquement les événements à venir + celle d'aujourd'hui
   const filteredServices = useMemo(() => {
@@ -20,39 +17,40 @@ const FutursEvents = ({ evenements }) => {
       return serviceDate >= today;
     });
   }, [evenements, today]);
-  
-  useEffect(() => {
-    // Vérifier si au moins un service est à venir ou aujourd'hui
-    const hasFutureEvents = filteredServices.length > 0;
-    setShowAvenir(hasFutureEvents);
-  }, [filteredServices]);
+
+  if (filteredServices.length === 0) {
+    return (
+      <div id="avenirs" className="a-venirs">
+        <div className="no-events">
+          Aucun événement à venir pour le moment.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div id="avenirs" className="a-venirs">
-      {showAvenir && (
-        <div className="a-venirs-cadre">
-          <div className="a-venirs-title">
-            <h1>Prochainement</h1>
-          </div>
-          <div className="a-venirs-container">
-            {filteredServices.map((service, index) => {
-              return (
-                <CarteFuturEvent
-                  key={index}
-                  id={index} // Utilisez l'index comme identifiant unique
-                  icone={service.s_no}
-                  ou={service.s_lieu}
-                  description={service.s_description}
-                  quand={service.s_date}
-                  afficheUrl={service.s_image}
-                  style={{ width: "18rem" }}
-                />
-              );
-            })}
-          </div>
+      <div className="a-venirs-cadre">
+        <div className="a-venirs-title">
+          <h1>Prochainement</h1>
         </div>
-      )}
+        <div className="a-venirs-container">
+          {filteredServices.map((service) => (
+            <CarteFuturEvent
+              key={service.id || `${service.s_date}-${service.s_no}`}
+              id={service.id}
+              icone={service.s_no}
+              ou={service.s_lieu}
+              description={service.s_description}
+              quand={service.s_date}
+              afficheUrl={service.s_image}
+              style={{ width: "100%" }}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
-export default FutursEvents;
+
+export default React.memo(FutursEvents);

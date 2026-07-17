@@ -38,3 +38,64 @@ iframe {
     font-size: 50px;
   }
 }
+/* Ajoutez dans Medias.css */
+.media-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.media-error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.transcript-toggle {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0;
+  text-decoration: underline;
+}
+
+.media-transcript {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.media-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.media-control-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.media-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.play-btn {
+  background-color: #ff0000;
+}
+
+.pause-btn {
+  background-color: #333;
+}

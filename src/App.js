@@ -1,4 +1,6 @@
 import "./App.css";
+
+// Composants
 import Navbar from "./Components/Navbar/Navbar";
 import Accueil from "./Components/Accueil/Accueil";
 import About from "./Components/About/About";
@@ -7,6 +9,8 @@ import PassedEvents from "./Components/PassedEvents/PassedEvents";
 import Footer from "./Components/Footer/Footer";
 import Contact from "./Components/Contact/Contact";
 import Media from "./Components/Medias/Medias";
+
+// Hooks et configurations
 import { useEffect, useState } from "react";
 import { supabase, emailjs } from "./config/supabase";
 
@@ -15,65 +19,44 @@ function App() {
   const [medias, setMedias] = useState([]);
   const [visits, setVisits] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const handleError = (error, setError) => {
+    setError(error.message);
+    console.error(error);
+  };
 
   useEffect(() => {
-    const fetchMedias = async () => {
-  try {
-    const { data, error } = await supabase
-      .from('Medias')
-      .select('*')
-      .order("id", { ascending: false });
-
-    if (error) {
-      throw new Error("Erreur lors de la récupération des médias");
-    }
-    setMedias(data);
-  } catch (error) {
-    console.error('Erreur lors de la récupération des médias:', error.message)
-    return []
-  }
-}
-    fetchMedias();
-  }, []); // Le tableau de dépendances est vide car cet effet ne doit s'exécuter qu'une seule fois
-
-  useEffect(() => {
-    const recuperationListeEvenements = async () => {
+    const fetchData = async () => {
       try {
-        const { data, error } = await supabase
-          .from("Evenements")
-          .select("*")
-          .order("id", { ascending: false });
+        setLoading(true);
+        const [mediasResponse, evenementsResponse] = await Promise.all([
+          supabase.from('Medias').select('*').order("id", { ascending: false }),
+          supabase.from('Evenements').select('*').order("id", { ascending: false })
+        ]);
 
-        if (error) {
-          throw new Error("Erreur lors de la récupération des événements");
-        } else {
-          setEvenements(data);
+        if (mediasResponse.error) {
+          throw new Error("Erreur lors de la récupération des médias");
         }
-      } catch (error){
-        setError('Erreur lors de la récupération des evenements:', error.message);
-        return []
+        if (evenementsResponse.error) {
+          throw new Error("Erreur lors de la récupération des événements");
+        }
+
+        setMedias(mediasResponse.data);
+        setEvenements(evenementsResponse.data);
+      } catch (error) {
+        handleError(error, setError);
+      } finally {
+        setLoading(false);
       }
     };
-    recuperationListeEvenements();
-  }, []); // Le tableau de dépendances est vide car cet effet ne doit s'exécuter qu'une seule fois
 
-  useEffect(() => {
-    const handleScroll = function () {
-      const parallax = document.querySelector(".parallax");
-      const scrollTop = window.pageYOffset;
-      parallax.style.backgroundPositionY = scrollTop * 0.5 + "px";
-    };
-
-    document.addEventListener("scroll", handleScroll);
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, []); // Le tableau de dépendances est vide car cet effet ne doit s'exécuter qu'une seule fois
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const updateVisitCount = async () => {
       try {
-        // Récupérer la valeur actuelle
         const { data, error } = await supabase
           .from("Visits")
           .select("count")
@@ -86,7 +69,6 @@ function App() {
 
         const newCount = data.count + 1;
 
-        // Incrémenter dans la base
         const { error: updateError } = await supabase
           .from("Visits")
           .update({ count: newCount })
@@ -96,21 +78,22 @@ function App() {
           throw new Error("Erreur lors de la mise à jour du compteur de visites");
         }
 
-        // Mettre à jour l’état local
         setVisits(newCount);
       } catch (err) {
-        setError(err.message);
-        console.error(err);
+        handleError(err, setError);
       }
     };
 
     updateVisitCount();
-  }, []); // Le tableau de dépendances est vide car cet effet ne doit s'exécuter qu'une seule fois
+  }, []);
+
+  if (loading) {
+    return <div>Chargement en cours...</div>;
+  }
 
   if (error) {
     return <div>Erreur : {error}</div>;
   }
-  console.log(medias);
 
   return (
     <div className="parallax">
@@ -122,7 +105,7 @@ function App() {
         <FutursEvents evenements={evenements} />
         <PassedEvents evenements={evenements} />
         <Contact serviceEmailJS={emailjs} />
-        <Footer visits={visits} />
+        <Footer visits={visits !== null ? visits : 0} />
       </div>
     </div>
   );
