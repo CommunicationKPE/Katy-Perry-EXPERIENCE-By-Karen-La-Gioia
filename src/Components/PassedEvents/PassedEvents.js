@@ -125,59 +125,90 @@ const PassedEvents = ({ evenements }) => {
                         <div
                           className="modal-body d-flex flex-column"
                         >
-                          <img
-                            src={service.photo1}
-                            alt="Affiche de l'événement"
-                            style={{
-                              maxWidth: "100%",
-                              maxHeight: "100%",
-                              objectFit: "contain",
-                              marginBottom: "20px",
-                            }}
-                          />
-                          <img
-                            src={service.photo2}
-                            alt="Affiche de l'événement"
-                            style={{
-                              maxWidth: "100%",
-                              maxHeight: "100%",
-                              objectFit: "contain",
-                              marginBottom: "20px",
-                            }}
-                          />
-                          <img
-                            src={service.photo3}
-                            alt="Affiche de l'événement"
-                            style={{
-                              maxWidth: "100%",
-                              maxHeight: "100%",
-                              objectFit: "contain",
-                              marginBottom: "20px",
-                            }}
-                          />
-                          <img
-                            src={service.photo4}
-                            alt="Affiche de l'événement"
-                            style={{
-                              maxWidth: "100%",
-                              maxHeight: "100%",
-                              objectFit: "contain",
-                              marginBottom: "20px",
-                            }}
-                          />
-                          <img
-                            src={service.photo5}
-                            alt="Affiche de l'événement"
-                            style={{
-                              maxWidth: "100%",
-                              maxHeight: "100%",
-                              objectFit: "contain",
-                            }}
-                          />
+                          {service.photo1 ? (
+                            <img
+                              src={service.photo1}
+                              alt="Affiche de l'événement"
+                              style={{
+                                maxWidth: "100%",
+                                maxHeight: "100%",
+                                objectFit: "contain",
+                                marginBottom: "20px",
+                              }}
+                            />
+                          ) : (
+                            <p></p>                                                         
+                          )}
+                          {service.photo2 ? (
+                            <img
+                              src={service.photo2}
+                              alt="Affiche de l'événement"
+                              style={{
+                                maxWidth: "100%",
+                                maxHeight: "100%",
+                                objectFit: "contain",
+                                marginBottom: "20px",
+                              }}
+                            />
+                          ) : (
+                            <div className="d-flex justify-content-center">
+                              <div className="spinner-border text-danger" role="status">
+                                <span className="sr-only">Loading...</span>
+                              </div>
+                            </div>
+                          )}
+                          {service.photo3 ? (
+                            <img
+                              src={service.photo3}
+                              alt="Affiche de l'événement"
+                              style={{
+                                maxWidth: "100%",
+                                maxHeight: "100%",
+                                objectFit: "contain",
+                                marginBottom: "20px",
+                              }}
+                            />
+                          ) : (
+                            <p></p>
+                          )}
+                          {service.photo4 ? (
+                            <img
+                              src={service.photo4}
+                              alt="Affiche de l'événement"
+                              style={{
+                                maxWidth: "100%",
+                                maxHeight: "100%",
+                                objectFit: "contain",
+                                marginBottom: "20px",
+                              }}
+                            />
+                          ) : (
+                            <div className="d-flex justify-content-center">
+                              <p>Les souvenirs arrivent, Patience... 😉</p>
+                            </div>
+                          )}
+                          {service.photo5 ? (
+                            <img
+                              src={service.photo5}
+                              alt="Affiche de l'événement"
+                              style={{
+                                maxWidth: "100%",
+                                maxHeight: "100%",
+                                objectFit: "contain",
+                                marginBottom: "20px",
+                              }}
+                            />
+                          ) : (
+                            <p></p>
+                          )}
                         </div>
                         <div className="modal-footer justify-content-between">
                           <h5>{service.s_description}</h5>
-                          <h5>{service.s_nbspectateurs} spectateurs</h5>
+                          {service.s_nbspectateurs ? (
+                            <h5>{service.s_nbspectateurs} spectateurs</h5>
+                          ) : (
+                            <p></p>
+                          )}
                         </div>
                       </div>
                     </div>
