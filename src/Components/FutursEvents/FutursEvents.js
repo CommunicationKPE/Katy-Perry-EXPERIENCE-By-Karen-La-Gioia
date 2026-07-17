@@ -22,7 +22,6 @@ const FutursEvents = ({ evenements }) => {
     return (
       <div id="avenirs" className="a-venirs">
         <div className="no-events">
-          Aucun événement à venir pour le moment.
         </div>
       </div>
     );
