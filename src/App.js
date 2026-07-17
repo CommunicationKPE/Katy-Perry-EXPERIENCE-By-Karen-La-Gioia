@@ -88,7 +88,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return  <div className="d-flex justify-content-center text-center ">
+    return  <div className="loading-container">
               <div className="spinner-border text-danger" role="status">
                 <span className="visually-hidden">Loading...</span> 
               </div>
