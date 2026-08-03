@@ -22,6 +22,10 @@
   margin-right: 10px;
   color: #ba1f33;
 }
+.btn-location-cliquable i {
+  margin-right: 10px;
+  color: #1F242D;
+}
 .carte-avant h2 {
   margin-top: 0px;
   margin-bottom: 5px;
@@ -53,6 +57,31 @@
 }
 .modal-backdrop {
   z-index: -1;
+}
+.btn-partenaire {
+  display: block;
+  margin: 15px auto 5px auto;
+  text-align: center;
+  border: none;
+  color: #1F242D;
+  border-radius: 50px;
+  background: #FFF945;
+  font-weight: bold;
+  padding: 20px 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  max-width: fit-content;
+  max-width: -moz-fit-content;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-partenaire:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+.btn-partenaire:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(186, 31, 51, 0.5);
 }
 .btn-consulter-affiche {
   display: block;

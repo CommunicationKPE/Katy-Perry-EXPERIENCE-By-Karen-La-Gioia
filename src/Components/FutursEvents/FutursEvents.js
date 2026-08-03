@@ -46,6 +46,7 @@ const FutursEvents = ({ evenements }) => {
               description={service.s_description}
               quand={service.s_date}
               afficheUrl={service.s_image}
+              lien_partenaire_url={service.lien_partenaire}
               style={{ width: "100%" }}
             />
           ))}

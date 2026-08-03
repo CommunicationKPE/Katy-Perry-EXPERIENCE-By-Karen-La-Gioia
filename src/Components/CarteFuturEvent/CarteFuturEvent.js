@@ -2,17 +2,17 @@ import "./CarteFuturEvent.css";
 import { useEffect } from "react";
 
 const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, "0");
-    const monthNames = [
-      "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-      "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
-    ];
-    const month = monthNames[date.getMonth()];
-    const year = date.getFullYear();
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const monthNames = [
+    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+  ];
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
 
-    return `${day} ${month} ${year}`;
-  };
+  return `${day} ${month} ${year}`;
+};
 
 const CarteFuturEvent = ({
   ou,
@@ -20,6 +20,7 @@ const CarteFuturEvent = ({
   quand,
   afficheUrl,
   id,
+  lien_partenaire_url,
   isOpen,
 }) => {
   const formattedDate = formatDate(quand);
@@ -28,6 +29,7 @@ const CarteFuturEvent = ({
     // Assurez-vous que Bootstrap est correctement initialisé
     import("bootstrap");
   }, []);
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -56,6 +58,12 @@ const CarteFuturEvent = ({
     }
   };
 
+  const handlePartnerLinkClick = () => {
+    if (lien_partenaire_url) {
+      window.open(lien_partenaire_url, "_blank");
+    }
+  };
+
   return (
     <div>
       <div className="carte-avant align-items-center">
@@ -66,10 +74,9 @@ const CarteFuturEvent = ({
         </h3>
         <p>{description}</p>
         <img
-        src={afficheUrl}
-        alt={`Affiche pour ${description}`}
-        className="card-img-top affiche-reduite"
-
+          src={afficheUrl}
+          alt={`Affiche pour ${description}`}
+          className="card-img-top affiche-reduite"
         />
         <button
           type="button"
@@ -79,6 +86,15 @@ const CarteFuturEvent = ({
         >
           Consultez l'affiche
         </button>
+        {lien_partenaire_url && (
+          <button
+            type="button"
+            className="btn-partenaire"
+            onClick={handlePartnerLinkClick}
+          >
+            Vers le site partenaire
+          </button>
+        )}
       </div>
       <div
         className="modal fade"
@@ -86,9 +102,6 @@ const CarteFuturEvent = ({
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         aria-hidden={!isOpen ? "true" : undefined}
-        // inert={!isOpen ? "true" : undefined}
-        // aria-hidden="true"
-        // inert="true"
         tabIndex="-1"
         aria-labelledby={`modalCarteFuturLabel${id}`}
       >
@@ -96,7 +109,7 @@ const CarteFuturEvent = ({
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id={`modalCarteFuturLabel${id}`}>
-                Retrouvez-nous,<br></br> le  {formattedDate} prochain.
+                Retrouvez-nous,<br></br> le {formattedDate} prochain.
               </h5>
               <button
                 type="button"
