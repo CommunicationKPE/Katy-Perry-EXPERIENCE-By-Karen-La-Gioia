@@ -2,7 +2,7 @@ name: Ping Supabase
 
 on:
   schedule:
-    - cron: "0 3 * * *"  # every day at 03:00 UTC
+    - cron: "30 16 * * *"  # 18:30 in France (winter time / UTC+1), 17:30 in summer time
   workflow_dispatch:
 
 jobs:
