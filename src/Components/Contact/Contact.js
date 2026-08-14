@@ -132,7 +132,7 @@ const sendEmail = useCallback(() => {
             <div className="contact-details">
               <div className="icons-reseaux">
                 <div className="contact-detail">
-                  <a href="https://youtube.com" aria-label="YouTube">
+                  <a href="https://youtube.com/@kpecommunication?si=xhYuQKLJkmlb7aak" aria-label="YouTube">
                     <i className="fa-brands fa-youtube"></i>
                   </a>                 
                 </div>

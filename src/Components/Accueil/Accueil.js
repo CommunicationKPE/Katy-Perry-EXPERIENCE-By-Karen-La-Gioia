@@ -106,7 +106,7 @@ const Accueil = ({ evenements }) => {
             Contactez-nous
           </a>
           <div className="social-icons d-flex justify-content-evenly align-items-center">
-            <a href="https://youtube.com" aria-label="YouTube" rel="noopener noreferrer">
+            <a href="https://youtube.com/@kpecommunication?si=xhYuQKLJkmlb7aak" aria-label="YouTube" rel="noopener noreferrer">
               <i className="fa-brands fa-youtube youtube-icon"></i>
             </a>
             <a href="https://facebook.com" aria-label="Facebook" rel="noopener noreferrer">
