@@ -137,7 +137,7 @@ const sendEmail = useCallback(() => {
                   </a>                 
                 </div>
                 <div className="contact-detail">
-                  <a href="https://facebook.com" aria-label="Facebook">
+                  <a href="https://www.facebook.com/KPExperience" aria-label="Facebook">
                     <i className="fa-brands fa-facebook-f"></i>
                   </a>                  
                 </div>

@@ -109,7 +109,7 @@ const Accueil = ({ evenements }) => {
             <a href="https://youtube.com/@kpecommunication?si=xhYuQKLJkmlb7aak" aria-label="YouTube" rel="noopener noreferrer">
               <i className="fa-brands fa-youtube youtube-icon"></i>
             </a>
-            <a href="https://facebook.com" aria-label="Facebook" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/KPExperience" aria-label="Facebook" rel="noopener noreferrer">
               <i className="fa-brands fa-facebook-f facebook-icon"></i>
             </a>
             <a href="https://instagram.com" aria-label="Instagram" rel="noopener noreferrer">
