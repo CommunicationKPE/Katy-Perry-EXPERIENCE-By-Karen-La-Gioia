@@ -50,11 +50,48 @@
   margin-top: 22px;
 }
 
+.about-carousel {
+  max-width: 1000px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.about-carousel img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.carousel-message {
+  color: #ddd;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 .cta {
   font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
   margin-top: 30px;
+
+.about-carousel {
+  max-width: 1000px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.about-carousel img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.carousel-message {
+  color: #ddd;
+  text-align: center;
+}
 }
 strong {
   color: #ba1f33;

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./About.css";
+import { supabase } from "../../config/supabase";
 
 const ABOUT_CONTENT = {
   TITLE: "À Propos",
@@ -78,6 +79,34 @@ const CallToAction = () => {
 };
 
 const About = () => {
+  const [carouselImages, setCarouselImages] = useState([]);
+  const [carouselLoading, setCarouselLoading] = useState(true);
+  const [carouselError, setCarouselError] = useState(false);
+
+  useEffect(() => {
+    const fetchCarouselImages = async () => {
+      const { data, error } = await supabase
+        .from("Carousel")
+        .select("url_img_carousel");
+
+      if (error) {
+        console.error("Erreur lors de la récupération du carousel", error);
+        setCarouselError(true);
+        setCarouselLoading(false);
+        return;
+      }
+
+      setCarouselImages(
+        data
+          .map(({ url_img_carousel }) => url_img_carousel)
+          .filter(Boolean)
+      );
+      setCarouselLoading(false);
+    };
+
+    fetchCarouselImages();
+  }, []);
+
   return (
     <section id="about" className="about" aria-labelledby="about-title">
       <div className="about-cadre" role="main">
@@ -87,8 +116,68 @@ const About = () => {
           <section className="content" role="complementary">
             <Paragraph>{ABOUT_CONTENT.PARAGRAPH_1}</Paragraph>
             <Paragraph>{ABOUT_CONTENT.PARAGRAPH_2}</Paragraph>
-            <Paragraph>{ABOUT_CONTENT.PARAGRAPH_3}</Paragraph>
+            <Paragraph>{ABOUT_CONTENT.PARAGRAPH_3}</Paragraph>            
+            {carouselLoading && (
+              <p className="carousel-message" role="status">
+                Chargement du carousel...
+              </p>
+            )}
+            {carouselImages.length > 0 && (
+              <div
+                id="aboutCarousel"
+                className="carousel slide about-carousel"
+                data-bs-ride="carousel"
+              >
+                <div className="carousel-inner">
+                  {carouselImages.map((imageUrl, index) => (
+                    <div
+                      className={`carousel-item${index === 0 ? " active" : ""}`}
+                      key={imageUrl}
+                    >
+                      <img
+                        src={imageUrl}
+                        className="d-block w-100"
+                        alt={`Visuel ${index + 1} de Katy Perry Experience`}
+                      />
+                    </div>
+                  ))}
+                </div>
+                {carouselImages.length > 1 && (
+                  <>
+                    <button
+                      className="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#aboutCarousel"
+                      data-bs-slide="prev"
+                      aria-label="Visuel précédent"
+                    >
+                      <span className="carousel-control-prev-icon" aria-hidden="true" />
+                    </button>
+                    <button
+                      className="carousel-control-next"
+                      type="button"
+                      data-bs-target="#aboutCarousel"
+                      data-bs-slide="next"
+                      aria-label="Visuel suivant"
+                    >
+                      <span className="carousel-control-next-icon" aria-hidden="true" />
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
+            {carouselError && (
+              <p className="carousel-message" role="status">
+                Le carousel est momentanément indisponible.
+              </p>
+            )}
+            {!carouselLoading && !carouselError && carouselImages.length === 0 && (
+              <p className="carousel-message" role="status">
+                Aucune image n&apos;est disponible dans le carousel.
+              </p>
+            )}
             <Paragraph className="highlight">{ABOUT_CONTENT.HIGHLIGHT}</Paragraph>
+
             <Paragraph className="cta">{ABOUT_CONTENT.CTA}</Paragraph>
             <CallToAction />
           </section>
