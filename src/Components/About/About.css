@@ -50,11 +50,11 @@
   margin-top: 22px;
 }
 
-.about-carousel {
+.about-carousel.carousel {
   max-width: 1000px;
   margin: 30px auto;
   overflow: hidden;
-  border-radius: 8px;
+  border: none;
 }
 
 .about-carousel img {
@@ -74,25 +74,8 @@
   font-weight: 700;
   text-align: center;
   margin-top: 30px;
-
-.about-carousel {
-  max-width: 1000px;
-  margin: 30px auto;
-  overflow: hidden;
-  border-radius: 8px;
 }
 
-.about-carousel img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.carousel-message {
-  color: #ddd;
-  text-align: center;
-}
-}
 strong {
   color: #ba1f33;
 }
