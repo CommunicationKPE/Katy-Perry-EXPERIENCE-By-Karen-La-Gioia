@@ -112,9 +112,9 @@ const Accueil = ({ evenements }) => {
             <a href="https://www.facebook.com/KatyPerryEXPERIENCEbyKarenLaGioia" aria-label="Facebook" rel="noopener noreferrer">
               <i className="fa-brands fa-facebook-f facebook-icon"></i>
             </a>
-            <a href="https://www.instagram.com/kp_exp1" aria-label="Instagram" rel="noopener noreferrer">
+            {/* <a href="https://www.instagram.com/kp_exp1" aria-label="Instagram" rel="noopener noreferrer">
               <i className="fa-brands fa-instagram instagram-icon"></i>
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="haut-droite" role="img" aria-label="Logo Katy Perry Experience">
