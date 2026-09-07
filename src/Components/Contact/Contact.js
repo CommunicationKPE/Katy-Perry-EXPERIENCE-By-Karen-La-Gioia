@@ -141,11 +141,11 @@ const sendEmail = useCallback(() => {
                     <i className="fa-brands fa-facebook-f"></i>
                   </a>                  
                 </div>
-                {/* <div className="contact-detail">
-                  <a href="https://www.instagram.com/kp_exp1" aria-label="Instagram">
+                <div className="contact-detail">
+                  <a href="https://www.instagram.com/katy_perry_experience/" aria-label="Instagram">
                     <i className="fa-brands fa-instagram"></i>
                   </a>
-                </div> */}
+                </div>
               </div>
             </div>
             <p>
